@@ -70,6 +70,16 @@
 		F025 /* CaseStudyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyCard.swift; sourceTree = "<group>"; };
 		F026 /* FilterChipBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipBar.swift; sourceTree = "<group>"; };
 		F027 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		GFINDERVIEWS /* Views */ = {isa = PBXGroup; children = (F010, F011, F012,); path = Views; sourceTree = "<group>"; };
+		GFINDERVM /* ViewModels */ = {isa = PBXGroup; children = (F013,); path = ViewModels; sourceTree = "<group>"; };
+		GLIBRARYVIEWS /* Views */ = {isa = PBXGroup; children = (F014, F015,); path = Views; sourceTree = "<group>"; };
+		GLIBRARYVM /* ViewModels */ = {isa = PBXGroup; children = (F016,); path = ViewModels; sourceTree = "<group>"; };
+		GCASESVIEWS /* Views */ = {isa = PBXGroup; children = (F017, F018,); path = Views; sourceTree = "<group>"; };
+		GCASESVM /* ViewModels */ = {isa = PBXGroup; children = (F019,); path = ViewModels; sourceTree = "<group>"; };
+		GCUSTOMVIEWS /* Views */ = {isa = PBXGroup; children = (F020,); path = Views; sourceTree = "<group>"; };
+		GCUSTOMVM /* ViewModels */ = {isa = PBXGroup; children = (F021,); path = ViewModels; sourceTree = "<group>"; };
+		GABOUTVIEWS /* Views */ = {isa = PBXGroup; children = (F022,); path = Views; sourceTree = "<group>"; };
+		GSHARED /* Shared */ = {isa = PBXGroup; children = (F027,); path = Shared; sourceTree = "<group>"; };
 		F028 /* Color+IKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+IKS.swift"; sourceTree = "<group>"; };
 		F029 /* View+CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CardStyle.swift"; sourceTree = "<group>"; };
 		F030 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
@@ -166,10 +176,8 @@
 		GFINDER /* SolutionFinder */ = {
 			isa = PBXGroup;
 			children = (
-				F010 /* SolutionFinderView.swift */,
-				F011 /* RefinementView.swift */,
-				F012 /* MatchedResultsView.swift */,
-				F013 /* SolutionFinderViewModel.swift */,
+				GFINDERVIEWS /* Views */,
+				GFINDERVM /* ViewModels */,
 			);
 			path = SolutionFinder;
 			sourceTree = "<group>";
@@ -177,9 +185,8 @@
 		GLIBRARY /* ProductLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				F014 /* ProductLibraryView.swift */,
-				F015 /* ProductDetailView.swift */,
-				F016 /* ProductLibraryViewModel.swift */,
+				GLIBRARYVIEWS /* Views */,
+				GLIBRARYVM /* ViewModels */,
 			);
 			path = ProductLibrary;
 			sourceTree = "<group>";
@@ -187,9 +194,8 @@
 		GCASES /* CaseStudies */ = {
 			isa = PBXGroup;
 			children = (
-				F017 /* CaseStudiesView.swift */,
-				F018 /* CaseStudyDetailView.swift */,
-				F019 /* CaseStudiesViewModel.swift */,
+				GCASESVIEWS /* Views */,
+				GCASESVM /* ViewModels */,
 			);
 			path = CaseStudies;
 			sourceTree = "<group>";
@@ -197,8 +203,8 @@
 		GCUSTOM /* CustomSolutions */ = {
 			isa = PBXGroup;
 			children = (
-				F020 /* CustomSolutionView.swift */,
-				F021 /* CustomSolutionViewModel.swift */,
+				GCUSTOMVIEWS /* Views */,
+				GCUSTOMVM /* ViewModels */,
 			);
 			path = CustomSolutions;
 			sourceTree = "<group>";
@@ -206,7 +212,7 @@
 		GABOUT /* About */ = {
 			isa = PBXGroup;
 			children = (
-				F022 /* AboutView.swift */,
+				GABOUTVIEWS /* Views */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -218,7 +224,7 @@
 				F024 /* MatchScoreBadge.swift */,
 				F025 /* CaseStudyCard.swift */,
 				F026 /* FilterChipBar.swift */,
-				F027 /* EmptyStateView.swift */,
+				GSHARED /* Shared */,
 			);
 			path = Components;
 			sourceTree = "<group>";
