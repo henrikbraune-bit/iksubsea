@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A001 /* IKSubseaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001 /* IKSubseaApp.swift */; };
+		A002 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002 /* RootView.swift */; };
+		A003 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003 /* AppCoordinator.swift */; };
+		A004 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004 /* Product.swift */; };
+		A005 /* ProblemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005 /* ProblemCategory.swift */; };
+		A006 /* CaseStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006 /* CaseStudy.swift */; };
+		A007 /* NavigationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007 /* NavigationRoute.swift */; };
+		A008 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008 /* DataService.swift */; };
+		A009 /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* MatchingService.swift */; };
+		A010 /* SolutionFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* SolutionFinderView.swift */; };
+		A011 /* RefinementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011 /* RefinementView.swift */; };
+		A012 /* MatchedResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012 /* MatchedResultsView.swift */; };
+		A013 /* SolutionFinderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013 /* SolutionFinderViewModel.swift */; };
+		A014 /* ProductLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014 /* ProductLibraryView.swift */; };
+		A015 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F015 /* ProductDetailView.swift */; };
+		A016 /* ProductLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016 /* ProductLibraryViewModel.swift */; };
+		A017 /* CaseStudiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017 /* CaseStudiesView.swift */; };
+		A018 /* CaseStudyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018 /* CaseStudyDetailView.swift */; };
+		A019 /* CaseStudiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F019 /* CaseStudiesViewModel.swift */; };
+		A020 /* CustomSolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F020 /* CustomSolutionView.swift */; };
+		A021 /* CustomSolutionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021 /* CustomSolutionViewModel.swift */; };
+		A022 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022 /* AboutView.swift */; };
+		A023 /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F023 /* ProductCard.swift */; };
+		A024 /* MatchScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024 /* MatchScoreBadge.swift */; };
+		A025 /* CaseStudyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F025 /* CaseStudyCard.swift */; };
+		A026 /* FilterChipBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F026 /* FilterChipBar.swift */; };
+		A027 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027 /* EmptyStateView.swift */; };
+		A028 /* Color+IKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028 /* Color+IKS.swift */; };
+		A029 /* View+CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029 /* View+CardStyle.swift */; };
+		A030 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F030 /* products.json */; };
+		A031 /* problemCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = F031 /* problemCategories.json */; };
+		A032 /* caseStudies.json in Resources */ = {isa = PBXBuildFile; fileRef = F032 /* caseStudies.json */; };
+		A033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F033 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F001 /* IKSubseaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IKSubseaApp.swift; sourceTree = "<group>"; };
+		F002 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F003 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F004 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F005 /* ProblemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemCategory.swift; sourceTree = "<group>"; };
+		F006 /* CaseStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudy.swift; sourceTree = "<group>"; };
+		F007 /* NavigationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoute.swift; sourceTree = "<group>"; };
+		F008 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F009 /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
+		F010 /* SolutionFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionFinderView.swift; sourceTree = "<group>"; };
+		F011 /* RefinementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementView.swift; sourceTree = "<group>"; };
+		F012 /* MatchedResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedResultsView.swift; sourceTree = "<group>"; };
+		F013 /* SolutionFinderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionFinderViewModel.swift; sourceTree = "<group>"; };
+		F014 /* ProductLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLibraryView.swift; sourceTree = "<group>"; };
+		F015 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		F016 /* ProductLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLibraryViewModel.swift; sourceTree = "<group>"; };
+		F017 /* CaseStudiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudiesView.swift; sourceTree = "<group>"; };
+		F018 /* CaseStudyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyDetailView.swift; sourceTree = "<group>"; };
+		F019 /* CaseStudiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudiesViewModel.swift; sourceTree = "<group>"; };
+		F020 /* CustomSolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSolutionView.swift; sourceTree = "<group>"; };
+		F021 /* CustomSolutionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSolutionViewModel.swift; sourceTree = "<group>"; };
+		F022 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F023 /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
+		F024 /* MatchScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchScoreBadge.swift; sourceTree = "<group>"; };
+		F025 /* CaseStudyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyCard.swift; sourceTree = "<group>"; };
+		F026 /* FilterChipBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipBar.swift; sourceTree = "<group>"; };
+		F027 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		F028 /* Color+IKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+IKS.swift"; sourceTree = "<group>"; };
+		F029 /* View+CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CardStyle.swift"; sourceTree = "<group>"; };
+		F030 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		F031 /* problemCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = problemCategories.json; sourceTree = "<group>"; };
+		F032 /* caseStudies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = caseStudies.json; sourceTree = "<group>"; };
+		F033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAPP /* IKSubsea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKSubsea.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BPFW /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		GROOT /* / */ = {
+			isa = PBXGroup;
+			children = (
+				GAPP /* IKSubsea */,
+				GPROD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		GPROD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAPP /* IKSubsea.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		GAPP /* IKSubsea */ = {
+			isa = PBXGroup;
+			children = (
+				GAPPSRC /* App */,
+				GMODELS /* Models */,
+				GSERVICES /* Services */,
+				GFEATURES /* Features */,
+				GCOMPONENTS /* Components */,
+				GEXTENSIONS /* Extensions */,
+				GRESOURCES /* Resources */,
+				F099 /* Info.plist */,
+			);
+			path = IKSubsea;
+			sourceTree = "<group>";
+		};
+		GAPPSRC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F001 /* IKSubseaApp.swift */,
+				F002 /* RootView.swift */,
+				F003 /* AppCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		GMODELS /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F004 /* Product.swift */,
+				F005 /* ProblemCategory.swift */,
+				F006 /* CaseStudy.swift */,
+				F007 /* NavigationRoute.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		GSERVICES /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F008 /* DataService.swift */,
+				F009 /* MatchingService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		GFEATURES /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				GFINDER /* SolutionFinder */,
+				GLIBRARY /* ProductLibrary */,
+				GCASES /* CaseStudies */,
+				GCUSTOM /* CustomSolutions */,
+				GABOUT /* About */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		GFINDER /* SolutionFinder */ = {
+			isa = PBXGroup;
+			children = (
+				F010 /* SolutionFinderView.swift */,
+				F011 /* RefinementView.swift */,
+				F012 /* MatchedResultsView.swift */,
+				F013 /* SolutionFinderViewModel.swift */,
+			);
+			path = SolutionFinder;
+			sourceTree = "<group>";
+		};
+		GLIBRARY /* ProductLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				F014 /* ProductLibraryView.swift */,
+				F015 /* ProductDetailView.swift */,
+				F016 /* ProductLibraryViewModel.swift */,
+			);
+			path = ProductLibrary;
+			sourceTree = "<group>";
+		};
+		GCASES /* CaseStudies */ = {
+			isa = PBXGroup;
+			children = (
+				F017 /* CaseStudiesView.swift */,
+				F018 /* CaseStudyDetailView.swift */,
+				F019 /* CaseStudiesViewModel.swift */,
+			);
+			path = CaseStudies;
+			sourceTree = "<group>";
+		};
+		GCUSTOM /* CustomSolutions */ = {
+			isa = PBXGroup;
+			children = (
+				F020 /* CustomSolutionView.swift */,
+				F021 /* CustomSolutionViewModel.swift */,
+			);
+			path = CustomSolutions;
+			sourceTree = "<group>";
+		};
+		GABOUT /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F022 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		GCOMPONENTS /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F023 /* ProductCard.swift */,
+				F024 /* MatchScoreBadge.swift */,
+				F025 /* CaseStudyCard.swift */,
+				F026 /* FilterChipBar.swift */,
+				F027 /* EmptyStateView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		GEXTENSIONS /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F028 /* Color+IKS.swift */,
+				F029 /* View+CardStyle.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		GRESOURCES /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F033 /* Assets.xcassets */,
+				GDATA /* Data */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		GDATA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F030 /* products.json */,
+				F031 /* problemCategories.json */,
+				F032 /* caseStudies.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BTARGET /* IKSubsea */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCLLIST /* Build configuration list for PBXNativeTarget "IKSubsea" */;
+			buildPhases = (
+				BPSRC /* Sources */,
+				BPFW /* Frameworks */,
+				BPRES /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = IKSubsea;
+			productName = IKSubsea;
+			productReference = FAPP /* IKSubsea.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BPROJECT /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					BTARGET = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = BPCLPROJECT /* Build configuration list for PBXProject "IKSubsea" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = GROOT;
+			productRefGroup = GPROD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BTARGET /* IKSubsea */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BPRES /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A030 /* products.json in Resources */,
+				A031 /* problemCategories.json in Resources */,
+				A032 /* caseStudies.json in Resources */,
+				A033 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BPSRC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A001 /* IKSubseaApp.swift in Sources */,
+				A002 /* RootView.swift in Sources */,
+				A003 /* AppCoordinator.swift in Sources */,
+				A004 /* Product.swift in Sources */,
+				A005 /* ProblemCategory.swift in Sources */,
+				A006 /* CaseStudy.swift in Sources */,
+				A007 /* NavigationRoute.swift in Sources */,
+				A008 /* DataService.swift in Sources */,
+				A009 /* MatchingService.swift in Sources */,
+				A010 /* SolutionFinderView.swift in Sources */,
+				A011 /* RefinementView.swift in Sources */,
+				A012 /* MatchedResultsView.swift in Sources */,
+				A013 /* SolutionFinderViewModel.swift in Sources */,
+				A014 /* ProductLibraryView.swift in Sources */,
+				A015 /* ProductDetailView.swift in Sources */,
+				A016 /* ProductLibraryViewModel.swift in Sources */,
+				A017 /* CaseStudiesView.swift in Sources */,
+				A018 /* CaseStudyDetailView.swift in Sources */,
+				A019 /* CaseStudiesViewModel.swift in Sources */,
+				A020 /* CustomSolutionView.swift in Sources */,
+				A021 /* CustomSolutionViewModel.swift in Sources */,
+				A022 /* AboutView.swift in Sources */,
+				A023 /* ProductCard.swift in Sources */,
+				A024 /* MatchScoreBadge.swift in Sources */,
+				A025 /* CaseStudyCard.swift in Sources */,
+				A026 /* FilterChipBar.swift in Sources */,
+				A027 /* EmptyStateView.swift in Sources */,
+				A028 /* Color+IKS.swift in Sources */,
+				A029 /* View+CardStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BC001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = IKSTeal;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = IKSubsea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iksubsea.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = IKSTeal;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = IKSubsea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iksubsea.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BPCLPROJECT /* Build configuration list for PBXProject "IKSubsea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC001 /* Debug */,
+				BC002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCLLIST /* Build configuration list for PBXNativeTarget "IKSubsea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC003 /* Debug */,
+				BC004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BPROJECT /* Project object */;
+}

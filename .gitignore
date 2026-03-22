@@ -1,0 +1,40 @@
+# Xcode build output
+build/
+DerivedData/
+*.xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Build products
+*.o
+*.d
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Simulator builds
+*.app.zip
+IKSubsea.zip
+
+# CocoaPods (not used here but good practice)
+Pods/
+Podfile.lock
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Secrets (never commit these)
+*.env
+secrets.json

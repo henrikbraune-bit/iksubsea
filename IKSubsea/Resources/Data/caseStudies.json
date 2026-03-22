@@ -1,0 +1,132 @@
+{
+  "caseStudies": [
+    {
+      "id": "33333333-0001-0001-0001-000000000001",
+      "title": "Xmas Tree Flange Repair - Ultra Deepwater",
+      "location": "Offshore West Africa",
+      "region": "West Africa",
+      "waterDepth": "2,016m",
+      "client": null,
+      "year": 2023,
+      "domain": "tooling",
+      "problemSummary": "External leakage detected on a water injection Christmas Tree at 2,016m. Multiple failed flange connections required in-situ repair - pulling the trees was not viable.",
+      "solution": "IK Subsea engineered a 14-tool suite for in-situ XT repair including drill tools, cutters, plug-setting mechanisms, and wire cutting equipment deployed on a main ROV frame system. The leaking flanges were sealed with high-pressure single-barrier plugs set through a calibrated running tool.",
+      "outcome": "Two Christmas Trees permanently repaired in-situ during spring 2023. Incident-free project. First in-situ repair of this complexity globally. Avoided costly tree recovery and refurbishment.",
+      "productsUsed": ["Custom drill tools", "Cutters", "Plug setting tools"],
+      "relatedProductIds": [
+        "11111111-0016-0016-0016-000000000016",
+        "11111111-0009-0009-0009-000000000009"
+      ],
+      "tags": ["XT-repair", "ultra-deepwater", "West Africa", "in-situ", "emergency"]
+    },
+    {
+      "id": "33333333-0002-0002-0002-000000000002",
+      "title": "High Pressure EPRS for Multiple Pipe Dimensions",
+      "location": "East Coast India, Bay of Bengal",
+      "region": "Asia Pacific",
+      "waterDepth": "400m - 2,300m",
+      "client": null,
+      "year": 2021,
+      "domain": "repair",
+      "problemSummary": "Indian energy company required a pipeline repair system covering three sizes (16\", 18\", 24\"), 433 bar gas service, 2,300m water depth, and significant pipe tolerance variations - all designed and qualified under COVID-19 restrictions.",
+      "solution": "IK Subsea engineered a unified EPRS combining existing design principles with a novel compression packer sealing system. A single ROV-powered installation tool handles all three pipeline sizes. Remote real-time factory acceptance testing was developed to replace on-site qualification.",
+      "outcome": "System delivered on time and within budget. Pressure tested to 650 bar. Established protocols for remote FAT that reduced carbon footprint while maintaining qualification standards.",
+      "productsUsed": ["Emergency Pipeline Repair System (EPRS)"],
+      "relatedProductIds": [
+        "11111111-0003-0003-0003-000000000003"
+      ],
+      "tags": ["EPRS", "India", "deepwater", "high-pressure", "multi-size"]
+    },
+    {
+      "id": "33333333-0003-0003-0003-000000000003",
+      "title": "Shell Qatar - Severe Sour Service EPRS",
+      "location": "Qatar",
+      "region": "Middle East",
+      "waterDepth": null,
+      "client": "Shell",
+      "year": 2020,
+      "domain": "repair",
+      "problemSummary": "Shell required an emergency pipeline repair system for a 30-inch subsea gas pipeline in severe H2S sour service at 135 bar. Conventional elastomer seals were ruled out due to risk of swelling and hydrogen induced stress cracking.",
+      "solution": "IK Subsea designed a dual-barrier EPRS with PTFE compression packers as primary seals and secondary sealant injection capability. Acid-etching processes enabled bonding between sealant compounds and PTFE surfaces - a non-standard application. Custom hydraulic installation frame with diver-assist capability.",
+      "outcome": "Delivered on schedule and budget. Pressure tested to 135 bar. IK Subsea received recognition from the Research Council of Norway for the innovative engineering approach.",
+      "productsUsed": ["Emergency Pipeline Repair System (EPRS) - PTFE variant"],
+      "relatedProductIds": [
+        "11111111-0003-0003-0003-000000000003"
+      ],
+      "tags": ["EPRS", "sour-service", "Shell", "Qatar", "Middle East", "H2S", "PTFE"]
+    },
+    {
+      "id": "33333333-0004-0004-0004-000000000004",
+      "title": "Structural Repair at PLEM Junction - Ultra Deepwater",
+      "location": "Offshore Angola",
+      "region": "West Africa",
+      "waterDepth": "1,500m",
+      "client": null,
+      "year": 2022,
+      "domain": "repair",
+      "problemSummary": "A 180-degree circumferential crack in a 12-inch production pipeline at a PLEM junction at 1,500m depth. The crack location near the PLEM face, combined with extreme axial pipeline loads, was beyond the capability of traditional repair technologies.",
+      "solution": "Two-phase approach: a temporary structural support clamp with sealing capability to halt degradation, followed by a permanent Compact Sealing Clamp with a patented one-sided torque bolt design to overcome access constraints at the PLEM face. Coating removal and milling tools used to prepare the pipe surface.",
+      "outcome": "Production resumed successfully. Permanent 25-year repair installed. Pigging operations reinstated. Substantial cost savings achieved versus pipeline removal and replacement.",
+      "productsUsed": ["Compact Sealing Clamp", "Coating Removal & Milling Tools"],
+      "relatedProductIds": [
+        "11111111-0001-0001-0001-000000000001",
+        "11111111-0015-0015-0015-000000000015"
+      ],
+      "tags": ["PLEM", "Angola", "ultra-deepwater", "structural-crack", "permanent-repair", "West Africa"]
+    },
+    {
+      "id": "33333333-0005-0005-0005-000000000005",
+      "title": "Philippines In-Situ Xmas Tree Repair",
+      "location": "Offshore Philippines",
+      "region": "Asia Pacific",
+      "waterDepth": "820m",
+      "client": "Shell",
+      "year": 2019,
+      "domain": "repair",
+      "problemSummary": "Leaking high-pressure gas flange coupling on a Xmas Tree at 820m depth. Critical challenge: only 37mm clearance between upper flange bolts and the XT choke body - existing clamp designs were impossible to install.",
+      "solution": "IK Subsea designed a custom high-pressure sealing clamp with integrated sealant injection port and vent system fitting within the 37mm clearance. Elastomer seals with leak path management and Sealmaker International sealant injection to flush debris and create a gas-tight seal.",
+      "outcome": "Repair avoided XT retrieval, preventing extensive production delays and high recovery costs. Shell awarded IK Subsea an Outstanding Achievement Award for the unique design solution that restored critical gas supply to the Philippines market.",
+      "productsUsed": ["Compact Sealing Clamp (custom variant)"],
+      "relatedProductIds": [
+        "11111111-0001-0001-0001-000000000001"
+      ],
+      "tags": ["Philippines", "Shell", "XT-repair", "tight-access", "sealant-injection", "Asia Pacific"]
+    },
+    {
+      "id": "33333333-0006-0006-0006-000000000006",
+      "title": "Repair of 4-Inch Flexible Flowline in Brazil",
+      "location": "Offshore Brazil",
+      "region": "South America",
+      "waterDepth": null,
+      "client": null,
+      "year": 2020,
+      "domain": "repair",
+      "problemSummary": "A 4-inch gas-injection flexible flowline exhibited significant outer sheath damage, risking seawater intrusion and structural compromise. The multi-layer composition of flexible lines created unique sealing challenges that standard rigid-pipe clamps could not address.",
+      "solution": "A mechanically-based scissor patch clamp engineered to apply consistent circumferential pressure. The design features a soft packer arrangement with three 120-degree pads providing 360-degree support around the flexible, preventing water ingress without bolt manipulation subsea.",
+      "outcome": "Flexible barrier successfully reinstated. The clamp balanced adequate squeeze for sealing while avoiding cross-section collapse. Demonstrated reliable repair capability for complex multi-layer flowline structures.",
+      "productsUsed": ["Scissor Clamp (mechanical patch variant)"],
+      "relatedProductIds": [
+        "11111111-0006-0006-0006-000000000006"
+      ],
+      "tags": ["Brazil", "flexible-flowline", "outer-sheath-damage", "South America", "scissor-clamp"]
+    },
+    {
+      "id": "33333333-0007-0007-0007-000000000007",
+      "title": "26-Inch Splash Zone Conductor Clamp - North Sea",
+      "location": "Norwegian Continental Shelf",
+      "region": "North Sea",
+      "waterDepth": "Splash zone (7m above sea level)",
+      "client": null,
+      "year": 2024,
+      "domain": "structural",
+      "problemSummary": "A 26-inch conductor joint on an NCS platform exhibited degradation in both structural integrity and sealing capability in the splash zone - one of the most hostile environments for corrosion and cyclic fatigue.",
+      "solution": "A custom-engineered structural and sealing clamp developed through collaborative design with rope access technicians. Optimised to transfer loads while reinstating pressure-tight connections without introducing stress concentrations at the clamping interface.",
+      "outcome": "Structural strength and sealing function fully restored. Installation completed within the proposed timeframe without incidents. Continued safe platform operation confirmed.",
+      "productsUsed": ["Structural & Sealing Clamp (custom)"],
+      "relatedProductIds": [
+        "11111111-0020-0020-0020-000000000020"
+      ],
+      "tags": ["North Sea", "NCS", "Norway", "conductor", "splash-zone", "structural-repair"]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+name: Build & Upload to Appetize.io
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:   # allows manual trigger from GitHub UI
+
+jobs:
+  build-and-upload:
+    runs-on: macos-15   # Apple Silicon Mac with Xcode 16
+
+    steps:
+
+      # ── 1. Checkout code ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Select Xcode version ───────────────────────────────────────
+      - name: Select Xcode 16
+        run: sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+
+      # ── 3. Show available simulators (useful for debugging) ───────────
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
+      # ── 4. Build for iPad simulator ───────────────────────────────────
+      - name: Build for iOS Simulator
+        run: |
+          xcodebuild \
+            -project IKSubsea.xcodeproj \
+            -scheme IKSubsea \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPad Air (M2),OS=latest' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      # ── 5. Locate and zip the .app bundle ────────────────────────────
+      - name: Zip .app bundle
+        run: |
+          APP_PATH=$(find build/Build/Products/Debug-iphonesimulator -name "*.app" -maxdepth 1 | head -1)
+          echo "Found app at: $APP_PATH"
+          cd "$(dirname "$APP_PATH")"
+          zip -r "$GITHUB_WORKSPACE/IKSubsea.zip" "$(basename "$APP_PATH")"
+          echo "ZIP_PATH=$GITHUB_WORKSPACE/IKSubsea.zip" >> $GITHUB_ENV
+          ls -lh "$GITHUB_WORKSPACE/IKSubsea.zip"
+
+      # ── 6. Upload to Appetize.io via their API ────────────────────────
+      - name: Upload to Appetize.io
+        id: appetize_upload
+        run: |
+          RESPONSE=$(curl --silent --show-error \
+            -X POST \
+            -H "Authorization: Token ${{ secrets.APPETIZE_API_TOKEN }}" \
+            -F "file=@${{ env.ZIP_PATH }}" \
+            -F "platform=ios" \
+            -F "deviceType=ipadAir4thGeneration" \
+            -F "osVersion=17" \
+            -F "note=IK Subsea Solutions App - auto build" \
+            "https://api.appetize.io/v1/apps/${{ secrets.APPETIZE_PUBLIC_KEY }}")
+
+          echo "Appetize response: $RESPONSE"
+
+          # Extract the public key / URL from response
+          APP_URL=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('publicKey','ERROR'))")
+          echo "APPETIZE_URL=https://appetize.io/app/$APP_URL" >> $GITHUB_ENV
+          echo "appetize_url=https://appetize.io/app/$APP_URL" >> $GITHUB_OUTPUT
+
+      # ── 7. Print the shareable URL ────────────────────────────────────
+      - name: Print shareable URL
+        run: |
+          echo ""
+          echo "============================================="
+          echo "  IK Subsea App is live on Appetize.io"
+          echo "  ${{ env.APPETIZE_URL }}"
+          echo "============================================="
+          echo ""
+
+      # ── 8. Save the .zip as a downloadable artifact (optional backup) ─
+      - name: Upload .app zip as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: IKSubsea-simulator-build
+          path: IKSubsea.zip
+          retention-days: 14
