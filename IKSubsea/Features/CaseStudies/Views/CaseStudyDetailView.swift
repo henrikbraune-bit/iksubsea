@@ -5,6 +5,8 @@ struct CaseStudyDetailView: View {
     @Environment(AppCoordinator.self) private var coordinator
     let caseStudy: CaseStudy
 
+    @State private var selectedProduct: Product? = nil
+
     var relatedProducts: [Product] {
         caseStudy.relatedProductIds.compactMap { coordinator.dataService.product(id: $0) }
     }
@@ -57,7 +59,7 @@ struct CaseStudyDetailView: View {
                         IKSSectionHeader(title: "Products Used")
                         ForEach(relatedProducts) { product in
                             Button {
-                                coordinator.casesPath.append(CaseStudiesRoute.detail(caseStudyId: caseStudy.id))
+                                selectedProduct = product
                             } label: {
                                 HStack {
                                     DomainBadge(domain: product.domain)
@@ -83,6 +85,18 @@ struct CaseStudyDetailView: View {
         .navigationTitle("Case Study")
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.iksNavy.ignoresSafeArea())
+        .sheet(item: $selectedProduct) { product in
+            NavigationStack {
+                ProductDetailView(product: product)
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") { selectedProduct = nil }
+                                .foregroundStyle(Color.iksTeal)
+                        }
+                    }
+            }
+            .environment(coordinator)
+        }
     }
 
     @ViewBuilder
