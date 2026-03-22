@@ -65,12 +65,20 @@ jobs:
           echo "=== JSON files in bundle ==="
           find "$APP_PATH" -name "*.json" | grep -v xcassets || echo "NO JSON FILES FOUND IN BUNDLE"
 
-      - name: Zip .app bundle
+      - name: Zip .app bundle (for Appetize)
         run: |
           cd "$(dirname "$APP_PATH")"
           zip -r "$GITHUB_WORKSPACE/IKSubsea.zip" "$(basename "$APP_PATH")"
           echo "ZIP_PATH=$GITHUB_WORKSPACE/IKSubsea.zip" >> $GITHUB_ENV
           echo "Zip size: $(du -sh "$GITHUB_WORKSPACE/IKSubsea.zip" | cut -f1)"
+
+      - name: Package as .ipa (for BrowserStack)
+        run: |
+          mkdir -p /tmp/Payload
+          cp -r "$APP_PATH" /tmp/Payload/
+          cd /tmp
+          zip -r "$GITHUB_WORKSPACE/IKSubsea.ipa" Payload
+          echo "IPA size: $(du -sh "$GITHUB_WORKSPACE/IKSubsea.ipa" | cut -f1)"
 
       - name: Upload to Appetize.io
         run: |
@@ -84,9 +92,11 @@ jobs:
             "https://api.appetize.io/v1/apps/${{ secrets.APPETIZE_PUBLIC_KEY }}")
           echo "Appetize response: $RESPONSE"
 
-      - name: Upload .app zip as artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: IKSubsea-simulator-build
-          path: IKSubsea.zip
-          retention-days: 14
+          path: |
+            IKSubsea.zip
+            IKSubsea.ipa
+          retention-days: 30
