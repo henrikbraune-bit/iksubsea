@@ -58,6 +58,8 @@ struct Product: Identifiable, Codable, Hashable {
     let certifications: [String]
     let relatedCaseStudyIds: [UUID]
     let isEmergencyCapable: Bool
+    let imageName: String?
+    let brochureFileName: String?
 }
 
 struct ProductLibrary: Codable {

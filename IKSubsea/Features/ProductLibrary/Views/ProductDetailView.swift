@@ -1,4 +1,5 @@
 import SwiftUI
+import QuickLook
 
 struct ProductDetailView: View {
 
@@ -15,10 +16,24 @@ struct ProductDetailView: View {
 
     @State private var selectedAddon: Addon? = nil
     @State private var selectedCaseStudy: CaseStudy? = nil
+    @State private var brochureURL: URL? = nil
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+
+                // Hero image
+                if let imageName = product.imageName,
+                   let _ = UIImage(named: imageName) {
+                    Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 220)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .padding(.bottom, 4)
+                }
 
                 // Hero header
                 VStack(alignment: .leading, spacing: 10) {
@@ -160,6 +175,26 @@ struct ProductDetailView: View {
                     }
                 }
 
+                // Brochure download
+                if let fileName = product.brochureFileName,
+                   let url = Bundle.main.url(forResource: fileName, withExtension: "pdf") {
+                    Button {
+                        brochureURL = url
+                    } label: {
+                        HStack {
+                            Image(systemName: "doc.fill")
+                            Text("View Product Brochure")
+                            Spacer()
+                            Image(systemName: "arrow.up.forward")
+                        }
+                        .font(.headline)
+                        .foregroundStyle(Color.iksTeal)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 16)
+                        .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.iksTeal.opacity(0.5), lineWidth: 1))
+                    }
+                }
+
                 // CTA
                 Button {
                     let subject = "Enquiry: \(product.name)"
@@ -204,5 +239,6 @@ struct ProductDetailView: View {
             }
             .environment(coordinator)
         }
+        .quickLookPreview($brochureURL)
     }
 }

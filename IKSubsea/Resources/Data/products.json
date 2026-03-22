@@ -228,7 +228,9 @@
       "maxDepthMeters": null,
       "certifications": ["DNV Type Approved", "DNV RP H201:2014", "DNVGL-ST N001"],
       "relatedCaseStudyIds": [],
-      "isEmergencyCapable": false
+      "isEmergencyCapable": false,
+      "imageName": "AngelHero",
+      "brochureFileName": "angel-brochure"
     },
     {
       "id": "11111111-0012-0012-0012-000000000012",

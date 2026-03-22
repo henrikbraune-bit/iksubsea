@@ -45,6 +45,7 @@
 		A071 /* AddonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F071 /* AddonsView.swift */; };
 		A072 /* AddonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072 /* AddonDetailView.swift */; };
 		A073 /* addons.json in Resources */ = {isa = PBXBuildFile; fileRef = F073 /* addons.json */; };
+		A074 /* angel-brochure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F074 /* angel-brochure.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		F071 /* AddonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonsView.swift; sourceTree = "<group>"; };
 		F072 /* AddonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonDetailView.swift; sourceTree = "<group>"; };
 		F073 /* addons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = addons.json; sourceTree = "<group>"; };
+		F074 /* angel-brochure.pdf */ = {isa = PBXFileReference; lastKnownFileType = com.adobe.pdf; path = "angel-brochure.pdf"; sourceTree = "<group>"; };
 		F099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAPP /* IKSubsea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKSubsea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 				F031 /* problemCategories.json */,
 				F032 /* caseStudies.json */,
 				F073 /* addons.json */,
+				F074 /* angel-brochure.pdf */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				A031 /* problemCategories.json in Resources */,
 				A032 /* caseStudies.json in Resources */,
 				A073 /* addons.json in Resources */,
+				A074 /* angel-brochure.pdf in Resources */,
 				A033 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
