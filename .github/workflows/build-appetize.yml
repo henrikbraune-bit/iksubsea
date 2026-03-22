@@ -19,38 +19,74 @@ jobs:
       - name: Select Xcode 16
         run: sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
 
-      # ── 3. Show available simulators (useful for debugging) ───────────
-      - name: List available simulators
-        run: xcrun simctl list devices available
-
-      # ── 4. Install iOS runtime ────────────────────────────────────────
+      # ── 3. Install iOS runtime ────────────────────────────────────────
       - name: Install iOS 18 Simulator Runtime
-        run: |
-          xcodebuild -downloadPlatform iOS
+        run: xcodebuild -downloadPlatform iOS
 
-      # ── 5. Build for iPad simulator ───────────────────────────────────
+      # ── 4. Pick a real simulator UDID ─────────────────────────────────
+      - name: Pick simulator
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c "
+          import sys, json
+          data = json.load(sys.stdin)
+          for runtime, devices in data['devices'].items():
+              if 'iOS' not in runtime:
+                  continue
+              for d in devices:
+                  if d.get('isAvailable') and 'iPad' in d['name']:
+                      print(d['udid'])
+                      exit(0)
+          for runtime, devices in data['devices'].items():
+              if 'iOS' not in runtime:
+                  continue
+              for d in devices:
+                  if d.get('isAvailable'):
+                      print(d['udid'])
+                      exit(0)
+          ")
+          echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
+          echo "Using simulator: $UDID"
+          xcrun simctl list devices available | grep "$UDID"
+
+      # ── 5. Boot simulator ─────────────────────────────────────────────
+      - name: Boot simulator
+        run: |
+          xcrun simctl boot "$SIMULATOR_UDID" || true
+          xcrun simctl list devices | grep "$SIMULATOR_UDID"
+
+      # ── 6. Build for booted simulator ─────────────────────────────────
       - name: Build for iOS Simulator
         run: |
           xcodebuild \
             -project IKSubsea.xcodeproj \
             -scheme IKSubsea \
             -configuration Debug \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination "id=$SIMULATOR_UDID" \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
-            build
+            ONLY_ACTIVE_ARCH=NO \
+            build 2>&1 | tail -50
 
-      # ── 6. Locate and zip the .app bundle ────────────────────────────
+      # ── 7. Find and inspect the .app bundle ───────────────────────────
+      - name: Find .app bundle
+        run: |
+          echo "=== Searching for .app ==="
+          find build/Build/Products -name "*.app" -type d
+          APP_PATH=$(find build/Build/Products -name "*.app" -type d | head -1)
+          echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
+          echo "Found: $APP_PATH"
+          echo "Size: $(du -sh "$APP_PATH" | cut -f1)"
+          ls -la "$APP_PATH"
+
+      # ── 8. Zip the .app bundle ────────────────────────────────────────
       - name: Zip .app bundle
         run: |
-          APP_PATH=$(find build/Build/Products -name "*.app" -maxdepth 2 | head -1)
-          echo "Found app at: $APP_PATH"
           cd "$(dirname "$APP_PATH")"
           zip -r "$GITHUB_WORKSPACE/IKSubsea.zip" "$(basename "$APP_PATH")"
           echo "ZIP_PATH=$GITHUB_WORKSPACE/IKSubsea.zip" >> $GITHUB_ENV
-          ls -lh "$GITHUB_WORKSPACE/IKSubsea.zip"
+          echo "Zip size: $(du -sh "$GITHUB_WORKSPACE/IKSubsea.zip" | cut -f1)"
 
-      # ── 6. Upload to Appetize.io via their API ────────────────────────
+      # ── 9. Upload to Appetize.io ──────────────────────────────────────
       - name: Upload to Appetize.io
         id: appetize_upload
         run: |
@@ -60,28 +96,21 @@ jobs:
             -F "file=@${{ env.ZIP_PATH }}" \
             -F "platform=ios" \
             -F "deviceType=ipadAir4thGeneration" \
-            -F "osVersion=17" \
+            -F "osVersion=18" \
             -F "note=IK Subsea Solutions App - auto build" \
             "https://api.appetize.io/v1/apps/${{ secrets.APPETIZE_PUBLIC_KEY }}")
-
           echo "Appetize response: $RESPONSE"
-
-          # Extract the public key / URL from response
           APP_URL=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('publicKey','ERROR'))")
           echo "APPETIZE_URL=https://appetize.io/app/$APP_URL" >> $GITHUB_ENV
-          echo "appetize_url=https://appetize.io/app/$APP_URL" >> $GITHUB_OUTPUT
 
-      # ── 7. Print the shareable URL ────────────────────────────────────
+      # ── 10. Print the shareable URL ───────────────────────────────────
       - name: Print shareable URL
         run: |
-          echo ""
           echo "============================================="
-          echo "  IK Subsea App is live on Appetize.io"
-          echo "  ${{ env.APPETIZE_URL }}"
+          echo "  IK Subsea App: ${{ env.APPETIZE_URL }}"
           echo "============================================="
-          echo ""
 
-      # ── 8. Save the .zip as a downloadable artifact (optional backup) ─
+      # ── 11. Save zip as artifact ──────────────────────────────────────
       - name: Upload .app zip as artifact
         uses: actions/upload-artifact@v4
         with:
