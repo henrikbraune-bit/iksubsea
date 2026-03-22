@@ -58,7 +58,10 @@ jobs:
           echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
           echo "Found: $APP_PATH"
           echo "Size: $(du -sh "$APP_PATH" | cut -f1)"
+          echo "=== Contents ==="
           ls -la "$APP_PATH/"
+          echo "=== JSON files in bundle ==="
+          find "$APP_PATH" -name "*.json" | grep -v xcassets || echo "NO JSON FILES FOUND IN BUNDLE"
 
       - name: Zip .app bundle
         run: |
