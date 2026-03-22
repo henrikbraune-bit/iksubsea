@@ -21,6 +21,7 @@ final class AppCoordinator {
         case .productLibrary:  libraryPath = NavigationPath()
         case .caseStudies:     casesPath = NavigationPath()
         case .customSolutions: customPath = NavigationPath()
+        case .addons: break
         case .about: break
         }
     }
