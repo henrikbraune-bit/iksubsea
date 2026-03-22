@@ -82,10 +82,10 @@
 		GSHARED /* Shared */ = {isa = PBXGroup; children = (F027,); path = Shared; sourceTree = "<group>"; };
 		F028 /* Color+IKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+IKS.swift"; sourceTree = "<group>"; };
 		F029 /* View+CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CardStyle.swift"; sourceTree = "<group>"; };
-		F030 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
-		F031 /* problemCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = problemCategories.json; sourceTree = "<group>"; };
-		F032 /* caseStudies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = caseStudies.json; sourceTree = "<group>"; };
-		F033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F030 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = products.json; path = Resources/Data/products.json; sourceTree = "<group>"; };
+		F031 /* problemCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = problemCategories.json; path = Resources/Data/problemCategories.json; sourceTree = "<group>"; };
+		F032 /* caseStudies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = caseStudies.json; path = Resources/Data/caseStudies.json; sourceTree = "<group>"; };
+		F033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		F099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAPP /* IKSubsea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKSubsea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
