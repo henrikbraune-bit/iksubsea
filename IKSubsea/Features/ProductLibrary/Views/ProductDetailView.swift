@@ -114,7 +114,9 @@ struct ProductDetailView: View {
 
                 // CTA
                 Button {
-                    if let url = URL(string: "mailto:sales@iksubsea.com?subject=Enquiry: \(product.name)") {
+                    let subject = "Enquiry: \(product.name)"
+                        .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    if let url = URL(string: "mailto:sales@iksubsea.com?subject=\(subject)") {
                         UIApplication.shared.open(url)
                     }
                 } label: {

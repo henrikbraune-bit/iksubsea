@@ -22,6 +22,8 @@ struct RootView: View {
                             if let cat = coordinator.dataService.problemCategories.first(where: { $0.id == categoryId }) {
                                 MatchedResultsView(category: cat, selectedTags: selectedTagSets)
                             }
+                        case .freeSearch(let query):
+                            FreeSearchResultsView(query: query)
                         case .productDetail(let productId):
                             if let product = coordinator.dataService.product(id: productId) {
                                 ProductDetailView(product: product)

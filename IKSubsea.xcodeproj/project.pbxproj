@@ -40,6 +40,7 @@
 		A031 /* problemCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = F031 /* problemCategories.json */; };
 		A032 /* caseStudies.json in Resources */ = {isa = PBXBuildFile; fileRef = F032 /* caseStudies.json */; };
 		A033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F033 /* Assets.xcassets */; };
+		A060 /* FreeSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F060 /* FreeSearchResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +71,7 @@
 		F025 /* CaseStudyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyCard.swift; sourceTree = "<group>"; };
 		F026 /* FilterChipBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipBar.swift; sourceTree = "<group>"; };
 		F027 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		GFINDERVIEWS /* Views */ = {isa = PBXGroup; children = (F010, F011, F012,); path = Views; sourceTree = "<group>"; };
+		GFINDERVIEWS /* Views */ = {isa = PBXGroup; children = (F010, F011, F012, F060,); path = Views; sourceTree = "<group>"; };
 		GFINDERVM /* ViewModels */ = {isa = PBXGroup; children = (F013,); path = ViewModels; sourceTree = "<group>"; };
 		GLIBRARYVIEWS /* Views */ = {isa = PBXGroup; children = (F014, F015,); path = Views; sourceTree = "<group>"; };
 		GLIBRARYVM /* ViewModels */ = {isa = PBXGroup; children = (F016,); path = ViewModels; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		F031 /* problemCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = problemCategories.json; sourceTree = "<group>"; };
 		F032 /* caseStudies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = caseStudies.json; sourceTree = "<group>"; };
 		F033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F060 /* FreeSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSearchResultsView.swift; sourceTree = "<group>"; };
 		F099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAPP /* IKSubsea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKSubsea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -339,6 +341,7 @@
 				A010 /* SolutionFinderView.swift in Sources */,
 				A011 /* RefinementView.swift in Sources */,
 				A012 /* MatchedResultsView.swift in Sources */,
+				A060 /* FreeSearchResultsView.swift in Sources */,
 				A013 /* SolutionFinderViewModel.swift in Sources */,
 				A014 /* ProductLibraryView.swift in Sources */,
 				A015 /* ProductDetailView.swift in Sources */,
