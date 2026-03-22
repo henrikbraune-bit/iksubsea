@@ -4,12 +4,12 @@ struct MatchedResultsView: View {
 
     @Environment(AppCoordinator.self) private var coordinator
     let category: ProblemCategory
-    let selectedTagSets: [[String]]
+    let selectedTags: [String]
 
     private var matches: [MatchedProduct] {
         MatchingService.shared.match(
             category: category,
-            selectedOptionTagSets: selectedTagSets,
+            selectedOptionTagSets: [selectedTags],
             products: coordinator.dataService.products
         )
     }

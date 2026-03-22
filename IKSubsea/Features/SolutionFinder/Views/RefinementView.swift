@@ -8,8 +8,8 @@ struct RefinementView: View {
     // Each question tracks which option was tapped (optional — user can skip)
     @State private var selections: [UUID: RefinementOption] = [:]
 
-    var collectedTagSets: [[String]] {
-        selections.values.map { $0.additionalTags }
+    var collectedTags: [String] {
+        selections.values.flatMap { $0.additionalTags }
     }
 
     var body: some View {
@@ -53,7 +53,7 @@ struct RefinementView: View {
                     coordinator.finderPath.append(
                         SolutionFinderRoute.results(
                             categoryId: category.id,
-                            selectedTagSets: collectedTagSets
+                            selectedTagSets: collectedTags
                         )
                     )
                 } label: {

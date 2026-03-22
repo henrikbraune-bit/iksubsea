@@ -18,9 +18,9 @@ struct RootView: View {
                             if let cat = coordinator.dataService.problemCategories.first(where: { $0.id == categoryId }) {
                                 RefinementView(category: cat)
                             }
-                        case .results(let categoryId, let tagSets):
+                        case .results(let categoryId, let selectedTagSets):
                             if let cat = coordinator.dataService.problemCategories.first(where: { $0.id == categoryId }) {
-                                MatchedResultsView(category: cat, selectedTagSets: tagSets)
+                                MatchedResultsView(category: cat, selectedTags: selectedTagSets)
                             }
                         case .productDetail(let productId):
                             if let product = coordinator.dataService.product(id: productId) {

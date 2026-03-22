@@ -20,7 +20,7 @@ enum AppTab: String, CaseIterable, Hashable {
 
 enum SolutionFinderRoute: Hashable {
     case refinement(categoryId: UUID)
-    case results(categoryId: UUID, selectedTagSets: [[String]])
+    case results(categoryId: UUID, selectedTagSets: [String])
     case productDetail(productId: UUID)
 }
 
