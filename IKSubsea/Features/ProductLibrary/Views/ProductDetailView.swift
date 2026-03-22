@@ -14,6 +14,7 @@ struct ProductDetailView: View {
     }
 
     @State private var selectedAddon: Addon? = nil
+    @State private var selectedCaseStudy: CaseStudy? = nil
 
     var body: some View {
         ScrollView {
@@ -113,7 +114,12 @@ struct ProductDetailView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         IKSSectionHeader(title: "Case Studies")
                         ForEach(relatedCaseStudies) { cs in
-                            CaseStudyCard(caseStudy: cs)
+                            Button {
+                                selectedCaseStudy = cs
+                            } label: {
+                                CaseStudyCard(caseStudy: cs)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
@@ -185,6 +191,18 @@ struct ProductDetailView: View {
         .background(Color.iksNavy.ignoresSafeArea())
         .sheet(item: $selectedAddon) { addon in
             AddonDetailView(addon: addon)
+        }
+        .sheet(item: $selectedCaseStudy) { cs in
+            NavigationStack {
+                CaseStudyDetailView(caseStudy: cs)
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") { selectedCaseStudy = nil }
+                                .foregroundStyle(Color.iksTeal)
+                        }
+                    }
+            }
+            .environment(coordinator)
         }
     }
 }
