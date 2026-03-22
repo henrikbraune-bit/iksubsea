@@ -50,7 +50,7 @@ struct DomainBadge: View {
     }
 
     var body: some View {
-        Text(domain.rawValue)
+        Text(domain.displayName)
             .font(.caption2.weight(.semibold))
             .foregroundStyle(textColor)
             .padding(.horizontal, 8)

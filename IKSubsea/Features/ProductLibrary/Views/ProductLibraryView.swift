@@ -71,8 +71,8 @@ struct ProductLibraryView: View {
 
 // Make enums work with FilterChipBar (needs CustomStringConvertible)
 extension ProductDomain: CustomStringConvertible {
-    public var description: String { rawValue }
+    public var description: String { displayName }
 }
 extension InstallMethod: CustomStringConvertible {
-    public var description: String { rawValue }
+    public var description: String { displayLabel }
 }

@@ -36,7 +36,7 @@ struct ProductCard: View {
             // Install method chips
             HStack(spacing: 6) {
                 ForEach(product.installationMethods, id: \.self) { method in
-                    Text(method.rawValue)
+                    Text(method.displayLabel)
                         .font(.caption)
                         .foregroundStyle(Color.iksTeal)
                         .padding(.horizontal, 7)

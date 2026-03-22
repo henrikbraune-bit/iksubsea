@@ -70,7 +70,7 @@ struct ProductDetailView: View {
                     IKSSectionHeader(title: "Installation Method")
                     HStack(spacing: 8) {
                         ForEach(product.installationMethods, id: \.self) { method in
-                            Label(method.rawValue, systemImage: method == .rov ? "robot" : "figure.wave")
+                            Label(method.displayLabel, systemImage: method == .rov ? "robot" : "figure.wave")
                                 .font(.subheadline)
                                 .foregroundStyle(Color.iksTeal)
                                 .padding(.horizontal, 12)

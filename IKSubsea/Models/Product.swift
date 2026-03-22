@@ -3,17 +3,35 @@ import Foundation
 // MARK: - Enums
 
 enum ProductDomain: String, Codable, CaseIterable, Hashable {
-    case repair = "Subsea Repair"
-    case isolation = "Isolation & Plugging"
-    case lifting = "Lifting & Handling"
-    case tooling = "Custom Tooling"
-    case structural = "Structural Integrity"
+    case repair = "repair"
+    case isolation = "isolation"
+    case lifting = "lifting"
+    case tooling = "tooling"
+    case structural = "structural"
+
+    var displayName: String {
+        switch self {
+        case .repair:     return "Subsea Repair"
+        case .isolation:  return "Isolation & Plugging"
+        case .lifting:    return "Lifting & Handling"
+        case .tooling:    return "Custom Tooling"
+        case .structural: return "Structural Integrity"
+        }
+    }
 }
 
 enum InstallMethod: String, Codable, CaseIterable {
-    case rov = "ROV"
-    case diver = "Diver"
-    case both = "ROV or Diver"
+    case rov = "rov"
+    case diver = "diver"
+    case both = "both"
+
+    var displayLabel: String {
+        switch self {
+        case .rov:   return "ROV"
+        case .diver: return "Diver"
+        case .both:  return "ROV or Diver"
+        }
+    }
 }
 
 enum Severity: String, Codable {
