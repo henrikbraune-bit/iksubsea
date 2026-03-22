@@ -38,8 +38,7 @@ struct ProductDetailView: View {
                 // Hero header
                 VStack(alignment: .leading, spacing: 10) {
                     DomainBadge(domain: product.domain)
-                    Text(product.name)
-                        .font(.title.weight(.bold))
+                    product.name.trademarked(font: .title.weight(.bold), symbolSize: 14, symbolOffset: 8)
                         .foregroundStyle(Color.iksWhite)
                     if product.isEmergencyCapable {
                         Label("Emergency deployment capability", systemImage: "bolt.fill")

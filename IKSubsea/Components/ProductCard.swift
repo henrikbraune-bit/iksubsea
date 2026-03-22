@@ -22,8 +22,7 @@ struct ProductCard: View {
             }
 
             // Name
-            Text(product.name)
-                .font(.headline)
+            product.name.trademarked(font: .headline, symbolSize: 9, symbolOffset: 4)
                 .foregroundStyle(Color.iksWhite)
                 .lineLimit(2)
 

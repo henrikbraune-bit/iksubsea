@@ -122,3 +122,31 @@ struct IKSSectionHeader: View {
         }
     }
 }
+
+// MARK: - Trademark symbol helper
+
+extension String {
+    /// Returns a Text where ® and © are rendered as small superscripts
+    /// matching the visual weight of the surrounding font.
+    func trademarked(font mainFont: Font, symbolSize: CGFloat, symbolOffset: CGFloat) -> Text {
+        var result = Text("")
+        var buffer = ""
+        for ch in self {
+            if ch == "®" || ch == "©" {
+                if !buffer.isEmpty {
+                    result = result + Text(buffer).font(mainFont)
+                    buffer = ""
+                }
+                result = result + Text(String(ch))
+                    .font(.system(size: symbolSize))
+                    .baselineOffset(symbolOffset)
+            } else {
+                buffer.append(ch)
+            }
+        }
+        if !buffer.isEmpty {
+            result = result + Text(buffer).font(mainFont)
+        }
+        return result
+    }
+}

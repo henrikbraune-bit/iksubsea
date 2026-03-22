@@ -63,8 +63,7 @@ struct CaseStudyDetailView: View {
                             } label: {
                                 HStack {
                                     DomainBadge(domain: product.domain)
-                                    Text(product.name)
-                                        .font(.subheadline.weight(.medium))
+                                    product.name.trademarked(font: .subheadline.weight(.medium), symbolSize: 8, symbolOffset: 3)
                                         .foregroundStyle(Color.iksWhite)
                                     Spacer()
                                     Image(systemName: "chevron.right")
