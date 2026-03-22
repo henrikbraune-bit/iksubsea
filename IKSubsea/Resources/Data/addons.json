@@ -3,20 +3,20 @@
 
     {
       "id": "44444444-0001-0001-0001-000000000001",
-      "name": "ROV Hydraulic Torque Tool — 5,000 Nm",
-      "shortDescription": "Work-class ROV torque tool for valve actuation and bolt make-up to 5,000 Nm. Closed-loop torque feedback.",
-      "fullDescription": "A compact, high-torque ROV-operated tool designed for subsea valve actuation, connector make-up, and bolt tensioning operations. The tool interfaces directly with the ROV's torque bucket via a standard API 1\" square drive and receives hydraulic supply from the ROV's on-board hydraulic system. Closed-loop load cell feedback provides accurate torque control with digital readout to the ROV pilot. Depth-rated to 3,000m and compatible with all major work-class ROV platforms including Oceaneering Millennium, Saab Seaeye Leopard, and Schilling WROV. Ideal companion tool for IK Subsea clamp and isolation product installations requiring controlled bolt make-up.",
+      "name": "ROV Hydraulic Torque Tool — 1,000 Nm",
+      "shortDescription": "Light-duty ROV torque tool for clamp bolt make-up and valve actuation to 1,000 Nm. 3/4\" drive.",
+      "fullDescription": "A compact light-duty ROV torque tool for valve actuation, small-bore connector make-up, and clamp bolt tightening up to 1,000 Nm. Interfaces with the ROV torque bucket via a 3/4\" API square drive and takes hydraulic supply from the ROV's on-board system. Closed-loop load cell feedback provides accurate torque control with real-time readout to the ROV pilot. Compatible with all major work-class ROV platforms. The standard tool for IK Subsea clamp and isolation installations on pipelines up to 12\" OD where bolt make-up loads fall within the 1,000 Nm range.",
       "category": "torque_tools",
       "availability": "rental",
       "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
       "depthRatingMeters": 3000,
       "specs": [
-        {"label": "Max Torque", "value": "5,000 Nm"},
-        {"label": "Drive Interface", "value": "1\" API Square Drive"},
-        {"label": "Hydraulic Input", "value": "207 bar / 40 lpm"},
+        {"label": "Max Torque", "value": "1,000 Nm"},
+        {"label": "Drive Interface", "value": "3/4\" API Square Drive"},
+        {"label": "Hydraulic Input", "value": "207 bar / 20 lpm"},
         {"label": "Torque Feedback", "value": "Closed-loop load cell"},
         {"label": "Water Depth", "value": "3,000m"},
-        {"label": "Weight in Water", "value": "28 kg"}
+        {"label": "Weight in Water", "value": "18 kg"}
       ],
       "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
       "compatibleProductTags": ["pipeline-leak", "flange-leak", "connector-failure", "pipeline-isolation"],
@@ -26,23 +26,23 @@
 
     {
       "id": "44444444-0002-0002-0002-000000000002",
-      "name": "ROV Hydraulic Torque Tool — 50,000 Nm",
-      "shortDescription": "Heavy-duty ROV torque tool for large bore valves and structural connectors. Reaction arm included.",
-      "fullDescription": "For high-torque operations on large bore gate valves, PLEM connectors, and structural bolting, this heavy-duty ROV torque tool delivers up to 50,000 Nm with an integrated hydraulic reaction arm. The reaction arm locks to a dedicated subsea reaction pad, allowing the ROV to apply full torque without counter-rotation. Suitable for pipelines 20\" and above, and wellhead connector make-up. Depth-rated to 4,000m. Typically deployed from a work-class ROV on a dedicated umbilical, or integrated into an ROV intervention skid.",
+      "name": "ROV Hydraulic Torque Tool — 4,000 Nm",
+      "shortDescription": "Medium-duty ROV torque tool for large clamp bolt make-up and valve operations, 1,000–4,000 Nm. 1\" drive.",
+      "fullDescription": "A medium-duty ROV torque tool for higher-load clamp bolt make-up, large bore valve actuation, and subsea connector operations in the 1,000–4,000 Nm range. Interfaces with the ROV torque bucket via a 1\" API square drive. Closed-loop load cell feedback with surface digital readout allows accurate torque application and verification logging. Compatible with all major work-class ROV platforms. Suited for IK Subsea repair and integrity clamp installations on larger bore pipelines (12\"–32\" OD) and for any operation where the 1,000 Nm light-duty tool is insufficient.",
       "category": "torque_tools",
       "availability": "rental",
       "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
-      "depthRatingMeters": 4000,
+      "depthRatingMeters": 3000,
       "specs": [
-        {"label": "Max Torque", "value": "50,000 Nm"},
-        {"label": "Drive Interface", "value": "2\" API Square Drive"},
-        {"label": "Reaction Method", "value": "Hydraulic reaction arm"},
-        {"label": "Hydraulic Input", "value": "207 bar / 80 lpm"},
-        {"label": "Water Depth", "value": "4,000m"},
-        {"label": "Weight in Water", "value": "65 kg"}
+        {"label": "Torque Range", "value": "1,000 – 4,000 Nm"},
+        {"label": "Drive Interface", "value": "1\" API Square Drive"},
+        {"label": "Hydraulic Input", "value": "207 bar / 35 lpm"},
+        {"label": "Torque Feedback", "value": "Closed-loop load cell"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Weight in Water", "value": "24 kg"}
       ],
       "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
-      "compatibleProductTags": ["pipeline-leak", "structural-damage", "connector-failure", "pipeline-structural-failure"],
+      "compatibleProductTags": ["pipeline-leak", "structural-damage", "connector-failure", "pipeline-structural-failure", "flange-leak", "pipeline-isolation"],
       "installationMethods": ["rov"],
       "isEmergencyStock": false
     },
@@ -413,6 +413,98 @@
       "compatibleProductTags": ["cathodic-protection", "corrosion", "anode-retrofit", "platform-repair"],
       "installationMethods": ["diver"],
       "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0019-0019-0019-000000000019",
+      "name": "ROV/Diver Hydraulic Pipeline Saw",
+      "shortDescription": "Hydraulic reciprocating pipe saw for cutting damaged pipeline sections before repair clamp installation. 4\"–24\" OD.",
+      "fullDescription": "A hydraulic reciprocating pipe saw for cutting through damaged or corroded pipeline sections prior to installation of repair clamps, isolation tools, or replacement spools. The tool clamps to the pipe OD via split-grip jaws (adjustable 4\"–24\" OD, or 100mm–600mm) and the reciprocating blade traverses around the pipe circumference under ROV or diver control. Carbide-tipped blades cut carbon steel, stainless, duplex, and CRA-clad pipe. Typical cut time is 8–12 minutes for schedule 80 carbon steel. The blade clamp assembly prevents the cut section from dropping. Can be deployed from a work-class ROV or by saturation divers to 600m. Essential for pipeline repair operations where the damaged section must be removed before fitting an end-cap or structural repair clamp.",
+      "category": "accessories",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Cutting Capacity", "value": "4\" to 24\" OD (100–600mm)"},
+        {"label": "Blade Type", "value": "Carbide-tipped reciprocating"},
+        {"label": "Cut Time", "value": "8–12 min (schedule 80 CS)"},
+        {"label": "Hydraulic Input", "value": "207 bar / 15 lpm"},
+        {"label": "Water Depth", "value": "3,000m (ROV) / 600m (diver)"},
+        {"label": "Weight in Water", "value": "35 kg"}
+      ],
+      "standards": ["ISO 13628-8", "NORSOK D-002"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-structural-failure", "crack", "weld-defect"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0020-0020-0020-000000000020",
+      "name": "Subsea Hydraulic Bolt Tensioner Set",
+      "shortDescription": "Hydraulic stud tensioner set for high-integrity flange bolt pre-loading. M27–M48. 3,000m rated.",
+      "fullDescription": "A subsea hydraulic bolt tensioner set for precise, repeatable bolt pre-loading on flanged connections, repair clamps, and isolation spool tie-ins. Hydraulic pressure is applied to each stud tensioner via an ROV hot stab, stretching the bolt to the specified load before the nut is run down. Simultaneous multi-bolt tensioning is possible by connecting up to 8 tensioners in parallel from a single HPU supply. Bolt load is monitored via calibrated pressure transducers with ±2% accuracy — eliminating the torque-tension uncertainty inherent in impact wrench make-up. Supplied with tensioners (M27–M48), bridge pieces, load cells, and a 50m hose kit. NORSOK D-001 compliant. Depth-rated to 3,000m.",
+      "category": "torque_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Bolt Size Range", "value": "M27 – M48"},
+        {"label": "Tension Range", "value": "50 – 600 kN per bolt"},
+        {"label": "Accuracy", "value": "±2% (pressure transducer)"},
+        {"label": "Simultaneous Bolts", "value": "Up to 8"},
+        {"label": "Hydraulic Input", "value": "207 bar / 15 lpm"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["NORSOK D-001", "ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["flange-leak", "pipeline-isolation", "connector-failure", "pipeline-leak"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0021-0021-0021-000000000021",
+      "name": "Subsea Grease Injection Kit",
+      "shortDescription": "ROV/diver grease injection kit for clamp seals, connector lubrication, and valve packing. 210 bar.",
+      "fullDescription": "A portable subsea grease injection kit for lubricating repair clamp seals, connector running surfaces, valve stems, and gate valve packing glands. The kit comprises a 5-litre reservoir pre-charged with DNV-approved subsea grease (ISO VG 680 compatible), a hand-operated or hydraulic pump, and a selection of ISO 13628-7 dry-disconnect and threaded injection fittings. Operating pressure up to 210 bar. Can be deployed by ROV using a standard torque bucket or by a saturation diver. Essential where IK Subsea repair clamp seal assemblies require lubrication prior to energisation, or where worn valve packing must be supplemented in-situ. Emergency-stocked for rapid mobilisation.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Reservoir Capacity", "value": "5 litres"},
+        {"label": "Max Injection Pressure", "value": "210 bar"},
+        {"label": "Grease Type", "value": "ISO VG 680 subsea grade"},
+        {"label": "Fittings", "value": "ISO 13628-7 + threaded"},
+        {"label": "Operation", "value": "ROV torque bucket or diver"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["ISO 13628-7", "ISO 13628-8", "NORSOK D-002"],
+      "compatibleProductTags": ["pipeline-leak", "flange-leak", "connector-failure", "pipeline-isolation"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0022-0022-0022-000000000022",
+      "name": "Syntactic Foam Buoyancy Modules",
+      "shortDescription": "Depth-rated syntactic foam buoyancy modules for pipeline lifting and tool weight compensation. 3,000m.",
+      "fullDescription": "Modular syntactic foam buoyancy blocks for reducing the submerged weight of subsea equipment, installation frames, pipeline sections, and flexible risers during lifting and repositioning operations. Each module is machined from closed-cell syntactic epoxy foam (ISO 18662 Type III compliant) and fitted with 316L stainless steel clamping straps for attachment to pipes, frames, or tool skids. Available in standard 200L, 500L, and 1,000L sizes providing 200 kg, 500 kg, and 1,000 kg buoyancy respectively. Modules can be ganged in any combination to achieve target lift. Depth-rated to 3,000m with less than 2% buoyancy loss over 10,000 pressure cycles. DNV type approved. Used with IK Subsea lifting products and installation frames for controlled descent and neutral deployment.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Per project / Per campaign",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Module Sizes", "value": "200L / 500L / 1,000L"},
+        {"label": "Buoyancy per Module", "value": "200 / 500 / 1,000 kg"},
+        {"label": "Material", "value": "Syntactic epoxy foam, ISO 18662 Type III"},
+        {"label": "Buoyancy Retention", "value": ">98% over 10,000 cycles"},
+        {"label": "Clamps", "value": "316L stainless, pipe OD 50–600mm"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["ISO 18662", "DNV 2.7-1", "NORSOK D-002"],
+      "compatibleProductTags": ["subsea-lifting", "flexible-lifting", "installation", "riser-recovery"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
     }
 
   ]

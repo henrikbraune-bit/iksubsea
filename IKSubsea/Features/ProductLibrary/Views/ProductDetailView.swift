@@ -9,6 +9,12 @@ struct ProductDetailView: View {
         coordinator.dataService.caseStudies(for: product)
     }
 
+    var relatedAddons: [Addon] {
+        coordinator.dataService.addons(for: product)
+    }
+
+    @State private var selectedAddon: Addon? = nil
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
@@ -112,6 +118,42 @@ struct ProductDetailView: View {
                     }
                 }
 
+                // Installation Add-ons
+                if !relatedAddons.isEmpty {
+                    VStack(alignment: .leading, spacing: 12) {
+                        IKSSectionHeader(
+                            title: "Installation Add-ons",
+                            subtitle: "Equipment available to support this product's installation."
+                        )
+                        ForEach(relatedAddons.prefix(4)) { addon in
+                            Button {
+                                selectedAddon = addon
+                            } label: {
+                                AddonCard(addon: addon)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                        if relatedAddons.count > 4 {
+                            Button {
+                                coordinator.selectedTab = .addons
+                            } label: {
+                                HStack {
+                                    Text("View all \(relatedAddons.count) compatible add-ons")
+                                        .font(.subheadline.weight(.medium))
+                                        .foregroundStyle(Color.iksTeal)
+                                    Spacer()
+                                    Image(systemName: "arrow.right")
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(Color.iksTeal)
+                                }
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 10)
+                                .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(Color.iksTeal.opacity(0.3), lineWidth: 1))
+                            }
+                        }
+                    }
+                }
+
                 // CTA
                 Button {
                     let subject = "Enquiry: \(product.name)"
@@ -141,5 +183,8 @@ struct ProductDetailView: View {
         .navigationTitle(product.name)
         .navigationBarTitleDisplayMode(.large)
         .background(Color.iksNavy.ignoresSafeArea())
+        .sheet(item: $selectedAddon) { addon in
+            AddonDetailView(addon: addon)
+        }
     }
 }
