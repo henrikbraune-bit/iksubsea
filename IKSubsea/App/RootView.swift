@@ -70,6 +70,13 @@ struct RootView: View {
             }
             .tag(AppTab.caseStudies)
 
+            // MARK: - Add-ons
+            AddonsView()
+                .tabItem {
+                    Label(AppTab.addons.rawValue, systemImage: AppTab.addons.icon)
+                }
+                .tag(AppTab.addons)
+
             // MARK: - Custom Solutions
             NavigationStack(path: $coordinator.customPath) {
                 CustomSolutionView()

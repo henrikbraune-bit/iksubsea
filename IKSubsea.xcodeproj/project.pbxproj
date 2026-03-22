@@ -41,6 +41,10 @@
 		A032 /* caseStudies.json in Resources */ = {isa = PBXBuildFile; fileRef = F032 /* caseStudies.json */; };
 		A033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F033 /* Assets.xcassets */; };
 		A060 /* FreeSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F060 /* FreeSearchResultsView.swift */; };
+		A070 /* Addon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F070 /* Addon.swift */; };
+		A071 /* AddonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F071 /* AddonsView.swift */; };
+		A072 /* AddonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072 /* AddonDetailView.swift */; };
+		A073 /* addons.json in Resources */ = {isa = PBXBuildFile; fileRef = F073 /* addons.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,8 @@
 		GCASESVIEWS /* Views */ = {isa = PBXGroup; children = (F017, F018,); path = Views; sourceTree = "<group>"; };
 		GCASESVM /* ViewModels */ = {isa = PBXGroup; children = (F019,); path = ViewModels; sourceTree = "<group>"; };
 		GCUSTOMVIEWS /* Views */ = {isa = PBXGroup; children = (F020,); path = Views; sourceTree = "<group>"; };
+		GADDONVIEWS /* Views */ = {isa = PBXGroup; children = (F071, F072,); path = Views; sourceTree = "<group>"; };
+		GADDONS /* Addons */ = {isa = PBXGroup; children = (GADDONVIEWS,); path = Addons; sourceTree = "<group>"; };
 		GCUSTOMVM /* ViewModels */ = {isa = PBXGroup; children = (F021,); path = ViewModels; sourceTree = "<group>"; };
 		GABOUTVIEWS /* Views */ = {isa = PBXGroup; children = (F022,); path = Views; sourceTree = "<group>"; };
 		GSHARED /* Shared */ = {isa = PBXGroup; children = (F027,); path = Shared; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 		F032 /* caseStudies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = caseStudies.json; sourceTree = "<group>"; };
 		F033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F060 /* FreeSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSearchResultsView.swift; sourceTree = "<group>"; };
+		F070 /* Addon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addon.swift; sourceTree = "<group>"; };
+		F071 /* AddonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonsView.swift; sourceTree = "<group>"; };
+		F072 /* AddonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonDetailView.swift; sourceTree = "<group>"; };
+		F073 /* addons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = addons.json; sourceTree = "<group>"; };
 		F099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAPP /* IKSubsea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKSubsea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +160,7 @@
 				F005 /* ProblemCategory.swift */,
 				F006 /* CaseStudy.swift */,
 				F007 /* NavigationRoute.swift */,
+				F070 /* Addon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 				GFINDER /* SolutionFinder */,
 				GLIBRARY /* ProductLibrary */,
 				GCASES /* CaseStudies */,
+				GADDONS /* Addons */,
 				GCUSTOM /* CustomSolutions */,
 				GABOUT /* About */,
 			);
@@ -255,6 +267,7 @@
 				F030 /* products.json */,
 				F031 /* problemCategories.json */,
 				F032 /* caseStudies.json */,
+				F073 /* addons.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -318,6 +331,7 @@
 				A030 /* products.json in Resources */,
 				A031 /* problemCategories.json in Resources */,
 				A032 /* caseStudies.json in Resources */,
+				A073 /* addons.json in Resources */,
 				A033 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +373,9 @@
 				A027 /* EmptyStateView.swift in Sources */,
 				A028 /* Color+IKS.swift in Sources */,
 				A029 /* View+CardStyle.swift in Sources */,
+				A070 /* Addon.swift in Sources */,
+				A071 /* AddonsView.swift in Sources */,
+				A072 /* AddonDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

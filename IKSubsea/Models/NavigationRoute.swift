@@ -1,18 +1,20 @@
 import Foundation
 
 enum AppTab: String, CaseIterable, Hashable {
-    case solutionFinder = "Solution Finder"
-    case productLibrary = "Products"
-    case caseStudies = "Case Studies"
-    case customSolutions = "Custom"
-    case about = "About"
+    case solutionFinder  = "Solution Finder"
+    case productLibrary  = "Products"
+    case caseStudies     = "Case Studies"
+    case addons          = "Add-ons"
+    case customSolutions = "Enquire"
+    case about           = "About"
 
     var icon: String {
         switch self {
         case .solutionFinder:  return "magnifyingglass"
         case .productLibrary:  return "square.grid.2x2"
         case .caseStudies:     return "doc.text"
-        case .customSolutions: return "slider.horizontal.3"
+        case .addons:          return "wrench.and.screwdriver.fill"
+        case .customSolutions: return "envelope"
         case .about:           return "info.circle"
         }
     }

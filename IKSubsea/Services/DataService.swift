@@ -7,6 +7,7 @@ final class DataService {
     var products: [Product] = []
     var problemCategories: [ProblemCategory] = []
     var caseStudies: [CaseStudy] = []
+    var addons: [Addon] = []
     var isLoaded = false
 
     init() {
@@ -17,6 +18,7 @@ final class DataService {
         products = loadJSON(filename: "products", type: ProductLibrary.self)?.products ?? []
         problemCategories = loadJSON(filename: "problemCategories", type: ProblemCategoryLibrary.self)?.categories ?? []
         caseStudies = loadJSON(filename: "caseStudies", type: CaseStudyLibrary.self)?.caseStudies ?? []
+        addons = loadJSON(filename: "addons", type: AddonLibrary.self)?.addons ?? []
         isLoaded = true
     }
 
@@ -53,5 +55,23 @@ final class DataService {
 
     func products(in domain: ProductDomain) -> [Product] {
         products.filter { $0.domain == domain }
+    }
+
+    func addon(id: UUID) -> Addon? {
+        addons.first { $0.id == id }
+    }
+
+    func addons(for product: Product) -> [Addon] {
+        let productTags = Set(product.problemTags)
+        return addons
+            .filter { addon in
+                let addonTags = Set(addon.compatibleProductTags)
+                return !addonTags.intersection(productTags).isEmpty
+            }
+            .sorted { $0.isEmergencyStock && !$1.isEmergencyStock }
+    }
+
+    func addons(in category: AddonCategory) -> [Addon] {
+        addons.filter { $0.category == category }
     }
 }
