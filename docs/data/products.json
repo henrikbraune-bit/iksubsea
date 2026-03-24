@@ -1,0 +1,424 @@
+{
+  "products": [
+    {
+      "id": "11111111-0001-0001-0001-000000000001",
+      "name": "Compact Sealing Clamp",
+      "shortDescription": "Seals pipeline leaks, cracks, and weld defects via 360-degree compression packer. ROV or diver deployed.",
+      "fullDescription": "The Compact Sealing Clamp is designed to seal off damaged or leaking sections of subsea pipelines through remote ROV installation. The clamp employs a 360-degree compression packer that envelops the entire damage location and adjacent pipe surfaces, with all installation functions operated hydraulically through male-female hot stab-receptacle ports. It reinstates original pressure-holding properties either as a long-term permanent solution (25 years) or temporary remedial measure. Zero failures recorded over 10+ years of operation.",
+      "domain": "repair",
+      "problemTags": ["pipeline-leak", "weld-defect", "pinhole", "crack", "sour-service", "tight-access", "ultra-deepwater"],
+      "specs": [
+        {"label": "Size Range", "value": "4\" to 32\""},
+        {"label": "Max Pressure", "value": "600 bar"},
+        {"label": "Design Standard", "value": "DNVGL-RP-F113"},
+        {"label": "Design Life", "value": "25 years"},
+        {"label": "Water Depth", "value": "Unlimited"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved", "DNVGL-RP-F113"],
+      "relatedCaseStudyIds": [
+        "33333333-0004-0004-0004-000000000004",
+        "33333333-0005-0005-0005-000000000005"
+      ],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0002-0002-0002-000000000002",
+      "name": "Compact Integrity Clamp",
+      "shortDescription": "Restores both structural integrity and sealing for damaged pipeline sections simultaneously.",
+      "fullDescription": "IK Subsea's Compact Integrity Clamp is the flagship product for pipeline sections requiring simultaneous structural reinforcement and sealing. Unlike a sealing-only clamp, it provides axial load support through slips on both sides of the central compression packer, making it suitable for structurally compromised sections. Installed remotely by ROV through hydraulic hot-stab ports. Suitable for permanent 25-year operation or temporary remedial use.",
+      "domain": "repair",
+      "problemTags": ["pipeline-leak", "crack", "pipeline-structural-failure", "structural-damage", "weld-defect", "ultra-deepwater"],
+      "specs": [
+        {"label": "Size Range", "value": "4\" to 32\""},
+        {"label": "Max Pressure", "value": "600 bar"},
+        {"label": "Design Standard", "value": "DNVGL-RP-F113"},
+        {"label": "Design Life", "value": "25 years"},
+        {"label": "Water Depth", "value": "Unlimited"},
+        {"label": "Structural Support", "value": "Axial load slips both sides"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved", "DNVGL-RP-F113"],
+      "relatedCaseStudyIds": [
+        "33333333-0004-0004-0004-000000000004"
+      ],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0003-0003-0003-000000000003",
+      "name": "Emergency Pipeline Repair System (EPRS)",
+      "shortDescription": "Modular emergency repair system for large-bore pipelines. Rated to 3,000m depth, 431 bar, 20-year service life.",
+      "fullDescription": "The EPRS is IK Subsea's state-of-the-art solution for subsea pipeline emergencies across multiple water depths. Its modular design separates the sealing and structural components, allowing targeted deployment based on damage assessment. Covers 16-inch, 18-inch, and 24-inch pipelines from a single installation tool. A dedicated all-remote installation system handles all sizes in horizontal and vertical orientations. IK Subsea can also manufacture EPRS variants with PTFE compression packers for severe sour (H2S) service applications, as delivered for Shell Qatar.",
+      "domain": "repair",
+      "problemTags": ["pipeline-emergency", "large-bore-leak", "pipeline-leak", "sour-service", "ultra-deepwater", "emergency", "crack"],
+      "specs": [
+        {"label": "Pipeline Sizes", "value": "16\", 18\", 24\""},
+        {"label": "Max Operating Pressure", "value": "431 bar"},
+        {"label": "Design Water Depth", "value": "3,000m"},
+        {"label": "Service Life", "value": "20 years"},
+        {"label": "Barrier", "value": "Double barrier with test port"},
+        {"label": "Standards", "value": "DNVGL-RP-F113, DNVGL-ST-F101"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": 3000,
+      "certifications": ["DNV Type Approved", "DNVGL-RP-F113", "DNVGL-ST-F101"],
+      "relatedCaseStudyIds": [
+        "33333333-0002-0002-0002-000000000002",
+        "33333333-0003-0003-0003-000000000003"
+      ],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0004-0004-0004-000000000004",
+      "name": "Epoxy Injection Repair Clamp",
+      "shortDescription": "Seals leaking flanges, pipe penetrations, and failed gaskets using sealant injection.",
+      "fullDescription": "A comprehensive system for subsea epoxy injection and repair. The product encompasses injection ports, separate vents, and sealant delivery mechanisms tailored to specific applications. Available in three variants: compact integrity clamps, structural sealing clamps, and flange sealing clamps. Sealant first ensures free flow through all paths before effecting a tight seal around failed gaskets or pipe penetration leaks. Multiple resin options available for different pressure and temperature requirements.",
+      "domain": "repair",
+      "problemTags": ["gasket-failure", "pipe-penetration-leak", "flange-leak", "pinhole", "pipeline-leak"],
+      "specs": [
+        {"label": "Variants", "value": "Compact, Structural, Flange"},
+        {"label": "Sealant", "value": "Multiple resin options"},
+        {"label": "Injection", "value": "Subsea or topside mixing"},
+        {"label": "Installation", "value": "Around existing flange stud-bolts"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0005-0005-0005-000000000005",
+      "name": "Flange Sealing Clamp",
+      "shortDescription": "Hydraulically seals leaking flange connections subsea with optional sealant injection.",
+      "fullDescription": "A hydraulically-operated clamp designed to seal leaking flange connections on subsea installations. The device features integrated torque units and can be deployed with or without sealant injection capability, depending on pressure requirements. Compatible with all bolted flanges to API and ANSI standards. All functions controlled through ROV hot-stab ports.",
+      "domain": "repair",
+      "problemTags": ["flange-leak", "connector-failure", "gasket-failure"],
+      "specs": [
+        {"label": "Size Range", "value": "4\" to 24\" (custom available)"},
+        {"label": "Sealing", "value": "Compressed rubber + optional sealant injection"},
+        {"label": "Standards", "value": "API, ANSI bolted flanges"},
+        {"label": "Water Depth", "value": "Any depth"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0006-0006-0006-000000000006",
+      "name": "Scissor Clamp",
+      "shortDescription": "Hydraulic patch clamp for tight-access pipeline repairs. Aluminium option for lightweight deployment.",
+      "fullDescription": "The Scissor Clamp is a hydraulically-operated subsea pipeline repair tool that applies a compressed rubber seal directly to the damage site. Features an integrated, removable torque unit for simplified ROV or diver installation. Suitable for pipelines of any diameter and rated to 600 bar. Available in an aluminium version for reduced weight in deployment-constrained scenarios. Used in Brazil for a 4-inch flexible flowline repair.",
+      "domain": "repair",
+      "problemTags": ["pipeline-leak", "tight-access", "pinhole", "crack", "flexible-damage", "weld-defect"],
+      "specs": [
+        {"label": "Size Range", "value": "Any size (custom)"},
+        {"label": "Max Pressure", "value": "600 bar"},
+        {"label": "Material Option", "value": "Aluminium (lightweight)"},
+        {"label": "Coating Option", "value": "Norsok M-501"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [
+        "33333333-0006-0006-0006-000000000006"
+      ],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0007-0007-0007-000000000007",
+      "name": "8-Inch Repair Clamp",
+      "shortDescription": "Dedicated repair clamp for 8-inch pipelines at bend locations. 25-year design life.",
+      "fullDescription": "Specifically designed, tested, and manufactured for 8-inch pipeline repair at bend locations. Physically locks the clamp and pipeline together to prevent movement-induced deformation at sealing points. Designed for sweet gas pipelines in shallow water diver-installed environments. 25-year design life.",
+      "domain": "repair",
+      "problemTags": ["pipeline-leak", "bend-location-damage", "shallow-water"],
+      "specs": [
+        {"label": "Diameter", "value": "8\""},
+        {"label": "Design Pressure", "value": "99 bar"},
+        {"label": "Water Depth Rating", "value": "40m"},
+        {"label": "Seal Material", "value": "HNBR elastomer"},
+        {"label": "Operating Temperature", "value": "4\u00b0C to 50\u00b0C"},
+        {"label": "Design Life", "value": "25 years"}
+      ],
+      "installationMethods": ["diver"],
+      "maxDepthMeters": 40,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0008-0008-0008-000000000008",
+      "name": "Custom Clamps",
+      "shortDescription": "Bespoke repair clamps engineered to any specification. 2-week emergency delivery capability.",
+      "fullDescription": "IK Subsea manufactures custom repair clamps for non-standard sizes, unusual configurations, or unique service conditions that fall outside the standard product range. Leveraging 39 years of ETO engineering heritage, the team can design, manufacture, and test a custom clamp in as little as two weeks for emergency situations. This includes exotic materials for sour service, custom pressure ratings, and non-standard pipe schedules.",
+      "domain": "repair",
+      "problemTags": ["bespoke-repair", "emergency", "non-standard-size", "pipeline-leak", "sour-service", "ultra-deepwater"],
+      "specs": [
+        {"label": "Size Range", "value": "Any specification"},
+        {"label": "Emergency Lead Time", "value": "2 weeks"},
+        {"label": "Pressure", "value": "Any rated pressure"},
+        {"label": "Material", "value": "Standard or exotic per application"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": true
+    },
+    {
+      "id": "11111111-0009-0009-0009-000000000009",
+      "name": "Internal Compression Plugs",
+      "shortDescription": "Pipeline and cavity isolation plugs for any depth. Temporary or permanent, mechanical or hydraulic.",
+      "fullDescription": "IK Subsea's internal compression plugs provide complete line isolation for subsea infrastructure via compressed rubber seals. Available in single or dual barrier configurations with test and flushing ports. Suitable for pipelines, flowlines, flanges, hubs, risers, sea chest openings, and vessel penetrations. Applicable for temporary isolation during maintenance or permanent abandonment during decommissioning. Setting methods: mechanical or hydraulic.",
+      "domain": "isolation",
+      "problemTags": ["pipeline-isolation", "decommissioning", "valve-isolation", "well-abandonment", "temporary-isolation", "ultra-deepwater"],
+      "specs": [
+        {"label": "Pipe Dimensions", "value": "1/2\" to 36\""},
+        {"label": "Max Design Pressure", "value": "600 bar"},
+        {"label": "Water Depth", "value": "Unlimited"},
+        {"label": "Barrier Options", "value": "Single or dual with test ports"},
+        {"label": "Materials", "value": "Plastic, steel, aluminium"},
+        {"label": "Setting Method", "value": "Mechanical or hydraulic"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0010-0010-0010-000000000010",
+      "name": "Plug Recovery Tool",
+      "shortDescription": "Retrieval tool for set isolation plugs. Works with IK Subsea plug range.",
+      "fullDescription": "A purpose-designed subsea tool for retrieving set internal compression plugs. Pairs with the IK Subsea plug range to allow controlled removal of temporary or permanent isolation plugs installed in pipelines, flanges, and other subsea cavities. Operated by ROV or diver.",
+      "domain": "isolation",
+      "problemTags": ["plug-retrieval", "stuck-plug", "pipeline-isolation"],
+      "specs": [
+        {"label": "Compatibility", "value": "IK Subsea plug range"},
+        {"label": "Installation", "value": "ROV or diver"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0011-0011-0011-000000000011",
+      "name": "Angel\u00ae\u00a9 Multipurpose Lifting System",
+      "shortDescription": "Multipurpose subsea lifting platform for flexibles, umbilicals, cables, and rigid pipes. 1-150 Te, 50-500mm OD.",
+      "fullDescription": "Angel is IK Subsea's flagship lifting system, launched in February 2025. It is a unique multipurpose platform designed for safe lifting of delicate flexibles without jeopardising pipeline integrity. The 360-degree mechanical load transfer mechanism handles internal friction and external pressure conditions across the full range of flexible product types. Adaptable running interfaces and standard ROV compatibility mean no specialist crew is required. Suitable for installation, intervention, and decommissioning across all water depths.",
+      "domain": "lifting",
+      "problemTags": ["flexible-lifting", "riser-recovery", "umbilical-handling", "decommissioning", "cable-recovery", "pipeline-installation", "ultra-deepwater"],
+      "specs": [
+        {"label": "Pipe / Cable OD", "value": "50mm to 500mm (expandable)"},
+        {"label": "Lifting Capacity", "value": "1 Te to 150 Te (expandable)"},
+        {"label": "Lifting Angles", "value": "90\u00b0 to 0\u00b0"},
+        {"label": "Load Transfer", "value": "360\u00b0 mechanical"},
+        {"label": "ROV Interface", "value": "Class 4 & 5 torque tools"},
+        {"label": "Setting", "value": "Hydraulic with mechanical securing"},
+        {"label": "Design Standard", "value": "DNV RP H201:2014"},
+        {"label": "Water Depth", "value": "Unlimited"}
+      ],
+      "installationMethods": ["rov"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved", "DNV RP H201:2014", "DNVGL-ST N001"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false,
+      "imageName": "AngelHero",
+      "brochureFileName": "angel-brochure"
+    },
+    {
+      "id": "11111111-0012-0012-0012-000000000012",
+      "name": "Lifting & Handling Clamp",
+      "shortDescription": "Universal ROV-operated lifting clamp for pipelines, risers, umbilicals, and cables of any size.",
+      "fullDescription": "A remotely operated subsea lifting device designed for pipelines, risers, flowlines, umbilicals, and cables. Uses teethed slips or friction pads for secure connection and is fully activated and controlled via ROV. Suitable for installation, decommissioning, and replacement operations at any water depth. Can operate on both rigid pipes, flexibles, umbilicals, and cables.",
+      "domain": "lifting",
+      "problemTags": ["subsea-lifting", "decommissioning", "installation", "umbilical-handling", "cable-recovery", "pipeline-installation"],
+      "specs": [
+        {"label": "Size Range", "value": "Any size"},
+        {"label": "Load Capacity", "value": "Per product being lifted"},
+        {"label": "Water Depth", "value": "Any depth"},
+        {"label": "Operation", "value": "Fully remote ROV"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0013-0013-0013-000000000013",
+      "name": "Flexible Lifting & Cable Recovery Tool",
+      "shortDescription": "Specialist lifting tool for flexible cables and pipes. 0-100 Te, 50-500mm, designed to DNV RP H201.",
+      "fullDescription": "A subsea lifting and handling device specifically designed for flexible cables and similar subsea equipment. Enables rapid deployment and secure clamping of cables in underwater environments across various water depths. Accommodates multiple lifting angles from 90 to 0 degrees without requiring specialist supervision. Handles internal friction and external pressure conditions inherent to flexible products.",
+      "domain": "lifting",
+      "problemTags": ["cable-recovery", "flexible-lifting", "decommissioning", "umbilical-handling"],
+      "specs": [
+        {"label": "Cable OD Range", "value": "50mm to 500mm (extendable)"},
+        {"label": "Lifting Capacity", "value": "0 Te to 100 Te (extendable)"},
+        {"label": "Max Clamping Pressure", "value": "6 MPa (60 bar)"},
+        {"label": "Clamp Capacity", "value": "150 Te"},
+        {"label": "Lifting Angles", "value": "90\u00b0 to 0\u00b0"},
+        {"label": "Design Standard", "value": "DNV RP H201:2014"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved", "DNV RP H201:2014"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0014-0014-0014-000000000014",
+      "name": "Hold Back & Hang-Off Clamp",
+      "shortDescription": "Remote hold-back and hang-off clamp for pipelines, risers, and umbilicals during maintenance operations.",
+      "fullDescription": "Remote-operated clamps designed for temporary or permanent subsea hold-back and hang-off applications. Maintains physical connection to products using teethed slips or friction pads and is fully controlled via ROV. Suitable for deepwater pipeline repairs, riser management, flowline maintenance, and subsea infrastructure support across varying water depths.",
+      "domain": "lifting",
+      "problemTags": ["pipeline-holdback", "hang-off", "deepwater-support", "decommissioning", "installation"],
+      "specs": [
+        {"label": "Size Range", "value": "Any size"},
+        {"label": "Operation", "value": "Fully remote ROV"},
+        {"label": "Water Depth", "value": "Any depth"},
+        {"label": "Products", "value": "Rigid pipes, flexibles, umbilicals, cables"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0015-0015-0015-000000000015",
+      "name": "Miller\u00ae\u00a9 Coating Removal & Milling Tool",
+      "shortDescription": "ROV-mounted tools for 3LPP/5LPP coating removal, weld seam milling, and pipe surface preparation.",
+      "fullDescription": "Subsea coating removal and milling tools designed for ROV deployment. Used for removing 3LPP and 5LPP coatings to expose bare pipe for clamp sealing, weld seam milling to create a flat sealing surface, pipe bevelling for welding preparation, and general surface preparation for structural integrity inspections. Deployed ahead of sealing clamp installation.",
+      "domain": "tooling",
+      "problemTags": ["surface-prep", "3LPP-removal", "weld-prep", "decommissioning", "pipeline-leak"],
+      "specs": [
+        {"label": "Operation", "value": "ROV-mounted"},
+        {"label": "Applications", "value": "3LPP/5LPP removal, weld milling, bevelling"}
+      ],
+      "installationMethods": ["rov"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [
+        "33333333-0004-0004-0004-000000000004"
+      ],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0016-0016-0016-000000000016",
+      "name": "Cutters",
+      "shortDescription": "Subsea wire and structural member cutting tools for ROV or diver deployment.",
+      "fullDescription": "Subsea cutting tools for wire, structural members, and pipeline decommissioning operations. Deployed via ROV or diver. Used in decommissioning operations to cut structural members, wire rope, and other subsea components prior to removal. Custom-designed to match the structural profiles and material specifications of each project.",
+      "domain": "tooling",
+      "problemTags": ["structural-cutting", "wire-cutting", "decommissioning"],
+      "specs": [
+        {"label": "Operation", "value": "ROV or diver"},
+        {"label": "Applications", "value": "Wire, structural members, pipelines"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0017-0017-0017-000000000017",
+      "name": "Light ROV Workover Control System",
+      "shortDescription": "24VDC ROV workover control system for subsea intervention operations. RS485 communications.",
+      "fullDescription": "A lightweight ROV workover control system operating on 24VDC with RS485 serial communications. Designed for subsea intervention operations where a full hydraulic control system is impractical. Enables precise control of tooling functions from the ROV without specialist topside control infrastructure.",
+      "domain": "tooling",
+      "problemTags": ["ROV-control", "subsea-ops", "intervention"],
+      "specs": [
+        {"label": "Power", "value": "24VDC"},
+        {"label": "Communications", "value": "RS485"},
+        {"label": "Type", "value": "Lightweight workover control"}
+      ],
+      "installationMethods": ["rov"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0018-0018-0018-000000000018",
+      "name": "Anode Clamp",
+      "shortDescription": "Spring-concept anode clamp with self-penetrating conductor for cathodic protection retrofit.",
+      "fullDescription": "A subsea anode installation clamp employing a spring-concept where the clamp itself provides the connection force. Features a self-penetrating conductor for immediate electrical conductance without separate connection steps. Can be delivered with integrated anodes or configured as a cable connector for external retrofit anode banks. Designed to provide long-term reliable conductivity with minimal installation effort. Suitable for ROV or diver installation.",
+      "domain": "structural",
+      "problemTags": ["cathodic-protection", "anode-retrofit", "corrosion", "structural-integrity"],
+      "specs": [
+        {"label": "Concept", "value": "Spring-loaded self-penetrating conductor"},
+        {"label": "Conductivity", "value": "High, long-term reliable"},
+        {"label": "Delivery", "value": "With integrated anodes or as connector"},
+        {"label": "Installation", "value": "ROV or diver"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0019-0019-0019-000000000019",
+      "name": "Anode Bank",
+      "shortDescription": "External retrofit anode bank for large structure cathodic protection. Connected via anode clamp cables.",
+      "fullDescription": "An external retrofit anode bank system for subsea structures requiring cathodic protection restoration on large structures such as platform jackets, pipeline spans, and manifolds. Connected to the structure via the IK Subsea anode clamp cable connector system. Custom-designed to the specific structure dimensions and protection requirements.",
+      "domain": "structural",
+      "problemTags": ["cathodic-protection", "large-structure", "corrosion", "structural-integrity"],
+      "specs": [
+        {"label": "Application", "value": "Jackets, pipelines, manifolds"},
+        {"label": "Connection", "value": "Via anode clamp cable system"},
+        {"label": "Design", "value": "Custom per structure"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0020-0020-0020-000000000020",
+      "name": "Protection & Reinforcement Structures",
+      "shortDescription": "Custom subsea protection frames, support bracings, and reinforcement structures. NORSOK compliant.",
+      "fullDescription": "IK Subsea provides comprehensive custom solutions for modification, repair, reinforcement, and protection of subsea systems. The portfolio includes protection structures, support bracings, stays, and custom frameworks. All designs follow NORSOK standards and are developed using state-of-the-art analysis tools. The engineering team applies a risk-based approach, ranging from existing technology to fully bespoke designs with complete engineering, testing, and installation support.",
+      "domain": "structural",
+      "problemTags": ["platform-repair", "jacket-damage", "structural-support", "structural-damage", "structural-reinforcement"],
+      "specs": [
+        {"label": "Standards", "value": "NORSOK"},
+        {"label": "Water Depth", "value": "All depths"},
+        {"label": "Applications", "value": "Jackets, pipeline protection, spool support"},
+        {"label": "Design Approach", "value": "Risk-based engineering"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved", "NORSOK"],
+      "relatedCaseStudyIds": [
+        "33333333-0007-0007-0007-000000000007"
+      ],
+      "isEmergencyCapable": false
+    },
+    {
+      "id": "11111111-0021-0021-0021-000000000021",
+      "name": "Grout Injection Units",
+      "shortDescription": "Subsea grout delivery systems for structural grouting and annulus fill applications.",
+      "fullDescription": "Subsea grout injection units for delivering structural grout to jacket annuli, pipeline supports, and subsea structures requiring grouted connections or void filling. Custom-designed to match the specific grout viscosity requirements and injection volume of each application.",
+      "domain": "tooling",
+      "problemTags": ["structural-grouting", "annulus-fill", "structural-repair", "platform-repair"],
+      "specs": [
+        {"label": "Application", "value": "Jacket annuli, pipeline supports"},
+        {"label": "Design", "value": "Custom per application"}
+      ],
+      "installationMethods": ["both"],
+      "maxDepthMeters": null,
+      "certifications": ["DNV Type Approved"],
+      "relatedCaseStudyIds": [],
+      "isEmergencyCapable": false
+    }
+  ]
+}

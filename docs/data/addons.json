@@ -1,0 +1,511 @@
+{
+  "addons": [
+
+    {
+      "id": "44444444-0001-0001-0001-000000000001",
+      "name": "ROV Hydraulic Torque Tool — 1,000 Nm",
+      "shortDescription": "Light-duty ROV torque tool for clamp bolt make-up and valve actuation to 1,000 Nm. 3/4\" drive.",
+      "fullDescription": "A compact light-duty ROV torque tool for valve actuation, small-bore connector make-up, and clamp bolt tightening up to 1,000 Nm. Interfaces with the ROV torque bucket via a 3/4\" API square drive and takes hydraulic supply from the ROV's on-board system. Closed-loop load cell feedback provides accurate torque control with real-time readout to the ROV pilot. Compatible with all major work-class ROV platforms. The standard tool for IK Subsea clamp and isolation installations on pipelines up to 12\" OD where bolt make-up loads fall within the 1,000 Nm range.",
+      "category": "torque_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Max Torque", "value": "1,000 Nm"},
+        {"label": "Drive Interface", "value": "3/4\" API Square Drive"},
+        {"label": "Hydraulic Input", "value": "207 bar / 20 lpm"},
+        {"label": "Torque Feedback", "value": "Closed-loop load cell"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Weight in Water", "value": "18 kg"}
+      ],
+      "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["pipeline-leak", "flange-leak", "connector-failure", "pipeline-isolation"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0002-0002-0002-000000000002",
+      "name": "ROV Hydraulic Torque Tool — 4,000 Nm",
+      "shortDescription": "Medium-duty ROV torque tool for large clamp bolt make-up and valve operations, 1,000–4,000 Nm. 1\" drive.",
+      "fullDescription": "A medium-duty ROV torque tool for higher-load clamp bolt make-up, large bore valve actuation, and subsea connector operations in the 1,000–4,000 Nm range. Interfaces with the ROV torque bucket via a 1\" API square drive. Closed-loop load cell feedback with surface digital readout allows accurate torque application and verification logging. Compatible with all major work-class ROV platforms. Suited for IK Subsea repair and integrity clamp installations on larger bore pipelines (12\"–32\" OD) and for any operation where the 1,000 Nm light-duty tool is insufficient.",
+      "category": "torque_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Torque Range", "value": "1,000 – 4,000 Nm"},
+        {"label": "Drive Interface", "value": "1\" API Square Drive"},
+        {"label": "Hydraulic Input", "value": "207 bar / 35 lpm"},
+        {"label": "Torque Feedback", "value": "Closed-loop load cell"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Weight in Water", "value": "24 kg"}
+      ],
+      "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["pipeline-leak", "structural-damage", "connector-failure", "pipeline-structural-failure", "flange-leak", "pipeline-isolation"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0003-0003-0003-000000000003",
+      "name": "Diver Hydraulic Torque Tool Pack",
+      "shortDescription": "Complete diver-operated torque tool set, 100–5,000 Nm range. IMCA D 018 compliant.",
+      "fullDescription": "A complete hydraulic diver torque tool pack covering bolt make-up from 100 Nm to 5,000 Nm. The pack includes a 3/4\" drive torque wrench (100–1,500 Nm), a 1\" drive torque wrench (500–5,000 Nm), reaction bars, and a comprehensive socket set from 17mm to 75mm. Supplied with a 50m twin-line hydraulic umbilical on a stainless steel reel and a 4-way distribution manifold. Pressure-tested to 1.5× working pressure before mobilisation. IMCA D 018 compliant with calibration certificate included. Compatible with any standard dive support vessel (DSV) HPU at 175–210 bar.",
+      "category": "torque_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Campaign rate",
+      "depthRatingMeters": 600,
+      "specs": [
+        {"label": "Torque Range", "value": "100 – 5,000 Nm"},
+        {"label": "Drive Sizes", "value": "3/4\" and 1\" square drive"},
+        {"label": "Socket Set", "value": "17mm – 75mm hex"},
+        {"label": "Umbilical", "value": "50m twin-line, 350 bar rated"},
+        {"label": "Supply Pressure", "value": "175 – 210 bar"},
+        {"label": "Working Depth", "value": "600m (saturation)"}
+      ],
+      "standards": ["IMCA D 018", "IMCA D 024"],
+      "compatibleProductTags": ["pipeline-leak", "flange-leak", "structural-damage", "pipeline-isolation"],
+      "installationMethods": ["diver"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0004-0004-0004-000000000004",
+      "name": "Clamp Installation Frame — 4\" to 16\"",
+      "shortDescription": "Purpose-built ROV/diver deployment frame for pipeline repair clamps on 4\" to 16\" OD pipe.",
+      "fullDescription": "An alignment and deployment frame designed to hold IK Subsea repair or integrity clamps in the correct orientation for guided installation onto damaged pipeline sections. The frame features stainless steel guide cones accepting up to ±40mm lateral misalignment, pre-loaded centralising arms, and integrated ROV hot-stab receptacles for hydraulic actuation. DNV-certified lifting points rated to 5T SWL allow crane or A-frame deployment from a vessel. Fabricated in 6Mo stainless steel with full CP anode protection for extended subsea exposure. Compatible with Compact Sealing Clamp, Compact Integrity Clamp, and Flange Encapsulation Sleeve.",
+      "category": "frames",
+      "availability": "both",
+      "typicalRentalDuration": "Per project / Per campaign",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Pipeline OD Range", "value": "4\" to 16\""},
+        {"label": "Lateral Misalignment", "value": "±40mm"},
+        {"label": "SWL (lifting points)", "value": "5T DNV Certified"},
+        {"label": "Material", "value": "6Mo Stainless Steel"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Hydraulic Interface", "value": "ISO 13628-8 Hot Stab"}
+      ],
+      "standards": ["DNVGL-RP-F113", "ISO 13628-8", "DNV 2.7-1"],
+      "compatibleProductTags": ["pipeline-leak", "crack", "weld-defect", "pipeline-structural-failure"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0005-0005-0005-000000000005",
+      "name": "Clamp Installation Frame — 18\" to 32\"",
+      "shortDescription": "Heavy-duty ROV deployment frame for large bore pipeline clamps on 18\" to 32\" OD pipe.",
+      "fullDescription": "Heavy-duty installation frame for large-bore pipeline repair operations. Designed for use with IK Subsea clamp products in the 18\" to 32\" nominal bore range, including offshore export and trunkline diameters. Incorporates a hydraulic centralising mechanism operated through a single ROV hot stab that auto-adjusts centraliser arm spacing to the detected pipeline OD. Dual-lift arrangement with 10T SWL certified lifting points allows tandem lift from a crane or A-frame. All steel contact surfaces are NORSOK M-501 epoxy coated to prevent galvanic corrosion.",
+      "category": "frames",
+      "availability": "both",
+      "typicalRentalDuration": "Per project / Per campaign",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Pipeline OD Range", "value": "18\" to 32\""},
+        {"label": "SWL (lifting points)", "value": "10T DNV Certified"},
+        {"label": "Centralising", "value": "Hydraulic auto-adjust"},
+        {"label": "Material", "value": "Carbon steel, NORSOK M-501"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Hydraulic Interface", "value": "ISO 13628-8 Hot Stab"}
+      ],
+      "standards": ["DNVGL-RP-F113", "ISO 13628-8", "DNV 2.7-1"],
+      "compatibleProductTags": ["pipeline-leak", "crack", "pipeline-structural-failure", "structural-damage"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0006-0006-0006-000000000006",
+      "name": "ROV Hot Stab Panel Skid",
+      "shortDescription": "24-function subsea hot stab panel skid for ROV hydraulic distribution. ISO 13628-8 Type A/B.",
+      "fullDescription": "A stainless steel skid-mounted hot stab panel providing 24 individual ISO 13628-8 Type A and Type B receptacles, all internally manifolded to a central hydraulic distribution block. Each circuit is individually isolatable via a needle valve, with pressure gauge tapping and label plates. The skid is designed for seabed deployment near the worksite, with the ROV connecting and disconnecting as required. Retractable stab dummies protect all receptacles when not in use. All hydraulic components are 316L stainless steel rated to 345 bar. Depth rated to 4,000m with HDPE buoyancy blocks for neutral deployment.",
+      "category": "rov_skids",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
+      "depthRatingMeters": 4000,
+      "specs": [
+        {"label": "Hot Stab Circuits", "value": "24 (Type A and B)"},
+        {"label": "Working Pressure", "value": "345 bar"},
+        {"label": "Material", "value": "316L Stainless Steel"},
+        {"label": "Depth Rating", "value": "4,000m"},
+        {"label": "Footprint", "value": "1.2m × 0.8m"},
+        {"label": "Weight in Water", "value": "~60 kg (buoyancy fitted)"}
+      ],
+      "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-isolation", "flange-leak", "connector-failure"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0007-0007-0007-000000000007",
+      "name": "ROV Compact Intervention Skid",
+      "shortDescription": "All-in-one ROV tooling skid: valve pack, hot stab panel, and tool storage. 8-circuit, 3,000m rated.",
+      "fullDescription": "A compact, fully self-contained ROV tooling skid combining an 8-circuit directional control valve pack, a 12-function hot stab panel, and a tool storage cradle in a single 316L stainless steel frame. The internal valve pack allows the ROV pilot to select and operate any of 8 independent hydraulic circuits from a single HPU supply connection. The hot stab panel provides 12 external receptacles for connection to subsea equipment. The tool cradle accommodates up to 3 standard ROV tooling modules. Depth-rated to 3,000m. Fully buoyancy compensated for near-neutral deployment from crane or A-frame.",
+      "category": "rov_skids",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Week rate / Mob-Demob",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Hydraulic Circuits", "value": "8 DCV circuits"},
+        {"label": "Hot Stab Functions", "value": "12 (ISO 13628-8)"},
+        {"label": "Working Pressure", "value": "207 bar"},
+        {"label": "Material", "value": "316L Stainless Steel"},
+        {"label": "Depth Rating", "value": "3,000m"},
+        {"label": "Footprint", "value": "1.6m × 1.0m × 1.2m"}
+      ],
+      "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-isolation", "structural-damage", "connector-failure"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0008-0008-0008-000000000008",
+      "name": "ROV 8-Function Valve Pack",
+      "shortDescription": "8-circuit subsea directional control valve pack for ROV-operated hydraulic distribution. 207 bar.",
+      "fullDescription": "A subsea hydraulic valve pack providing 8 independent directional control circuits (4/3 centre-closed) from a single ROV hydraulic supply input. Each circuit is operated by a rotating ROV torque bucket cam valve — no electronics required. A pressure gauge on the supply manifold and individual circuit pressure tappings allow monitoring of actuator loads. Mounted in a compact 316L stainless steel frame with DNV-certified lifting sling points. Typically integrated into an ROV skid or deployed independently as a junction box to distribute hydraulic power to multiple subsea tools or actuators simultaneously.",
+      "category": "valve_packs",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Week rate",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Circuits", "value": "8 × 4/3 directional control"},
+        {"label": "Working Pressure", "value": "207 bar"},
+        {"label": "Flow per Circuit", "value": "Up to 40 lpm"},
+        {"label": "Actuation", "value": "ROV torque bucket cam"},
+        {"label": "Material", "value": "316L Stainless Steel"},
+        {"label": "Depth Rating", "value": "3,000m"}
+      ],
+      "standards": ["ISO 13628-8"],
+      "compatibleProductTags": ["pipeline-isolation", "pipeline-leak", "connector-failure"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0009-0009-0009-000000000009",
+      "name": "Topside Hydraulic Power Unit (HPU) — 207 bar",
+      "shortDescription": "ATEX Zone 2 deck-mounted HPU, 207 bar / 60 lpm. Supplies diver tools or ROV umbilical.",
+      "fullDescription": "A compact, skid-mounted topside hydraulic power unit designed for vessel deck installation in ATEX Zone 2 environments. Provides a clean, filtered hydraulic supply at 207 bar (3,000 psi) and up to 60 lpm for powering diver hydraulic tool packs via umbilical reel or for supplying an ROV tooling umbilical. The unit includes a 200-litre reservoir (Shell Tellus S2 V 46 compatible), dual-element 10-micron return filter, pressure relief valve, pressure gauge, and accumulator bank for surge management. Electric motor drive (30 kW, 440V 3-phase 50/60 Hz). CE marked, ATEX II 2G certified. DNV 2.7-1 offshore container certified for crane lifts.",
+      "category": "valve_packs",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Week rate / Monthly rate",
+      "depthRatingMeters": null,
+      "specs": [
+        {"label": "Output Pressure", "value": "207 bar (3,000 psi)"},
+        {"label": "Flow Rate", "value": "60 lpm"},
+        {"label": "Reservoir", "value": "200 litres"},
+        {"label": "Motor Power", "value": "30 kW, 440V 3-phase"},
+        {"label": "Certification", "value": "ATEX II 2G, CE, DNV 2.7-1"},
+        {"label": "Weight", "value": "850 kg"}
+      ],
+      "standards": ["DNV 2.7-1", "ATEX II 2G", "ISO 4413"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-isolation", "flange-leak", "structural-damage"],
+      "installationMethods": ["diver", "rov"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0010-0010-0010-000000000010",
+      "name": "Diver Hydraulic Tool Pack — Standard",
+      "shortDescription": "Full diver tool pack: impact wrench, grinder, drill, saw, needle gun + 50m umbilical reel. IMCA compliant.",
+      "fullDescription": "A complete, ready-to-mobilise diver hydraulic tool pack covering the full range of subsea maintenance and installation tasks. Contents include: 3/4\" hydraulic impact wrench (2,200 Nm), 1\" hydraulic impact wrench (3,500 Nm), angle grinder (115mm), core drill, reciprocating saw, needle gun scaler, and a 6-way hydraulic distribution manifold. Supplied on a 50m twin-line 1/2\" BSP hose reel with hydraulic swivel. All tools individually pressure-tested and shipped with calibration records. IMCA D 018 and D 024 compliant. Compatible with standard DSV HPU output (175–210 bar, 30–50 lpm). Includes diver-friendly quick-release tool change fittings.",
+      "category": "diver_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Campaign rate / Per dive",
+      "depthRatingMeters": 600,
+      "specs": [
+        {"label": "Impact Wrench", "value": "3,500 Nm (1\" drive)"},
+        {"label": "Angle Grinder", "value": "115mm disc"},
+        {"label": "Hose Reel", "value": "50m, 1/2\" twin-line"},
+        {"label": "Supply Pressure", "value": "175 – 210 bar"},
+        {"label": "Working Depth", "value": "600m (saturation)"},
+        {"label": "Distribution", "value": "6-way manifold"}
+      ],
+      "standards": ["IMCA D 018", "IMCA D 024"],
+      "compatibleProductTags": ["pipeline-leak", "flange-leak", "structural-damage", "cathodic-protection"],
+      "installationMethods": ["diver"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0011-0011-0011-000000000011",
+      "name": "Diver Hydraulic Impact Wrench — 1\" Drive",
+      "shortDescription": "Heavy-duty subsea hydraulic impact wrench, 3,500 Nm, 1\" drive. For large bore bolting to 600m.",
+      "fullDescription": "A standalone heavy-duty hydraulic impact wrench designed for diver use in saturation or air diving operations. Delivers up to 3,500 Nm impact torque for large-bore flange bolting, structural steelwork, anode clamp fastening, and clamp bolt make-up. The 1\" square drive accepts a wide range of heavy-duty metric and imperial sockets. Ergonomic diver grip with tactile trigger valve. Internal hydraulic buffer reduces reaction force on the diver's wrist. Pressure rating 210 bar. Supplied with 1\" socket set (27mm–90mm) and reaction bar.",
+      "category": "diver_tools",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Week rate",
+      "depthRatingMeters": 600,
+      "specs": [
+        {"label": "Impact Torque", "value": "3,500 Nm"},
+        {"label": "Drive Size", "value": "1\" Square Drive"},
+        {"label": "Supply Pressure", "value": "210 bar"},
+        {"label": "Supply Flow", "value": "20 lpm"},
+        {"label": "Working Depth", "value": "600m"},
+        {"label": "Weight in Water", "value": "11 kg"}
+      ],
+      "standards": ["IMCA D 018"],
+      "compatibleProductTags": ["flange-leak", "pipeline-leak", "structural-damage", "cathodic-protection", "anode-retrofit"],
+      "installationMethods": ["diver"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0012-0012-0012-000000000012",
+      "name": "Anode Installation Tool Kit",
+      "shortDescription": "ROV/diver toolkit for retrofit bracelet anode installation on pipelines and structures. DNV-RP-B401.",
+      "fullDescription": "A dedicated tooling kit for retrofit installation of split-sleeve aluminium bracelet anodes on subsea pipelines, risers, and structural members. The kit includes: hydraulic anode clamp closing tool (provides the controlled closing force for the bracelet half-shells), anode positioning cradle, electrical contact verification probe (measures contact resistance to verify CP continuity), and a torque-controlled bolt make-up tool for clamping hardware. Suitable for anode sizes from 150mm to 600mm OD pipeline and flat structural member anodes. Compatible with DNVGL-RP-B401 compliant aluminium-indium-zinc anodes. Supplied with full electrical continuity test certificate.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Per project / Per campaign",
+      "depthRatingMeters": 1500,
+      "specs": [
+        {"label": "Pipeline OD Range", "value": "150mm – 600mm"},
+        {"label": "Anode Type", "value": "Split-sleeve aluminium bracelet"},
+        {"label": "Contact Verification", "value": "Resistance probe included"},
+        {"label": "Standard", "value": "DNVGL-RP-B401"},
+        {"label": "Working Depth", "value": "1,500m"},
+        {"label": "Installation Method", "value": "ROV or Diver"}
+      ],
+      "standards": ["DNVGL-RP-B401", "ISO 13628-8"],
+      "compatibleProductTags": ["cathodic-protection", "anode-retrofit", "corrosion"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0013-0013-0013-000000000013",
+      "name": "Subsea Pressure Test Pack — 700 bar",
+      "shortDescription": "ROV-operable subsea pressure test unit to 700 bar. Data logging. UKAS-traceable calibration.",
+      "fullDescription": "A fully subsea-deployable pressure test pack capable of hydrostatic testing to 700 bar (10,000 psi). Designed for post-installation integrity verification of pipeline connectors, repair clamps, isolation plugs, and risers. Operated remotely via ROV hot stab, with a subsea digital pressure transducer providing real-time pressure readout to the surface and an integral data logger recording timestamped pressure/temperature curves for test certification. The system includes two independent rated test circuits, a bleed-down valve with fail-safe design, and a test medium selector valve (water or inhibited MEG). All pressure gauges UKAS-traceable calibrated. Supplied with test certificates and full traceability documentation.",
+      "category": "test_equipment",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per test",
+      "depthRatingMeters": 4000,
+      "specs": [
+        {"label": "Max Test Pressure", "value": "700 bar (10,000 psi)"},
+        {"label": "Circuits", "value": "2 independent"},
+        {"label": "Pressure Gauge", "value": "UKAS calibrated, ±0.1% FS"},
+        {"label": "Data Logging", "value": "Timestamped, surface readout"},
+        {"label": "Test Medium", "value": "Water / Inhibited MEG"},
+        {"label": "Water Depth", "value": "4,000m"}
+      ],
+      "standards": ["NORSOK Y-002", "ISO 13628-8", "PED 2014/68/EU"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-isolation", "flange-leak", "connector-failure"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0014-0014-0014-000000000014",
+      "name": "Surface Pressure Test Pack — 414 bar",
+      "shortDescription": "Deck-mounted hydrostatic test unit to 414 bar with accumulator bank and ATEX data logger.",
+      "fullDescription": "A surface-deployed hydrostatic pressure test unit for pre-installation and post-installation testing of subsea equipment from the vessel deck. The unit provides a clean, controlled test pressure to 414 bar (6,000 psi) through a high-pressure umbilical to the subsea test point. An electrically-driven pump with variable speed control allows precise pressure ramp-up. The ATEX-rated digital data logger records pressure and temperature at 1-second intervals and generates a test certificate PDF automatically. Accumulator bank of 5 litres at 414 bar maintains pressure during valve seating. Includes 50m of 3/8\" high-pressure hydraulic hose rated to 700 bar (1.5× test pressure), bleed-down valve, and calibrated relief valve.",
+      "category": "test_equipment",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Week rate",
+      "depthRatingMeters": null,
+      "specs": [
+        {"label": "Max Test Pressure", "value": "414 bar (6,000 psi)"},
+        {"label": "Data Logger", "value": "ATEX, 1s interval, PDF cert"},
+        {"label": "Accumulator", "value": "5 litres at 414 bar"},
+        {"label": "Test Hose", "value": "50m × 3/8\", 700 bar rated"},
+        {"label": "Power", "value": "440V 3-phase, 15 kW"},
+        {"label": "Certification", "value": "ATEX II 2G, PED 2014/68/EU"}
+      ],
+      "standards": ["PED 2014/68/EU", "ATEX II 2G", "NORSOK Y-002"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-isolation", "flange-leak", "connector-failure", "gasket-failure"],
+      "installationMethods": ["diver", "rov"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0015-0015-0015-000000000015",
+      "name": "Subsea Lifting Spreader Bar — 10T",
+      "shortDescription": "10T SWL adjustable subsea spreader bar, 1m–4m span. DNV 2.7-1 and EN 13155 certified.",
+      "fullDescription": "A telescoping adjustable spreader bar with 10T safe working load, adjustable from 1m to 4m between lifting points. Designed for vessel crane lifts of subsea equipment, installation frames, clamp packages, and tool skids to the seabed. Both lifting attachments are certified Crosby shackles with load-indicating pins and traceability certificates. The bar is hot-dip galvanised carbon steel with anti-rotation sleeve at the central pick-up point. Proof loaded to 15T (150% SWL) at factory with Lloyd's Register third-party witness. Supplied with rigging plan, proof load certificate, and annual inspection record.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Week rate",
+      "depthRatingMeters": null,
+      "specs": [
+        {"label": "SWL", "value": "10T"},
+        {"label": "Span", "value": "1m – 4m adjustable"},
+        {"label": "Proof Load", "value": "15T (150% SWL)"},
+        {"label": "Shackles", "value": "Crosby load-indicating"},
+        {"label": "Certification", "value": "Lloyd's Register witnessed"},
+        {"label": "Standards", "value": "DNV 2.7-1, EN 13155"}
+      ],
+      "standards": ["DNV 2.7-1", "EN 13155", "ASME B30.20"],
+      "compatibleProductTags": ["subsea-lifting", "flexible-lifting", "decommissioning", "installation"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0016-0016-0016-000000000016",
+      "name": "Flexible Riser Hang-Off Frame",
+      "shortDescription": "Structural hang-off and hold-back frame for flexible risers and umbilicals. SWL 25T. Diver or ROV installed.",
+      "fullDescription": "A purpose-designed hang-off and hold-back frame for retaining flexible risers, umbilicals, and flow lines at their upper termination point on a platform jacket, FPSO riser balcony, or subsea structure. The frame uses a split-clamp centraliser around the flexible and a hydraulically-tensioned hold-back cable assembly to resist axial pull-out loads. Rated to 25T axial SWL. The hydraulic tensioning circuit is operated by ROV hot stab and is self-locking on loss of hydraulic pressure for fail-safe retention. Manufactured in 316L stainless steel with full CP anode package. Includes all rigging and installation hardware. Used with IK Subsea lifting and handling product range.",
+      "category": "frames",
+      "availability": "both",
+      "typicalRentalDuration": "Per project",
+      "depthRatingMeters": 2000,
+      "specs": [
+        {"label": "Axial SWL", "value": "25T"},
+        {"label": "Flexible OD Range", "value": "4\" to 14\" (100mm – 350mm)"},
+        {"label": "Material", "value": "316L Stainless Steel + CP anodes"},
+        {"label": "Tensioning", "value": "Hydraulic, fail-safe lock"},
+        {"label": "Water Depth", "value": "2,000m"},
+        {"label": "Hydraulic Interface", "value": "ISO 13628-8 Hot Stab"}
+      ],
+      "standards": ["DNVGL-RP-F113", "ISO 13628-8", "DNV 2.7-1"],
+      "compatibleProductTags": ["flexible-lifting", "subsea-lifting", "riser-recovery", "umbilical-handling"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0017-0017-0017-000000000017",
+      "name": "Pipe Alignment Tool — ROV",
+      "shortDescription": "ROV-operated hydraulic pipe alignment tool for spool and pipeline end make-up. ±150mm correction.",
+      "fullDescription": "A hydraulic alignment tool used to correct lateral and angular misalignment between pipeline ends, spool pieces, and connectors prior to mechanical connector or clamp installation. Provides up to ±150mm lateral correction and ±3° angular correction through two independently-operated hydraulic ram assemblies, both controlled via separate ISO 13628-8 hot stab circuits. Essential for achieving the manufacturing tolerance alignment required before clamp make-up or connector stab-in. The tool clamps onto the pipeline OD via split-grip jaws (adjustable 4\"–20\") and reacts against the seabed or a fixed structural point via an adjustable reaction foot. Depth-rated to 3,000m.",
+      "category": "frames",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Lateral Correction", "value": "±150mm"},
+        {"label": "Angular Correction", "value": "±3°"},
+        {"label": "Pipeline OD Range", "value": "4\" to 20\""},
+        {"label": "Hydraulic Circuits", "value": "2 × ISO 13628-8 hot stab"},
+        {"label": "Water Depth", "value": "3,000m"},
+        {"label": "Material", "value": "316L Stainless Steel"}
+      ],
+      "standards": ["ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-structural-failure", "connector-failure", "installation"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0018-0018-0018-000000000018",
+      "name": "Subsea Epoxy Repair Kit",
+      "shortDescription": "Two-part underwater epoxy putty kit for pipeline and structural coating repair. NACE SP0108 compliant.",
+      "fullDescription": "A diver-applied two-component epoxy putty system for in-situ repair of anti-corrosion coating damage on subsea pipelines, risers, and structural steel. The kit contains pre-measured cartridges of Part A (epoxy resin) and Part B (amine hardener) that are mixed underwater by the diver using an included static mixing nozzle applicator. Once applied, the compound achieves full adhesion to wet steel, polyethylene, and FBE coating surfaces. Cures underwater in 2–4 hours at +4°C. Pull-off adhesion ≥ 1.6 MPa (ASTM D4541). Service temperature -20°C to +85°C. Each kit repairs approximately 0.5m² of coating damage to 6mm DFT. Kit includes surface preparation guide, PPE, and underwater application instructions. NACE SP0108 and ISO 21809 compliant.",
+      "category": "accessories",
+      "availability": "purchase",
+      "typicalRentalDuration": null,
+      "depthRatingMeters": 300,
+      "specs": [
+        {"label": "Coverage", "value": "~0.5m² per kit at 6mm DFT"},
+        {"label": "Adhesion", "value": "≥ 1.6 MPa (ASTM D4541)"},
+        {"label": "Cure Time", "value": "2–4 hours at +4°C seawater"},
+        {"label": "Service Temp", "value": "-20°C to +85°C"},
+        {"label": "Application Depth", "value": "0 – 300m"},
+        {"label": "Pot Life", "value": "~15 min after mixing"}
+      ],
+      "standards": ["NACE SP0108", "ISO 21809", "ASTM D4541"],
+      "compatibleProductTags": ["cathodic-protection", "corrosion", "anode-retrofit", "platform-repair"],
+      "installationMethods": ["diver"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0019-0019-0019-000000000019",
+      "name": "ROV/Diver Hydraulic Pipeline Saw",
+      "shortDescription": "Hydraulic reciprocating pipe saw for cutting damaged pipeline sections before repair clamp installation. 4\"–24\" OD.",
+      "fullDescription": "A hydraulic reciprocating pipe saw for cutting through damaged or corroded pipeline sections prior to installation of repair clamps, isolation tools, or replacement spools. The tool clamps to the pipe OD via split-grip jaws (adjustable 4\"–24\" OD, or 100mm–600mm) and the reciprocating blade traverses around the pipe circumference under ROV or diver control. Carbide-tipped blades cut carbon steel, stainless, duplex, and CRA-clad pipe. Typical cut time is 8–12 minutes for schedule 80 carbon steel. The blade clamp assembly prevents the cut section from dropping. Can be deployed from a work-class ROV or by saturation divers to 600m. Essential for pipeline repair operations where the damaged section must be removed before fitting an end-cap or structural repair clamp.",
+      "category": "accessories",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Cutting Capacity", "value": "4\" to 24\" OD (100–600mm)"},
+        {"label": "Blade Type", "value": "Carbide-tipped reciprocating"},
+        {"label": "Cut Time", "value": "8–12 min (schedule 80 CS)"},
+        {"label": "Hydraulic Input", "value": "207 bar / 15 lpm"},
+        {"label": "Water Depth", "value": "3,000m (ROV) / 600m (diver)"},
+        {"label": "Weight in Water", "value": "35 kg"}
+      ],
+      "standards": ["ISO 13628-8", "NORSOK D-002"],
+      "compatibleProductTags": ["pipeline-leak", "pipeline-structural-failure", "crack", "weld-defect"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0020-0020-0020-000000000020",
+      "name": "Subsea Hydraulic Bolt Tensioner Set",
+      "shortDescription": "Hydraulic stud tensioner set for high-integrity flange bolt pre-loading. M27–M48. 3,000m rated.",
+      "fullDescription": "A subsea hydraulic bolt tensioner set for precise, repeatable bolt pre-loading on flanged connections, repair clamps, and isolation spool tie-ins. Hydraulic pressure is applied to each stud tensioner via an ROV hot stab, stretching the bolt to the specified load before the nut is run down. Simultaneous multi-bolt tensioning is possible by connecting up to 8 tensioners in parallel from a single HPU supply. Bolt load is monitored via calibrated pressure transducers with ±2% accuracy — eliminating the torque-tension uncertainty inherent in impact wrench make-up. Supplied with tensioners (M27–M48), bridge pieces, load cells, and a 50m hose kit. NORSOK D-001 compliant. Depth-rated to 3,000m.",
+      "category": "torque_tools",
+      "availability": "rental",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Bolt Size Range", "value": "M27 – M48"},
+        {"label": "Tension Range", "value": "50 – 600 kN per bolt"},
+        {"label": "Accuracy", "value": "±2% (pressure transducer)"},
+        {"label": "Simultaneous Bolts", "value": "Up to 8"},
+        {"label": "Hydraulic Input", "value": "207 bar / 15 lpm"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["NORSOK D-001", "ISO 13628-8", "DNVGL-ST-E271"],
+      "compatibleProductTags": ["flange-leak", "pipeline-isolation", "connector-failure", "pipeline-leak"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    },
+
+    {
+      "id": "44444444-0021-0021-0021-000000000021",
+      "name": "Subsea Grease Injection Kit",
+      "shortDescription": "ROV/diver grease injection kit for clamp seals, connector lubrication, and valve packing. 210 bar.",
+      "fullDescription": "A portable subsea grease injection kit for lubricating repair clamp seals, connector running surfaces, valve stems, and gate valve packing glands. The kit comprises a 5-litre reservoir pre-charged with DNV-approved subsea grease (ISO VG 680 compatible), a hand-operated or hydraulic pump, and a selection of ISO 13628-7 dry-disconnect and threaded injection fittings. Operating pressure up to 210 bar. Can be deployed by ROV using a standard torque bucket or by a saturation diver. Essential where IK Subsea repair clamp seal assemblies require lubrication prior to energisation, or where worn valve packing must be supplemented in-situ. Emergency-stocked for rapid mobilisation.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Day rate / Per project",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Reservoir Capacity", "value": "5 litres"},
+        {"label": "Max Injection Pressure", "value": "210 bar"},
+        {"label": "Grease Type", "value": "ISO VG 680 subsea grade"},
+        {"label": "Fittings", "value": "ISO 13628-7 + threaded"},
+        {"label": "Operation", "value": "ROV torque bucket or diver"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["ISO 13628-7", "ISO 13628-8", "NORSOK D-002"],
+      "compatibleProductTags": ["pipeline-leak", "flange-leak", "connector-failure", "pipeline-isolation"],
+      "installationMethods": ["both"],
+      "isEmergencyStock": true
+    },
+
+    {
+      "id": "44444444-0022-0022-0022-000000000022",
+      "name": "Syntactic Foam Buoyancy Modules",
+      "shortDescription": "Depth-rated syntactic foam buoyancy modules for pipeline lifting and tool weight compensation. 3,000m.",
+      "fullDescription": "Modular syntactic foam buoyancy blocks for reducing the submerged weight of subsea equipment, installation frames, pipeline sections, and flexible risers during lifting and repositioning operations. Each module is machined from closed-cell syntactic epoxy foam (ISO 18662 Type III compliant) and fitted with 316L stainless steel clamping straps for attachment to pipes, frames, or tool skids. Available in standard 200L, 500L, and 1,000L sizes providing 200 kg, 500 kg, and 1,000 kg buoyancy respectively. Modules can be ganged in any combination to achieve target lift. Depth-rated to 3,000m with less than 2% buoyancy loss over 10,000 pressure cycles. DNV type approved. Used with IK Subsea lifting products and installation frames for controlled descent and neutral deployment.",
+      "category": "accessories",
+      "availability": "both",
+      "typicalRentalDuration": "Per project / Per campaign",
+      "depthRatingMeters": 3000,
+      "specs": [
+        {"label": "Module Sizes", "value": "200L / 500L / 1,000L"},
+        {"label": "Buoyancy per Module", "value": "200 / 500 / 1,000 kg"},
+        {"label": "Material", "value": "Syntactic epoxy foam, ISO 18662 Type III"},
+        {"label": "Buoyancy Retention", "value": ">98% over 10,000 cycles"},
+        {"label": "Clamps", "value": "316L stainless, pipe OD 50–600mm"},
+        {"label": "Water Depth", "value": "3,000m"}
+      ],
+      "standards": ["ISO 18662", "DNV 2.7-1", "NORSOK D-002"],
+      "compatibleProductTags": ["subsea-lifting", "flexible-lifting", "installation", "riser-recovery"],
+      "installationMethods": ["rov"],
+      "isEmergencyStock": false
+    }
+
+  ]
+}

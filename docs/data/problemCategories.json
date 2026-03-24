@@ -1,0 +1,180 @@
+{
+  "categories": [
+    {
+      "id": "22222222-0001-0001-0001-000000000001",
+      "name": "Pipeline Leak / Seal Failure",
+      "subtitle": "Loss of containment from a pipeline, flowline, or riser",
+      "icon": "drop.triangle.fill",
+      "colorName": "IKSOrange",
+      "severity": "critical",
+      "relatedTags": ["pipeline-leak", "crack", "pinhole", "weld-defect"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0101-0101-0101-000000000001",
+          "prompt": "What type of infrastructure is leaking?",
+          "options": [
+            {"id": "22222222-0201-0201-0201-000000000001", "label": "Rigid Pipeline", "additionalTags": ["pipeline-leak"]},
+            {"id": "22222222-0201-0201-0201-000000000002", "label": "Flexible Flowline", "additionalTags": ["flexible-damage", "tight-access"]},
+            {"id": "22222222-0201-0201-0201-000000000003", "label": "Riser", "additionalTags": ["pipeline-leak", "structural-damage"]},
+            {"id": "22222222-0201-0201-0201-000000000004", "label": "Flange / Connector", "additionalTags": ["flange-leak", "connector-failure"]}
+          ]
+        },
+        {
+          "id": "22222222-0101-0101-0101-000000000002",
+          "prompt": "What is the water depth?",
+          "options": [
+            {"id": "22222222-0202-0202-0202-000000000001", "label": "Splash zone / surface", "additionalTags": ["shallow-water"]},
+            {"id": "22222222-0202-0202-0202-000000000002", "label": "0 to 500m", "additionalTags": []},
+            {"id": "22222222-0202-0202-0202-000000000003", "label": "500m to 1,500m", "additionalTags": []},
+            {"id": "22222222-0202-0202-0202-000000000004", "label": "1,500m or deeper", "additionalTags": ["ultra-deepwater"]}
+          ]
+        },
+        {
+          "id": "22222222-0101-0101-0101-000000000003",
+          "prompt": "Is this an emergency situation?",
+          "options": [
+            {"id": "22222222-0203-0203-0203-000000000001", "label": "Yes - Emergency", "additionalTags": ["emergency"]},
+            {"id": "22222222-0203-0203-0203-000000000002", "label": "No - Planned repair", "additionalTags": []}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22222222-0002-0002-0002-000000000002",
+      "name": "Structural Damage / Crack",
+      "subtitle": "Structural failure, circumferential crack, or member damage",
+      "icon": "exclamationmark.triangle.fill",
+      "colorName": "IKSOrange",
+      "severity": "critical",
+      "relatedTags": ["structural-damage", "crack", "pipeline-structural-failure"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0102-0102-0102-000000000001",
+          "prompt": "What structure is affected?",
+          "options": [
+            {"id": "22222222-0204-0204-0204-000000000001", "label": "Pipeline / Flowline", "additionalTags": ["pipeline-structural-failure", "pipeline-leak"]},
+            {"id": "22222222-0204-0204-0204-000000000002", "label": "Platform Jacket / Conductor", "additionalTags": ["platform-repair", "jacket-damage"]},
+            {"id": "22222222-0204-0204-0204-000000000003", "label": "Manifold / PLEM", "additionalTags": ["structural-damage", "tight-access"]},
+            {"id": "22222222-0204-0204-0204-000000000004", "label": "Xmas Tree / XT", "additionalTags": ["structural-damage", "ultra-deepwater"]}
+          ]
+        },
+        {
+          "id": "22222222-0102-0102-0102-000000000002",
+          "prompt": "What is the water depth?",
+          "options": [
+            {"id": "22222222-0205-0205-0205-000000000001", "label": "0 to 500m", "additionalTags": []},
+            {"id": "22222222-0205-0205-0205-000000000002", "label": "500m to 1,500m", "additionalTags": []},
+            {"id": "22222222-0205-0205-0205-000000000003", "label": "1,500m or deeper", "additionalTags": ["ultra-deepwater"]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22222222-0003-0003-0003-000000000003",
+      "name": "Isolation Required",
+      "subtitle": "Pipeline or cavity isolation for maintenance, repair, or decommissioning",
+      "icon": "lock.fill",
+      "colorName": "IKSTeal",
+      "severity": "high",
+      "relatedTags": ["pipeline-isolation", "decommissioning", "temporary-isolation"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0103-0103-0103-000000000001",
+          "prompt": "What needs to be isolated?",
+          "options": [
+            {"id": "22222222-0206-0206-0206-000000000001", "label": "Pipeline / Flowline", "additionalTags": ["pipeline-isolation"]},
+            {"id": "22222222-0206-0206-0206-000000000002", "label": "Riser / Hub / Flange", "additionalTags": ["pipeline-isolation", "flange-leak"]},
+            {"id": "22222222-0206-0206-0206-000000000003", "label": "Sea Chest / Vessel Penetration", "additionalTags": ["pipeline-isolation"]},
+            {"id": "22222222-0206-0206-0206-000000000004", "label": "Well / Bore", "additionalTags": ["well-abandonment", "pipeline-isolation"]}
+          ]
+        },
+        {
+          "id": "22222222-0103-0103-0103-000000000002",
+          "prompt": "Is this for decommissioning?",
+          "options": [
+            {"id": "22222222-0207-0207-0207-000000000001", "label": "Yes - Decommissioning", "additionalTags": ["decommissioning"]},
+            {"id": "22222222-0207-0207-0207-000000000002", "label": "No - Maintenance / Repair isolation", "additionalTags": ["temporary-isolation"]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22222222-0004-0004-0004-000000000004",
+      "name": "Lifting & Handling Need",
+      "subtitle": "Subsea lifting, recovery, or repositioning of flexible, cable, or rigid structure",
+      "icon": "arrow.up.and.down.circle.fill",
+      "colorName": "IKSTeal",
+      "severity": "medium",
+      "relatedTags": ["flexible-lifting", "subsea-lifting", "cable-recovery", "decommissioning"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0104-0104-0104-000000000001",
+          "prompt": "What needs to be lifted or handled?",
+          "options": [
+            {"id": "22222222-0208-0208-0208-000000000001", "label": "Flexible Riser / Flowline", "additionalTags": ["flexible-lifting", "riser-recovery"]},
+            {"id": "22222222-0208-0208-0208-000000000002", "label": "Umbilical", "additionalTags": ["umbilical-handling", "flexible-lifting"]},
+            {"id": "22222222-0208-0208-0208-000000000003", "label": "Cable / Control Line", "additionalTags": ["cable-recovery", "flexible-lifting"]},
+            {"id": "22222222-0208-0208-0208-000000000004", "label": "Rigid Pipeline / Structure", "additionalTags": ["subsea-lifting", "decommissioning"]}
+          ]
+        },
+        {
+          "id": "22222222-0104-0104-0104-000000000002",
+          "prompt": "Is this for decommissioning or installation?",
+          "options": [
+            {"id": "22222222-0209-0209-0209-000000000001", "label": "Decommissioning / Recovery", "additionalTags": ["decommissioning"]},
+            {"id": "22222222-0209-0209-0209-000000000002", "label": "Installation / Repositioning", "additionalTags": ["installation", "pipeline-installation"]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22222222-0005-0005-0005-000000000005",
+      "name": "Cathodic Protection / Corrosion",
+      "subtitle": "Failed or depleted anodes, corrosion protection for aging infrastructure",
+      "icon": "bolt.horizontal.fill",
+      "colorName": "IKSTeal",
+      "severity": "medium",
+      "relatedTags": ["cathodic-protection", "corrosion", "anode-retrofit"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0105-0105-0105-000000000001",
+          "prompt": "What type of structure needs protection?",
+          "options": [
+            {"id": "22222222-0210-0210-0210-000000000001", "label": "Pipeline or Riser", "additionalTags": ["cathodic-protection"]},
+            {"id": "22222222-0210-0210-0210-000000000002", "label": "Platform Jacket / Large Structure", "additionalTags": ["cathodic-protection", "large-structure", "platform-repair"]},
+            {"id": "22222222-0210-0210-0210-000000000003", "label": "Manifold / Subsea Equipment", "additionalTags": ["cathodic-protection"]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22222222-0006-0006-0006-000000000006",
+      "name": "Flange / Connector Leak",
+      "subtitle": "Leaking bolted flanges, hubs, or connectors",
+      "icon": "wrench.fill",
+      "colorName": "IKSOrange",
+      "severity": "high",
+      "relatedTags": ["flange-leak", "connector-failure", "gasket-failure"],
+      "refinementQuestions": [
+        {
+          "id": "22222222-0106-0106-0106-000000000001",
+          "prompt": "Where is the leak?",
+          "options": [
+            {"id": "22222222-0211-0211-0211-000000000001", "label": "Bolted flange connection", "additionalTags": ["flange-leak", "gasket-failure"]},
+            {"id": "22222222-0211-0211-0211-000000000002", "label": "Xmas Tree block / valve body", "additionalTags": ["flange-leak", "tight-access"]},
+            {"id": "22222222-0211-0211-0211-000000000003", "label": "Hub / subsea connector", "additionalTags": ["connector-failure"]},
+            {"id": "22222222-0211-0211-0211-000000000004", "label": "Pipe penetration", "additionalTags": ["pipe-penetration-leak"]}
+          ]
+        },
+        {
+          "id": "22222222-0106-0106-0106-000000000002",
+          "prompt": "Is there H2S sour service involved?",
+          "options": [
+            {"id": "22222222-0212-0212-0212-000000000001", "label": "Yes - Sour / H2S service", "additionalTags": ["sour-service"]},
+            {"id": "22222222-0212-0212-0212-000000000002", "label": "No - Sweet service", "additionalTags": []}
+          ]
+        }
+      ]
+    }
+  ]
+}

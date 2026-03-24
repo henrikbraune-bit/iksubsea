@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IK Subsea — Subsea Engineering Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-ik">IK</span><span class="logo-subsea">SUBSEA</span>
+      </div>
+      <nav class="tab-nav" id="tabNav">
+        <button class="tab-btn active" data-tab="solution-finder">
+          <svg class="tab-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Solution Finder</span>
+        </button>
+        <button class="tab-btn" data-tab="products">
+          <svg class="tab-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Products</span>
+        </button>
+        <button class="tab-btn" data-tab="case-studies">
+          <svg class="tab-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Case Studies</span>
+        </button>
+        <button class="tab-btn" data-tab="addons">
+          <svg class="tab-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          <span>Add-ons</span>
+        </button>
+        <button class="tab-btn" data-tab="enquire">
+          <svg class="tab-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          <span>Enquire</span>
+        </button>
+        <button class="tab-btn" data-tab="about">
+          <svg class="tab-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>About</span>
+        </button>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-content">
+
+    <!-- ====== TAB: SOLUTION FINDER ====== -->
+    <section class="tab-section active" id="tab-solution-finder">
+      <div class="section-hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Find Your Subsea Solution</h1>
+          <p class="hero-subtitle">Describe your challenge or select a problem category below</p>
+          <div class="search-bar-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="text" id="solutionSearch" class="search-input" placeholder="Describe your subsea challenge..." autocomplete="off" />
+            <button class="search-clear" id="solutionSearchClear" aria-label="Clear search">✕</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Category grid (shown when no search) -->
+        <div id="categoryGrid" class="category-grid"></div>
+
+        <!-- Search results (shown on search) -->
+        <div id="solutionResults" class="solution-results hidden">
+          <div class="results-header">
+            <h2 class="results-title" id="solutionResultsTitle"></h2>
+            <button class="btn-ghost" id="clearCategoryFilter">← All Categories</button>
+          </div>
+          <div class="product-grid" id="solutionProductGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: PRODUCTS ====== -->
+    <section class="tab-section" id="tab-products">
+      <div class="section-inner">
+        <div class="section-top-bar">
+          <div class="search-bar-wrap compact">
+            <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="text" id="productSearch" class="search-input" placeholder="Search products..." autocomplete="off" />
+          </div>
+        </div>
+        <div class="filter-chips" id="domainFilterChips">
+          <button class="chip active" data-domain="all">All</button>
+          <button class="chip" data-domain="repair">Subsea Repair</button>
+          <button class="chip" data-domain="isolation">Isolation &amp; Plugging</button>
+          <button class="chip" data-domain="lifting">Lifting &amp; Handling</button>
+          <button class="chip" data-domain="tooling">Custom Tooling</button>
+          <button class="chip" data-domain="structural">Structural Integrity</button>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: CASE STUDIES ====== -->
+    <section class="tab-section" id="tab-case-studies">
+      <div class="section-inner">
+        <div class="section-top-bar">
+          <h2 class="section-title">Case Studies</h2>
+          <div class="search-bar-wrap compact">
+            <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="text" id="caseStudySearch" class="search-input" placeholder="Search case studies..." autocomplete="off" />
+          </div>
+        </div>
+        <div class="case-study-list" id="caseStudyList"></div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: ADD-ONS ====== -->
+    <section class="tab-section" id="tab-addons">
+      <div class="section-inner">
+        <div class="section-top-bar">
+          <h2 class="section-title">Add-ons &amp; Rental Equipment</h2>
+          <div class="toggle-group" id="addonAvailabilityToggle">
+            <button class="toggle-btn active" data-availability="all">All</button>
+            <button class="toggle-btn" data-availability="rental">Rental</button>
+            <button class="toggle-btn" data-availability="purchase">Purchase</button>
+          </div>
+        </div>
+        <div class="filter-chips" id="addonCategoryChips">
+          <button class="chip active" data-category="all">All</button>
+          <button class="chip" data-category="torque_tools">Torque Tools</button>
+          <button class="chip" data-category="frames">Frames</button>
+          <button class="chip" data-category="rov_skids">ROV Skids</button>
+          <button class="chip" data-category="valve_packs">Valve Packs</button>
+          <button class="chip" data-category="diver_tools">Diver Tools</button>
+          <button class="chip" data-category="test_equipment">Test Equipment</button>
+          <button class="chip" data-category="accessories">Accessories</button>
+        </div>
+        <div class="product-grid" id="addonGrid"></div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: ENQUIRE ====== -->
+    <section class="tab-section" id="tab-enquire">
+      <div class="section-inner narrow">
+        <h2 class="section-title">Enquire</h2>
+        <p class="section-subtitle">Tell us about your project and our engineering team will respond within 24 hours.</p>
+        <form class="enquiry-form" id="enquiryForm" action="mailto:sales@iksubsea.com" method="get" enctype="text/plain">
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label" for="eq-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="eq-name" name="name" class="form-control" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="eq-company">Company <span class="required">*</span></label>
+              <input type="text" id="eq-company" name="company" class="form-control" placeholder="Your company" required />
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label" for="eq-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="eq-email" name="email" class="form-control" placeholder="you@company.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="eq-phone">Phone</label>
+              <input type="tel" id="eq-phone" name="phone" class="form-control" placeholder="+47 xxx xx xxx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eq-domain">Area of Interest</label>
+            <select id="eq-domain" name="domain" class="form-control form-select">
+              <option value="">Select a domain...</option>
+              <option value="Subsea Repair">Subsea Repair</option>
+              <option value="Isolation &amp; Plugging">Isolation &amp; Plugging</option>
+              <option value="Lifting &amp; Handling">Lifting &amp; Handling</option>
+              <option value="Custom Tooling">Custom Tooling</option>
+              <option value="Structural Integrity">Structural Integrity</option>
+              <option value="General Enquiry">General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eq-description">Project Description <span class="required">*</span></label>
+            <textarea id="eq-description" name="description" class="form-control form-textarea" rows="6" placeholder="Describe your subsea challenge, water depth, pipeline specifications, timeline, and any other relevant details..." required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary btn-full">
+              <svg viewBox="0 0 24 24" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              Send Enquiry to sales@iksubsea.com
+            </button>
+          </div>
+          <p class="form-note">By submitting this form your email client will open a pre-filled message addressed to sales@iksubsea.com</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ====== TAB: ABOUT ====== -->
+    <section class="tab-section" id="tab-about">
+      <div class="section-inner">
+        <div class="about-hero">
+          <div class="about-logo-block">
+            <span class="about-logo-ik">IK</span><span class="about-logo-subsea">SUBSEA</span>
+          </div>
+          <p class="about-tagline">Engineering solutions for the world's most demanding subsea challenges.</p>
+        </div>
+        <div class="about-body">
+          <div class="about-description">
+            <p>IK Subsea delivers engineering solutions for the most demanding subsea pipeline, riser, and cable challenges. From emergency repair to complex installation tooling, our products are built for reliability at any water depth.</p>
+            <p>With over 39 years of ETO (Engineer-To-Order) heritage, IK Subsea combines deep technical expertise with a commitment to rapid delivery — including 2-week emergency custom manufacturing capability. Our engineering team applies a risk-based approach, from existing technology to fully bespoke designs with complete engineering, testing, and installation support.</p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value">20+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">500+</div>
+              <div class="stat-label">Deployments</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">∞</div>
+              <div class="stat-label">Water Depth</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">DNV</div>
+              <div class="stat-label">Type Approved</div>
+            </div>
+          </div>
+          <div class="about-domains">
+            <h3 class="about-section-title">Our Capabilities</h3>
+            <div class="domain-list">
+              <div class="domain-item domain-repair">
+                <div class="domain-dot"></div>
+                <div>
+                  <div class="domain-name">Subsea Repair</div>
+                  <div class="domain-desc">Pipeline sealing clamps, integrity clamps, EPRS systems, flange repair — permanent and temporary solutions for all pipe sizes and depths.</div>
+                </div>
+              </div>
+              <div class="domain-item domain-isolation">
+                <div class="domain-dot"></div>
+                <div>
+                  <div class="domain-name">Isolation &amp; Plugging</div>
+                  <div class="domain-desc">Internal compression plugs for pipeline, riser, and cavity isolation. Single and dual barrier, mechanical or hydraulic setting.</div>
+                </div>
+              </div>
+              <div class="domain-item domain-lifting">
+                <div class="domain-dot"></div>
+                <div>
+                  <div class="domain-name">Lifting &amp; Handling</div>
+                  <div class="domain-desc">The Angel system and specialist lifting clamps for flexibles, umbilicals, cables, and rigid pipelines at any water depth.</div>
+                </div>
+              </div>
+              <div class="domain-item domain-tooling">
+                <div class="domain-dot"></div>
+                <div>
+                  <div class="domain-name">Custom Tooling</div>
+                  <div class="domain-desc">Bespoke ROV and diver tooling: coating removal, cutters, grout injection units, and workover control systems engineered for each project.</div>
+                </div>
+              </div>
+              <div class="domain-item domain-structural">
+                <div class="domain-dot"></div>
+                <div>
+                  <div class="domain-name">Structural Integrity</div>
+                  <div class="domain-desc">Cathodic protection systems, anode retrofit solutions, protection structures, and NORSOK-compliant reinforcement engineering.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-block">
+            <h3 class="about-section-title">Get in Touch</h3>
+            <div class="contact-items">
+              <a class="contact-item" href="mailto:sales@iksubsea.com">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                sales@iksubsea.com
+              </a>
+              <a class="contact-item" href="tel:+47xxxxxxxx">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                +47 xxx xx xxx
+              </a>
+            </div>
+            <button class="btn-primary mt-4" onclick="switchTab('enquire')">
+              Send an Enquiry
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== DETAIL PANEL OVERLAY ===================== -->
+  <div class="panel-overlay" id="panelOverlay" tabindex="-1" aria-hidden="true"></div>
+
+  <!-- ===================== PRODUCT DETAIL PANEL ===================== -->
+  <aside class="detail-panel" id="productPanel" role="dialog" aria-modal="true" aria-label="Product Details">
+    <div class="panel-header">
+      <button class="panel-close" id="closeProductPanel" aria-label="Close">✕</button>
+    </div>
+    <div class="panel-body" id="productPanelBody"></div>
+  </aside>
+
+  <!-- ===================== CASE STUDY DETAIL PANEL ===================== -->
+  <aside class="detail-panel" id="caseStudyPanel" role="dialog" aria-modal="true" aria-label="Case Study Details">
+    <div class="panel-header">
+      <button class="panel-close" id="closeCaseStudyPanel" aria-label="Close">✕</button>
+    </div>
+    <div class="panel-body" id="caseStudyPanelBody"></div>
+  </aside>
+
+  <!-- ===================== ADDON DETAIL PANEL ===================== -->
+  <aside class="detail-panel" id="addonPanel" role="dialog" aria-modal="true" aria-label="Add-on Details">
+    <div class="panel-header">
+      <button class="panel-close" id="closeAddonPanel" aria-label="Close">✕</button>
+    </div>
+    <div class="panel-body" id="addonPanelBody"></div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
