@@ -1321,6 +1321,23 @@ input, textarea, select {
   font-weight: 500;
 }
 
+/* ---- Infinity symbol draw animation ---- */
+.stat-infinity-svg {
+  display: block;
+  margin: 0 auto 6px;
+  width: 3rem;
+  height: 1.5rem;
+  overflow: visible;
+}
+
+.stat-infinity-path {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .about-domains {
   grid-column: 1 / -1;
 }

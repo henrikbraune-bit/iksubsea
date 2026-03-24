@@ -1113,6 +1113,38 @@ function observeCards(container) {
 function animateStatCounters() {
   document.querySelectorAll('.stat-value').forEach(el => {
     const text = el.textContent.trim();
+
+    // Special case: draw the ∞ symbol via SVG stroke animation
+    if (text === '∞') {
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', '0 0 100 50');
+      svg.setAttribute('class', 'stat-infinity-svg');
+      svg.setAttribute('aria-label', '∞');
+
+      const path = document.createElementNS(svgNS, 'path');
+      // Continuous single-stroke path tracing the infinity symbol
+      path.setAttribute('d', 'M 50 25 C 62 8, 92 8, 92 25 C 92 42, 62 42, 50 25 C 38 8, 8 8, 8 25 C 8 42, 38 42, 50 25');
+      path.setAttribute('class', 'stat-infinity-path');
+      svg.appendChild(path);
+
+      el.textContent = '';
+      el.appendChild(svg);
+
+      // Use exact path length for a pixel-perfect draw animation
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+
+      // Double rAF ensures initial state is painted before transition begins
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        path.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        path.style.strokeDashoffset = '0';
+      }));
+      return;
+    }
+
+    // Numeric counters
     const num = parseInt(text.replace(/\D/g, ''));
     if (!num || num < 10) return;
     const suffix = text.replace(/[\d,]/g, '');
