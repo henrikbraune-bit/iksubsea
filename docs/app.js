@@ -98,16 +98,19 @@ async function loadData() {
    INIT
    ============================================================ */
 function init() {
+  cardObserver = setupCardAnimations();
   renderCategoryGrid();
   renderProductGrid();
   renderCaseStudyList();
   renderAddonGrid();
   bindEvents();
+  initEnquiryForm();
 }
 
 /* ============================================================
    TAB SWITCHING
    ============================================================ */
+let aboutAnimated = false;
 function switchTab(tabId) {
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tab === tabId);
@@ -118,6 +121,11 @@ function switchTab(tabId) {
   // Close mobile menu
   const nav = document.getElementById('tabNav');
   nav.classList.remove('open');
+  // Animate stat counters once when About is first visited
+  if (tabId === 'about' && !aboutAnimated) {
+    aboutAnimated = true;
+    setTimeout(animateStatCounters, 300);
+  }
 }
 
 /* ============================================================
@@ -261,6 +269,7 @@ function renderCategoryGrid() {
       }
     });
   });
+  observeCards(grid);
 }
 
 function selectCategory(categoryId) {
@@ -424,6 +433,8 @@ function renderProductCards(container, products) {
       </div>
     `;
   }).join('');
+  // Trigger entrance animations
+  observeCards(container);
 }
 
 /* ============================================================
@@ -560,7 +571,7 @@ function renderCaseStudyList() {
     return;
   }
 
-  list.innerHTML = filtered.map(cs => {
+  list.innerHTML = filtered.map((cs, i) => {
     const excerpt = cs.problemSummary
       ? cs.problemSummary.slice(0, 160) + (cs.problemSummary.length > 160 ? '…' : '')
       : '';
@@ -883,31 +894,143 @@ function bindEvents() {
 }
 
 /* ============================================================
-   ENQUIRY FORM
+   ENQUIRY FORM — Enhanced with iOS-matching parameters
    ============================================================ */
+
+// Track enquiry form state
+const EnquiryState = {
+  infrastructureType: '',
+  urgency: 'Standard',
+};
+
+function initEnquiryForm() {
+  // Infrastructure chips
+  document.querySelectorAll('.infra-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const val = chip.dataset.value;
+      if (EnquiryState.infrastructureType === val) {
+        // Deselect
+        EnquiryState.infrastructureType = '';
+        chip.classList.remove('selected');
+      } else {
+        document.querySelectorAll('.infra-chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        EnquiryState.infrastructureType = val;
+      }
+    });
+  });
+
+  // Urgency buttons
+  document.querySelectorAll('.urgency-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      EnquiryState.urgency = btn.dataset.urgency;
+    });
+  });
+
+  // Depth slider live update
+  const depthSlider = document.getElementById('eq-depth');
+  const depthDisplay = document.getElementById('depthDisplay');
+  if (depthSlider && depthDisplay) {
+    const updateDepth = () => {
+      const val = parseInt(depthSlider.value, 10);
+      depthDisplay.textContent = val === 0 ? 'Surface / Not specified' : `${val.toLocaleString()} m`;
+      const pct = (val / 3500 * 100).toFixed(1) + '%';
+      depthSlider.style.setProperty('--pct', pct);
+    };
+    depthSlider.addEventListener('input', updateDepth);
+    updateDepth();
+  }
+}
+
 function handleEnquirySubmit(e) {
   e.preventDefault();
-  const form = e.target;
-  const name    = form.querySelector('#eq-name')?.value || '';
-  const company = form.querySelector('#eq-company')?.value || '';
-  const email   = form.querySelector('#eq-email')?.value || '';
-  const phone   = form.querySelector('#eq-phone')?.value || '';
-  const domain  = form.querySelector('#eq-domain')?.value || '';
-  const desc    = form.querySelector('#eq-description')?.value || '';
+  const name     = document.getElementById('eq-name')?.value || '';
+  const company  = document.getElementById('eq-company')?.value || '';
+  const email    = document.getElementById('eq-email')?.value || '';
+  const phone    = document.getElementById('eq-phone')?.value || '';
+  const desc     = document.getElementById('eq-description')?.value || '';
+  const pressure = document.getElementById('eq-pressure')?.value || '';
+  const depthVal = document.getElementById('eq-depth')?.value || '0';
+  const depthStr = parseInt(depthVal) === 0 ? 'Not specified' : `${parseInt(depthVal).toLocaleString()} m`;
 
-  const subject = `Subsea Engineering Enquiry from ${name} – ${company}`;
+  const subject = `Custom Solution Enquiry — ${EnquiryState.urgency}${company ? ' — ' + company : ''}`;
   const body = [
-    `Full Name: ${name}`,
-    `Company: ${company}`,
-    `Email: ${email}`,
-    `Phone: ${phone || 'Not provided'}`,
-    `Area of Interest: ${domain || 'Not specified'}`,
-    ``,
-    `Project Description:`,
+    '=== IK SUBSEA — CUSTOM SOLUTION ENQUIRY ===',
+    '',
+    `Urgency:              ${EnquiryState.urgency}`,
+    `Infrastructure Type:  ${EnquiryState.infrastructureType || 'Not specified'}`,
+    `Water Depth:          ${depthStr}`,
+    `Operating Pressure:   ${pressure || 'Not specified'}`,
+    '',
+    '--- Challenge Description ---',
     desc,
+    '',
+    '--- Contact Details ---',
+    `Name:    ${name}`,
+    `Company: ${company || 'Not provided'}`,
+    `Email:   ${email}`,
+    `Phone:   ${phone || 'Not provided'}`,
+    '',
+    '---',
+    'Sent via IK Subsea Web App',
   ].join('\n');
 
   window.location.href = `mailto:sales@iksubsea.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+/* ============================================================
+   CARD ENTRANCE ANIMATIONS — IntersectionObserver
+   ============================================================ */
+
+function setupCardAnimations() {
+  if (!('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  // Observe any card-animate elements as they're added to DOM
+  return obs;
+}
+
+let cardObserver = null;
+
+function observeCards(container) {
+  if (!cardObserver) cardObserver = setupCardAnimations();
+  if (!cardObserver || !container) return;
+  container.querySelectorAll('.product-card, .category-card, .addon-card, .case-study-card').forEach(card => {
+    card.classList.add('card-animate');
+    cardObserver.observe(card);
+  });
+}
+
+/* ============================================================
+   STAT COUNTER ANIMATION
+   ============================================================ */
+
+function animateStatCounters() {
+  document.querySelectorAll('.stat-value').forEach(el => {
+    const text = el.textContent.trim();
+    const num = parseInt(text.replace(/\D/g, ''));
+    if (!num || num < 10) return;
+    const suffix = text.replace(/[\d,]/g, '');
+    let start = 0;
+    const duration = 1200;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * num).toLocaleString() + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
 }
 
 /* ============================================================

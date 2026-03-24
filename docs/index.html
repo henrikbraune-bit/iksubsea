@@ -55,13 +55,25 @@
     <!-- ====== TAB: SOLUTION FINDER ====== -->
     <section class="tab-section active" id="tab-solution-finder">
       <div class="section-hero">
+        <div class="sonar-container" aria-hidden="true">
+          <div class="sonar-ring"></div>
+          <div class="sonar-ring"></div>
+          <div class="sonar-ring"></div>
+        </div>
         <div class="hero-content">
+          <div class="hero-eyebrow">IK SUBSEA — ENGINEER-TO-ORDER</div>
           <h1 class="hero-title">Find Your Subsea Solution</h1>
-          <p class="hero-subtitle">Describe your challenge or select a problem category below</p>
+          <p class="hero-subtitle">Describe your challenge in plain language — or select a problem category below</p>
           <div class="search-bar-wrap">
             <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <input type="text" id="solutionSearch" class="search-input" placeholder="Describe your subsea challenge..." autocomplete="off" />
+            <input type="text" id="solutionSearch" class="search-input" placeholder="e.g. emergency pipeline leak at 800m..." autocomplete="off" />
             <button class="search-clear" id="solutionSearchClear" aria-label="Clear search">✕</button>
+          </div>
+          <div class="hero-hints">
+            <span class="hero-hint" onclick="document.getElementById('solutionSearch').value='pipeline leak'; document.getElementById('solutionSearch').dispatchEvent(new Event('input'))">pipeline leak</span>
+            <span class="hero-hint" onclick="document.getElementById('solutionSearch').value='emergency isolation'; document.getElementById('solutionSearch').dispatchEvent(new Event('input'))">emergency isolation</span>
+            <span class="hero-hint" onclick="document.getElementById('solutionSearch').value='lifting umbilical deepwater'; document.getElementById('solutionSearch').dispatchEvent(new Event('input'))">lifting umbilical</span>
+            <span class="hero-hint" onclick="document.getElementById('solutionSearch').value='corrosion anode retrofit'; document.getElementById('solutionSearch').dispatchEvent(new Event('input'))">anode retrofit</span>
           </div>
         </div>
       </div>
@@ -143,53 +155,124 @@
 
     <!-- ====== TAB: ENQUIRE ====== -->
     <section class="tab-section" id="tab-enquire">
+      <div class="enquire-hero-band">
+        <div class="enquire-hero-inner">
+          <div class="enquire-hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="enquire-hero-title">Engineer-to-Order Solutions</h2>
+            <p class="enquire-hero-sub">IK Subsea designs bespoke solutions for unique challenges. Our engineering team will respond within one business day.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="section-inner narrow">
-        <h2 class="section-title">Enquire</h2>
-        <p class="section-subtitle">Tell us about your project and our engineering team will respond within 24 hours.</p>
-        <form class="enquiry-form" id="enquiryForm" action="mailto:sales@iksubsea.com" method="get" enctype="text/plain">
+        <form class="enquiry-form" id="enquiryForm">
+
+          <!-- 01 Challenge -->
+          <div class="form-section">
+            <div class="form-section-label">
+              <span class="form-step-num">01</span>
+              Describe the Challenge <span class="required">*</span>
+            </div>
+            <textarea id="eq-description" class="form-control form-textarea" rows="5"
+              placeholder="What is the problem? Include failure mode, asset type, operational constraints, timeline..." required></textarea>
+          </div>
+
+          <!-- 02 Infrastructure Type -->
+          <div class="form-section">
+            <div class="form-section-label">
+              <span class="form-step-num">02</span>
+              Infrastructure Type
+            </div>
+            <div class="infra-chips" id="infraChips">
+              <button type="button" class="infra-chip" data-value="Pipeline">Pipeline</button>
+              <button type="button" class="infra-chip" data-value="Flexible Flowline">Flexible Flowline</button>
+              <button type="button" class="infra-chip" data-value="Riser">Riser</button>
+              <button type="button" class="infra-chip" data-value="Umbilical">Umbilical</button>
+              <button type="button" class="infra-chip" data-value="Christmas Tree (XT)">Christmas Tree (XT)</button>
+              <button type="button" class="infra-chip" data-value="Conductor">Conductor</button>
+              <button type="button" class="infra-chip" data-value="Platform Jacket">Platform Jacket</button>
+              <button type="button" class="infra-chip" data-value="PLEM / PLET">PLEM / PLET</button>
+              <button type="button" class="infra-chip" data-value="Manifold">Manifold</button>
+              <button type="button" class="infra-chip" data-value="Other">Other</button>
+            </div>
+          </div>
+
+          <!-- 03 Water Depth -->
+          <div class="form-section">
+            <div class="form-section-label">
+              <span class="form-step-num">03</span>
+              Water Depth: <span id="depthDisplay" class="depth-readout">0 m</span>
+            </div>
+            <div class="depth-slider-wrap">
+              <div class="depth-track-bg">
+                <input type="range" id="eq-depth" class="depth-slider" min="0" max="3500" step="50" value="0" />
+              </div>
+              <div class="depth-scale">
+                <span>Surface</span><span>1,000m</span><span>2,000m</span><span>3,500m+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 Operating Pressure -->
+          <div class="form-section">
+            <div class="form-section-label">
+              <span class="form-step-num">04</span>
+              Operating Pressure <span class="form-optional">(bar, optional)</span>
+            </div>
+            <input type="text" id="eq-pressure" class="form-control" placeholder="e.g. 250 bar" />
+          </div>
+
+          <!-- 05 Urgency -->
+          <div class="form-section">
+            <div class="form-section-label">
+              <span class="form-step-num">05</span>
+              Urgency
+            </div>
+            <div class="urgency-grid" id="urgencyGrid">
+              <button type="button" class="urgency-btn u-emergency" data-urgency="Emergency">⚡ Emergency</button>
+              <button type="button" class="urgency-btn u-urgent" data-urgency="Urgent">🔶 Urgent</button>
+              <button type="button" class="urgency-btn active" data-urgency="Standard">Standard</button>
+              <button type="button" class="urgency-btn u-planning" data-urgency="Planning">📋 Planning</button>
+            </div>
+          </div>
+
+          <div class="form-divider-labeled"><span>Your Contact Details</span></div>
+
+          <!-- 06 Contact -->
           <div class="form-row two-col">
             <div class="form-group">
               <label class="form-label" for="eq-name">Full Name <span class="required">*</span></label>
-              <input type="text" id="eq-name" name="name" class="form-control" placeholder="Your full name" required />
+              <input type="text" id="eq-name" class="form-control" placeholder="Your full name" required />
             </div>
             <div class="form-group">
-              <label class="form-label" for="eq-company">Company <span class="required">*</span></label>
-              <input type="text" id="eq-company" name="company" class="form-control" placeholder="Your company" required />
+              <label class="form-label" for="eq-company">Company</label>
+              <input type="text" id="eq-company" class="form-control" placeholder="Company name" />
             </div>
           </div>
           <div class="form-row two-col">
             <div class="form-group">
-              <label class="form-label" for="eq-email">Email Address <span class="required">*</span></label>
-              <input type="email" id="eq-email" name="email" class="form-control" placeholder="you@company.com" required />
+              <label class="form-label" for="eq-email">Email <span class="required">*</span></label>
+              <input type="email" id="eq-email" class="form-control" placeholder="email@company.com" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="eq-phone">Phone</label>
-              <input type="tel" id="eq-phone" name="phone" class="form-control" placeholder="+47 xxx xx xxx" />
+              <input type="tel" id="eq-phone" class="form-control" placeholder="+47 xxx xx xxx" />
             </div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="eq-domain">Area of Interest</label>
-            <select id="eq-domain" name="domain" class="form-control form-select">
-              <option value="">Select a domain...</option>
-              <option value="Subsea Repair">Subsea Repair</option>
-              <option value="Isolation &amp; Plugging">Isolation &amp; Plugging</option>
-              <option value="Lifting &amp; Handling">Lifting &amp; Handling</option>
-              <option value="Custom Tooling">Custom Tooling</option>
-              <option value="Structural Integrity">Structural Integrity</option>
-              <option value="General Enquiry">General Enquiry</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="eq-description">Project Description <span class="required">*</span></label>
-            <textarea id="eq-description" name="description" class="form-control form-textarea" rows="6" placeholder="Describe your subsea challenge, water depth, pipeline specifications, timeline, and any other relevant details..." required></textarea>
-          </div>
+
           <div class="form-actions">
-            <button type="submit" class="btn-primary btn-full">
-              <svg viewBox="0 0 24 24" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-              Send Enquiry to sales@iksubsea.com
+            <button type="submit" class="btn-primary btn-full btn-send" id="enquireSubmitBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              Send Enquiry to IK Subsea
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
           </div>
-          <p class="form-note">By submitting this form your email client will open a pre-filled message addressed to sales@iksubsea.com</p>
+          <p class="form-note">Submitting opens a pre-filled email to sales@iksubsea.com. IK Subsea typically responds within one business day.</p>
         </form>
       </div>
     </section>
@@ -226,6 +309,20 @@
               <div class="stat-label">Type Approved</div>
             </div>
           </div>
+          <!-- Real IK Subsea project photos -->
+          <div class="photo-strip">
+            <div class="photo-card">
+              <img src="https://iksubsea.com/wp-content/uploads/2024/02/Jan-749-1-e1706017850885.jpg"
+                   alt="IK Subsea offshore operations" loading="lazy" />
+              <div class="photo-caption">Offshore Operations</div>
+            </div>
+            <div class="photo-card">
+              <img src="https://iksubsea.com/wp-content/uploads/2024/02/nov-2286-e1707997451495.jpg"
+                   alt="IK Subsea subsea installation" loading="lazy" />
+              <div class="photo-caption">Subsea Installation</div>
+            </div>
+          </div>
+
           <div class="about-domains">
             <h3 class="about-section-title">Our Capabilities</h3>
             <div class="domain-list">
