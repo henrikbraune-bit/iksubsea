@@ -397,8 +397,39 @@ function renderProductGrid() {
   renderProductCards(grid, filtered);
 }
 
+function renderProductCardHTML(p) {
+  const methods = p.installationMethods || [];
+  let installLabel = '';
+  if (methods.length === 1 && methods[0] === 'rov') installLabel = 'ROV';
+  else if (methods.length === 1 && methods[0] === 'diver') installLabel = 'Diver';
+  else if (methods.includes('both') || (methods.includes('rov') && methods.includes('diver'))) installLabel = 'ROV + Diver';
+  else if (methods.length > 0) installLabel = methods.join(', ');
+
+  return `
+    <div class="product-card ${escapedHtml(p.domain || '')}" onclick="openProductDetail('${escapedHtml(p.id)}')"
+         role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductDetail('${escapedHtml(p.id)}')}">
+      <div class="product-card-top">
+        <div class="product-name">${escapedHtml(p.name)}</div>
+        ${p.isEmergencyCapable ? '<span class="emergency-badge">⚡ Emergency</span>' : ''}
+      </div>
+      <div class="product-description">${escapedHtml(p.shortDescription)}</div>
+      <div class="product-card-footer">
+        ${domainBadgeHTML(p.domain)}
+        ${installLabel ? `<span class="install-chip">${escapedHtml(installLabel)}</span>` : ''}
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+  `;
+}
+
 function renderProductCards(container, products) {
+  // Update count badge
+  const badge = document.getElementById('productCountBadge');
+  if (badge) badge.textContent = `${products.length} product${products.length !== 1 ? 's' : ''}`;
+
   if (products.length === 0) {
+    container.classList.remove('is-grouped');
     container.innerHTML = `
       <div class="empty-state">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -409,31 +440,42 @@ function renderProductCards(container, products) {
     return;
   }
 
-  container.innerHTML = products.map(p => {
-    const methods = p.installationMethods || [];
-    let installLabel = '';
-    if (methods.length === 1 && methods[0] === 'rov') installLabel = 'ROV';
-    else if (methods.length === 1 && methods[0] === 'diver') installLabel = 'Diver';
-    else if (methods.includes('both') || (methods.includes('rov') && methods.includes('diver'))) installLabel = 'ROV + Diver';
-    else if (methods.length > 0) installLabel = methods.join(', ');
+  const domainOrder = ['repair', 'isolation', 'lifting', 'tooling', 'structural'];
+  const grouped = {};
+  products.forEach(p => {
+    const d = p.domain || 'other';
+    if (!grouped[d]) grouped[d] = [];
+    grouped[d].push(p);
+  });
+  const presentDomains = domainOrder.filter(d => grouped[d]);
 
-    return `
-      <div class="product-card" onclick="openProductDetail('${escapedHtml(p.id)}')"
-           role="button" tabindex="0"
-           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductDetail('${escapedHtml(p.id)}')}">
-        <div class="product-card-top">
-          <div class="product-name">${escapedHtml(p.name)}</div>
-          ${p.isEmergencyCapable ? '<span class="emergency-badge">⚡ Emergency</span>' : ''}
+  if (presentDomains.length <= 1) {
+    // Single domain or filtered — flat grid
+    container.classList.remove('is-grouped');
+    container.innerHTML = products.map(p => renderProductCardHTML(p)).join('');
+  } else {
+    // Multiple domains — grouped view with section headers
+    container.classList.add('is-grouped');
+    let html = '<div class="domain-groups">';
+    presentDomains.forEach(domain => {
+      const group = grouped[domain];
+      html += `
+        <div class="domain-group">
+          <div class="domain-group-header">
+            <div class="domain-group-dot ${domain}"></div>
+            <span class="domain-group-title">${DOMAIN_LABELS[domain] || domain}</span>
+            <span class="domain-group-count">${group.length} product${group.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="product-grid">
+            ${group.map(p => renderProductCardHTML(p)).join('')}
+          </div>
         </div>
-        <div class="product-description">${escapedHtml(p.shortDescription)}</div>
-        <div class="product-card-footer">
-          ${domainBadgeHTML(p.domain)}
-          ${installLabel ? `<span class="install-chip">${escapedHtml(installLabel)}</span>` : ''}
-        </div>
-      </div>
-    `;
-  }).join('');
-  // Trigger entrance animations
+      `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
   observeCards(container);
 }
 
@@ -566,6 +608,10 @@ function renderCaseStudyList() {
     );
   });
 
+  // Update count badge
+  const badge = document.getElementById('caseStudyCountBadge');
+  if (badge) badge.textContent = `${filtered.length} case stud${filtered.length !== 1 ? 'ies' : 'y'}`;
+
   if (filtered.length === 0) {
     list.innerHTML = `<div class="empty-state"><p>No case studies match your search.</p></div>`;
     return;
@@ -573,10 +619,10 @@ function renderCaseStudyList() {
 
   list.innerHTML = filtered.map((cs, i) => {
     const excerpt = cs.problemSummary
-      ? cs.problemSummary.slice(0, 160) + (cs.problemSummary.length > 160 ? '…' : '')
+      ? cs.problemSummary.slice(0, 180) + (cs.problemSummary.length > 180 ? '…' : '')
       : '';
     return `
-      <div class="case-study-card" onclick="openCaseStudyDetail('${escapedHtml(cs.id)}')"
+      <div class="case-study-card domain-${escapedHtml(cs.domain || 'repair')}" onclick="openCaseStudyDetail('${escapedHtml(cs.id)}')"
            role="button" tabindex="0"
            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseStudyDetail('${escapedHtml(cs.id)}')}">
         <div>
@@ -600,9 +646,11 @@ function renderCaseStudyList() {
           <div class="cs-excerpt">${escapedHtml(excerpt)}</div>
         </div>
         <div class="cs-year">${cs.year || ''}</div>
+        <svg class="cs-card-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </div>
     `;
   }).join('');
+  observeCards(list);
 }
 
 /* ============================================================
@@ -687,6 +735,34 @@ function openCaseStudyDetail(csId) {
 /* ============================================================
    ADDON GRID
    ============================================================ */
+function renderAddonCardHTML(a) {
+  const availBadgeClass = a.availability === 'rental' ? 'rental' : a.availability === 'purchase' ? 'purchase' : 'both';
+  const availLabel = a.availability === 'both' ? 'Rental / Purchase' : a.availability === 'rental' ? 'Rental' : 'Purchase';
+  const depthStr = a.depthRatingMeters ? `${a.depthRatingMeters.toLocaleString()}m` : null;
+
+  return `
+    <div class="addon-card" onclick="openAddonDetail('${escapedHtml(a.id)}')"
+         role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAddonDetail('${escapedHtml(a.id)}')}">
+      <div class="addon-card-top">
+        <div class="addon-name">${escapedHtml(a.name)}</div>
+        ${a.isEmergencyStock ? '<span class="emergency-badge">⚡ Emergency Stock</span>' : ''}
+      </div>
+      <div class="addon-description">${escapedHtml(a.shortDescription)}</div>
+      <div class="addon-card-footer">
+        <span class="availability-badge ${availBadgeClass}">${availLabel}</span>
+        ${depthStr ? `<span class="depth-chip">⬇ ${depthStr}</span>` : ''}
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </div>
+  `;
+}
+
+const CATEGORY_ICONS = {
+  torque_tools: '🔩', frames: '🔧', rov_skids: '🤖',
+  valve_packs: '🔌', diver_tools: '🤿', test_equipment: '📊', accessories: '⚙️',
+};
+
 function renderAddonGrid() {
   const grid = document.getElementById('addonGrid');
   if (!grid) return;
@@ -698,33 +774,53 @@ function renderAddonGrid() {
     return matchAvail && matchCat;
   });
 
+  // Update count badge
+  const badge = document.getElementById('addonCountBadge');
+  if (badge) badge.textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+
   if (filtered.length === 0) {
+    grid.classList.remove('is-grouped');
     grid.innerHTML = `<div class="empty-state"><p>No add-ons match your filters.</p></div>`;
     return;
   }
 
-  grid.innerHTML = filtered.map(a => {
-    const availBadgeClass = a.availability === 'rental' ? 'rental' : a.availability === 'purchase' ? 'purchase' : 'both';
-    const availLabel = a.availability === 'both' ? 'Rental / Purchase' : a.availability === 'rental' ? 'Rental' : 'Purchase';
-    const depthStr = a.depthRatingMeters ? `${a.depthRatingMeters.toLocaleString()}m` : null;
+  const categoryOrder = ['torque_tools', 'frames', 'rov_skids', 'valve_packs', 'diver_tools', 'test_equipment', 'accessories'];
+  const grouped = {};
+  filtered.forEach(a => {
+    const c = a.category || 'accessories';
+    if (!grouped[c]) grouped[c] = [];
+    grouped[c].push(a);
+  });
+  const presentCats = categoryOrder.filter(c => grouped[c]);
 
-    return `
-      <div class="addon-card" onclick="openAddonDetail('${escapedHtml(a.id)}')"
-           role="button" tabindex="0"
-           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openAddonDetail('${escapedHtml(a.id)}')}">
-        <div class="addon-card-top">
-          <div class="addon-name">${escapedHtml(a.name)}</div>
-          ${a.isEmergencyStock ? '<span class="emergency-badge">⚡ Emergency Stock</span>' : ''}
+  if (category !== 'all' || presentCats.length <= 1) {
+    // Specific category selected or only one present — flat grid
+    grid.classList.remove('is-grouped');
+    grid.innerHTML = filtered.map(a => renderAddonCardHTML(a)).join('');
+  } else {
+    // All categories — grouped view with section headers
+    grid.classList.add('is-grouped');
+    let html = '<div class="category-groups">';
+    presentCats.forEach(cat => {
+      const group = grouped[cat];
+      html += `
+        <div class="category-group">
+          <div class="category-group-header">
+            <span class="category-group-icon">${CATEGORY_ICONS[cat] || '⚙️'}</span>
+            <span class="category-group-title">${CATEGORY_LABELS[cat] || cat}</span>
+            <span class="category-group-count">${group.length} item${group.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="product-grid">
+            ${group.map(a => renderAddonCardHTML(a)).join('')}
+          </div>
         </div>
-        <div class="addon-description">${escapedHtml(a.shortDescription)}</div>
-        <div class="addon-card-footer">
-          <span class="category-chip">${escapedHtml(CATEGORY_LABELS[a.category] || a.category)}</span>
-          <span class="availability-badge ${availBadgeClass}">${availLabel}</span>
-          ${depthStr ? `<span class="depth-chip">⬇ ${depthStr}</span>` : ''}
-        </div>
-      </div>
-    `;
-  }).join('');
+      `;
+    });
+    html += '</div>';
+    grid.innerHTML = html;
+  }
+
+  observeCards(grid);
 }
 
 /* ============================================================

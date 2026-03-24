@@ -96,6 +96,13 @@
     <!-- ====== TAB: PRODUCTS ====== -->
     <section class="tab-section" id="tab-products">
       <div class="section-inner">
+        <div class="tab-intro">
+          <div class="tab-intro-text">
+            <h2 class="tab-intro-title">Products</h2>
+            <p class="tab-intro-desc">Engineer-to-order subsea solutions — browse by domain or search by challenge</p>
+          </div>
+          <span class="tab-intro-count" id="productCountBadge"></span>
+        </div>
         <div class="section-top-bar">
           <div class="search-bar-wrap compact">
             <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -117,11 +124,17 @@
     <!-- ====== TAB: CASE STUDIES ====== -->
     <section class="tab-section" id="tab-case-studies">
       <div class="section-inner">
+        <div class="tab-intro">
+          <div class="tab-intro-text">
+            <h2 class="tab-intro-title">Case Studies</h2>
+            <p class="tab-intro-desc">Real-world deployments across global offshore operations — from shallow splash zone to ultra-deepwater</p>
+          </div>
+          <span class="tab-intro-count" id="caseStudyCountBadge"></span>
+        </div>
         <div class="section-top-bar">
-          <h2 class="section-title">Case Studies</h2>
           <div class="search-bar-wrap compact">
             <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <input type="text" id="caseStudySearch" class="search-input" placeholder="Search case studies..." autocomplete="off" />
+            <input type="text" id="caseStudySearch" class="search-input" placeholder="Search by location, challenge, or solution..." autocomplete="off" />
           </div>
         </div>
         <div class="case-study-list" id="caseStudyList"></div>
@@ -131,23 +144,29 @@
     <!-- ====== TAB: ADD-ONS ====== -->
     <section class="tab-section" id="tab-addons">
       <div class="section-inner">
+        <div class="tab-intro">
+          <div class="tab-intro-text">
+            <h2 class="tab-intro-title">Add-ons &amp; Rental Equipment</h2>
+            <p class="tab-intro-desc">Specialist tooling for subsea operations — available for rental or purchase</p>
+          </div>
+          <span class="tab-intro-count" id="addonCountBadge"></span>
+        </div>
         <div class="section-top-bar">
-          <h2 class="section-title">Add-ons &amp; Rental Equipment</h2>
+          <div class="filter-chips no-margin" id="addonCategoryChips">
+            <button class="chip active" data-category="all">All Categories</button>
+            <button class="chip" data-category="torque_tools">Torque Tools</button>
+            <button class="chip" data-category="frames">Frames</button>
+            <button class="chip" data-category="rov_skids">ROV Skids</button>
+            <button class="chip" data-category="valve_packs">Valve Packs</button>
+            <button class="chip" data-category="diver_tools">Diver Tools</button>
+            <button class="chip" data-category="test_equipment">Test Equipment</button>
+            <button class="chip" data-category="accessories">Accessories</button>
+          </div>
           <div class="toggle-group" id="addonAvailabilityToggle">
             <button class="toggle-btn active" data-availability="all">All</button>
             <button class="toggle-btn" data-availability="rental">Rental</button>
             <button class="toggle-btn" data-availability="purchase">Purchase</button>
           </div>
-        </div>
-        <div class="filter-chips" id="addonCategoryChips">
-          <button class="chip active" data-category="all">All</button>
-          <button class="chip" data-category="torque_tools">Torque Tools</button>
-          <button class="chip" data-category="frames">Frames</button>
-          <button class="chip" data-category="rov_skids">ROV Skids</button>
-          <button class="chip" data-category="valve_packs">Valve Packs</button>
-          <button class="chip" data-category="diver_tools">Diver Tools</button>
-          <button class="chip" data-category="test_equipment">Test Equipment</button>
-          <button class="chip" data-category="accessories">Accessories</button>
         </div>
         <div class="product-grid" id="addonGrid"></div>
       </div>
@@ -293,7 +312,7 @@
           </div>
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-value">20+</div>
+              <div class="stat-value">30+</div>
               <div class="stat-label">Years Experience</div>
             </div>
             <div class="stat-card">
