@@ -2101,18 +2101,8 @@ input, textarea, select {
 .product-card.tooling    { border-left: 3px solid var(--domain-tooling); }
 .product-card.structural { border-left: 3px solid var(--domain-structural); }
 
-/* Card action arrow */
-.card-arrow {
-  margin-left: auto;
-  color: rgba(59, 217, 204, 0.28);
-  flex-shrink: 0;
-  transition: transform var(--transition-fast), color var(--transition-fast);
-}
-.product-card:hover .card-arrow,
-.addon-card:hover .card-arrow {
-  transform: translateX(3px);
-  color: var(--teal);
-}
+/* Card action arrow — hidden */
+.card-arrow { display: none; }
 
 /* ============================================================
    CATEGORY GROUPS — Add-ons tab grouped view
@@ -2165,16 +2155,8 @@ input, textarea, select {
 .case-study-card.domain-tooling    { border-left: 3px solid var(--domain-tooling); }
 .case-study-card.domain-structural { border-left: 3px solid var(--domain-structural); }
 
-.cs-card-arrow {
-  align-self: center;
-  color: rgba(59, 217, 204, 0.25);
-  flex-shrink: 0;
-  transition: transform var(--transition-fast), color var(--transition-fast);
-}
-.case-study-card:hover .cs-card-arrow {
-  transform: translateX(3px);
-  color: var(--teal);
-}
+/* Case study card arrow — hidden */
+.cs-card-arrow { display: none; }
 
 @media (max-width: 768px) {
   .tab-intro { flex-direction: column; align-items: flex-start; }
