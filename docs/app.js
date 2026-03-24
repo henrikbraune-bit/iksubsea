@@ -148,6 +148,81 @@ function closeAllPanels(restoreScroll = true) {
 }
 
 /* ============================================================
+   FREE SEARCH ENGINE  (ported from iOS FreeSearchEngine.swift)
+   ============================================================ */
+const KEYWORD_MAP = [
+  // Leaks & sealing
+  { keywords: ['leak','leaking','leakage','seal','sealing','loss of containment'], tags: ['pipeline-leak','flange-leak','weld-defect'] },
+  { keywords: ['flange','connector','coupling','hub'],                              tags: ['flange-leak','connector-failure'] },
+  { keywords: ['gasket','packer'],                                                  tags: ['gasket-failure','flange-leak'] },
+  { keywords: ['pinhole','perforation','penetration'],                              tags: ['pinhole','pipe-penetration-leak'] },
+  { keywords: ['flexible','flexflow','flex flow','outer sheath'],                   tags: ['flexible-damage','tight-access'] },
+  { keywords: ['riser'],                                                             tags: ['pipeline-leak','structural-damage'] },
+  // Structural damage
+  { keywords: ['crack','cracked','cracking','fracture'],                            tags: ['crack','structural-damage','pipeline-structural-failure'] },
+  { keywords: ['structural','structure','buckle','collapse','deformation'],         tags: ['structural-damage','platform-repair'] },
+  { keywords: ['jacket','conductor','platform','plem','manifold'],                  tags: ['platform-repair','jacket-damage','structural-damage'] },
+  { keywords: ['weld','welding','weld defect'],                                     tags: ['weld-defect','crack'] },
+  { keywords: ['xmas tree','christmas tree','xt','tree'],                           tags: ['structural-damage','ultra-deepwater','tight-access'] },
+  // Isolation & plugging
+  { keywords: ['isolat','plug','plugging','block','shut in','shut-in'],             tags: ['pipeline-isolation','decommissioning'] },
+  { keywords: ['decommission','decom','abandon','abandonment'],                     tags: ['decommissioning','pipeline-isolation'] },
+  { keywords: ['valve','sea chest','vessel'],                                       tags: ['pipeline-isolation'] },
+  // Lifting & handling
+  { keywords: ['lift','lifting','hoist','raise'],                                   tags: ['subsea-lifting','flexible-lifting'] },
+  { keywords: ['recovery','recover','retrieve'],                                    tags: ['cable-recovery','flexible-lifting','decommissioning'] },
+  { keywords: ['umbilical'],                                                        tags: ['umbilical-handling','flexible-lifting'] },
+  { keywords: ['cable'],                                                            tags: ['cable-recovery','flexible-lifting'] },
+  { keywords: ['hang','hang-off','holdback','hold back'],                           tags: ['subsea-lifting'] },
+  { keywords: ['install','installation','deploy'],                                  tags: ['installation','pipeline-installation'] },
+  // Corrosion & cathodic protection
+  { keywords: ['anode','anodes','cathodic','corrosion','corroded'],                 tags: ['cathodic-protection','anode-retrofit'] },
+  { keywords: ['sacrificial'],                                                      tags: ['cathodic-protection','corrosion'] },
+  // Depth
+  { keywords: ['deepwater','deep water','ultra deep','ultra-deep'],                 tags: ['ultra-deepwater'] },
+  { keywords: ['shallow','splash zone','surface'],                                  tags: ['shallow-water'] },
+  // Urgency
+  { keywords: ['emergency','urgent','critical','immediate','asap'],                 tags: ['emergency'] },
+  // Service conditions
+  { keywords: ['sour','h2s','hydrogen sulphide','hydrogen sulfide'],                tags: ['sour-service'] },
+  { keywords: ['high pressure','high-pressure','hpht'],                             tags: ['pipeline-leak'] },
+  // Tooling
+  { keywords: ['rov','remotely operated'],                                          tags: ['pipeline-leak','pipeline-isolation','ultra-deepwater'] },
+  { keywords: ['coating','mill','milling','surface prep'],                          tags: ['surface-prep'] },
+  { keywords: ['grout','grouting'],                                                 tags: ['structural-grouting','platform-repair'] },
+  { keywords: ['torque','bolt'],                                                    tags: ['subsea-assembly'] },
+  // Pipeline types
+  { keywords: ['pipeline','pipe','flowline','flow line'],                           tags: ['pipeline-leak','pipeline-structural-failure'] },
+];
+
+function extractTags(query) {
+  const lower = query.toLowerCase();
+  const tags = new Set();
+  for (const entry of KEYWORD_MAP) {
+    for (const kw of entry.keywords) {
+      if (lower.includes(kw)) {
+        entry.tags.forEach(t => tags.add(t));
+        break;
+      }
+    }
+  }
+  return [...tags];
+}
+
+function freeSearchScore(product, queryTags, queryWords) {
+  const productTags = new Set(product.problemTags || []);
+  const intersection = queryTags.filter(t => productTags.has(t));
+  let score = queryTags.length === 0 ? 0 : intersection.length / queryTags.length;
+  const name = (product.name || '').toLowerCase();
+  const desc = (product.shortDescription || '').toLowerCase();
+  for (const w of queryWords) {
+    if (name.includes(w)) score += 0.15;
+    if (desc.includes(w)) score += 0.05;
+  }
+  return Math.min(score, 1.0);
+}
+
+/* ============================================================
    CATEGORY GRID (Solution Finder)
    ============================================================ */
 function renderCategoryGrid() {
@@ -208,16 +283,67 @@ function showSolutionResults() {
   categoryGrid.classList.add('hidden');
   resultsEl.classList.remove('hidden');
 
+  // Remove any previous detected-concepts block
+  const existing = document.getElementById('detectedConcepts');
+  if (existing) existing.remove();
+
   let filtered;
+
   if (search) {
-    const q = search.toLowerCase();
-    filtered = State.products.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      (p.shortDescription && p.shortDescription.toLowerCase().includes(q)) ||
-      (p.fullDescription && p.fullDescription.toLowerCase().includes(q)) ||
-      (p.problemTags && p.problemTags.some(t => t.toLowerCase().includes(q)))
-    );
-    titleEl.textContent = `${filtered.length} result${filtered.length !== 1 ? 's' : ''} for "${search}"`;
+    // --- Smart free-text search (FreeSearchEngine) ---
+    const queryTags  = extractTags(search);
+    const queryWords = search.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+    const isEmergency = queryTags.includes('emergency');
+
+    // Score every product, keep those above 0.10 threshold
+    let scored = State.products.map(p => ({
+      product: p,
+      score: freeSearchScore(p, queryTags, queryWords),
+    })).filter(x => x.score > 0.10);
+
+    // Fallback: if no semantic matches, do simple text contains
+    if (scored.length === 0) {
+      const q = search.toLowerCase();
+      scored = State.products
+        .filter(p =>
+          p.name.toLowerCase().includes(q) ||
+          (p.shortDescription && p.shortDescription.toLowerCase().includes(q)) ||
+          (p.fullDescription  && p.fullDescription.toLowerCase().includes(q)) ||
+          (p.problemTags && p.problemTags.some(t => t.toLowerCase().includes(q)))
+        )
+        .map(p => ({ product: p, score: 0.5 }));
+    }
+
+    // Sort: emergency-capable first (if emergency query), then by score
+    scored.sort((a, b) => {
+      if (isEmergency && a.product.isEmergencyCapable !== b.product.isEmergencyCapable) {
+        return a.product.isEmergencyCapable ? -1 : 1;
+      }
+      return b.score - a.score;
+    });
+
+    filtered = scored.map(x => x.product);
+
+    // Build title
+    const n = filtered.length;
+    titleEl.innerHTML = `<span class="sparkle-icon">✦</span> ${n} Solution${n !== 1 ? 's' : ''} Found`;
+
+    // Show detected concepts row
+    if (queryTags.length > 0) {
+      const conceptsEl = document.createElement('div');
+      conceptsEl.id = 'detectedConcepts';
+      conceptsEl.className = 'detected-concepts';
+      conceptsEl.innerHTML = `
+        <div class="detected-label">DETECTED CONCEPTS</div>
+        <div class="detected-tags">
+          ${queryTags.slice(0, 8).map(t =>
+            `<span class="detected-tag">${t.replace(/-/g, ' ')}</span>`
+          ).join('')}
+        </div>
+      `;
+      titleEl.parentNode.insertAdjacentElement('afterend', conceptsEl);
+    }
+
   } else if (categoryTags) {
     filtered = State.products.filter(p =>
       p.problemTags && p.problemTags.some(t => categoryTags.includes(t))
