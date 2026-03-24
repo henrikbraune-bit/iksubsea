@@ -1405,6 +1405,169 @@ input, textarea, select {
 .contact-item:hover { color: var(--teal); }
 .contact-item svg { flex-shrink: 0; }
 
+/* ---- Logo button (clickable back to Solution Finder) ---- */
+.logo-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  transition: opacity var(--transition-fast);
+}
+.logo-btn:hover { opacity: 0.75; }
+.logo-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+
+/* ---- About meta strip ---- */
+.about-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: 0.65;
+}
+.about-meta-strip .meta-sep { color: var(--grey); opacity: 0.5; }
+
+/* ---- About three pillars ---- */
+.about-pillars {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.about-pillar {
+  background: var(--navy-card);
+  border: 1.5px solid rgba(59, 217, 204, 0.10);
+  border-top: 2.5px solid var(--teal);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px 20px;
+  text-align: center;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.about-pillar:hover {
+  border-color: rgba(59, 217, 204, 0.32);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.about-pillar-icon {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.about-pillar-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 7px;
+  line-height: 1.3;
+}
+.about-pillar-desc {
+  font-size: 0.79rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* ---- Domain capability cards ---- */
+.domain-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.domain-about-card {
+  background: var(--navy-card);
+  border: 1.5px solid rgba(59, 217, 204, 0.08);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.domain-about-card:hover {
+  border-color: rgba(59, 217, 204, 0.22);
+  transform: translateX(3px);
+}
+.domain-about-card.repair     { border-left-color: var(--domain-repair); }
+.domain-about-card.isolation  { border-left-color: var(--domain-isolation); }
+.domain-about-card.lifting    { border-left-color: var(--domain-lifting); }
+.domain-about-card.tooling    { border-left-color: var(--domain-tooling); }
+.domain-about-card.structural { border-left-color: var(--domain-structural); }
+
+.domain-about-card .domain-dot { flex-shrink: 0; }
+.domain-about-card.repair .domain-dot     { background: var(--domain-repair); }
+.domain-about-card.isolation .domain-dot  { background: var(--domain-isolation); }
+.domain-about-card.lifting .domain-dot    { background: var(--domain-lifting); }
+.domain-about-card.tooling .domain-dot    { background: var(--domain-tooling); }
+.domain-about-card.structural .domain-dot { background: var(--domain-structural); }
+
+.domain-about-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.domain-about-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.domain-about-desc {
+  font-size: 0.80rem;
+  color: var(--grey);
+  line-height: 1.58;
+  margin: 0;
+}
+
+/* ---- Contact CTA card ---- */
+.contact-cta-card {
+  background: linear-gradient(135deg, rgba(59, 217, 204, 0.07) 0%, rgba(6, 22, 38, 0) 80%);
+  border: 1.5px solid rgba(59, 217, 204, 0.20);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 32px;
+  text-align: center;
+}
+.contact-cta-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 8px;
+  opacity: 0.8;
+}
+.contact-cta-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 22px;
+  letter-spacing: -0.02em;
+}
+.contact-cta-card .contact-items {
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .about-pillars { grid-template-columns: 1fr; }
+  .domain-cards-grid { grid-template-columns: 1fr; }
+  .contact-cta-card { padding: 24px 20px; }
+  .contact-cta-title { font-size: 1.7rem; }
+}
+
 /* ============================================================
    LOADING STATE
    ============================================================ */

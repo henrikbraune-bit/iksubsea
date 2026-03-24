@@ -15,7 +15,9 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="logo">
-        <img src="images/logo-white.png" class="site-logo" alt="IK Subsea" />
+        <button class="logo-btn" onclick="switchTab('solution-finder')" aria-label="Back to Solution Finder" title="Back to Solution Finder">
+          <img src="images/logo-white.png" class="site-logo" alt="IK Subsea" />
+        </button>
       </div>
       <nav class="tab-nav" id="tabNav">
         <button class="tab-btn active" data-tab="solution-finder">
@@ -304,12 +306,39 @@
             <img src="images/logo-white.png" class="about-logo-img" alt="IK Subsea" />
           </div>
           <p class="about-tagline">Engineering solutions for the world's most demanding subsea challenges.</p>
+          <div class="about-meta-strip">
+            <span>Est. 1986</span>
+            <span class="meta-sep">·</span>
+            <span>Stavanger, Norway</span>
+            <span class="meta-sep">·</span>
+            <span>DNV Type Approved</span>
+            <span class="meta-sep">·</span>
+            <span>Part of IK Group</span>
+          </div>
         </div>
         <div class="about-body">
           <div class="about-description">
             <p>IK Subsea delivers engineering solutions for the most demanding subsea pipeline, riser, and cable challenges. From emergency repair to complex installation tooling, our products are built for reliability at any water depth.</p>
             <p>With over 39 years of ETO (Engineer-To-Order) heritage, IK Subsea combines deep technical expertise with a commitment to rapid delivery — including 2-week emergency custom manufacturing capability. Our engineering team applies a risk-based approach, from existing technology to fully bespoke designs with complete engineering, testing, and installation support.</p>
           </div>
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <div class="about-pillar-icon">⚡</div>
+              <div class="about-pillar-title">2-Week Emergency Manufacture</div>
+              <div class="about-pillar-desc">Custom solutions designed and manufactured in as little as two weeks for critical offshore operations.</div>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-icon">🏅</div>
+              <div class="about-pillar-title">DNV Type Approved</div>
+              <div class="about-pillar-desc">Products independently verified by DNV — the highest standard in the subsea engineering industry.</div>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-icon">🌊</div>
+              <div class="about-pillar-title">Any Water Depth</div>
+              <div class="about-pillar-desc">From splash zone to ultra-deepwater — built for the world's most extreme subsea environments.</div>
+            </div>
+          </div>
+
           <div class="stats-grid">
             <div class="stat-card">
               <div class="stat-value">30+</div>
@@ -344,59 +373,63 @@
 
           <div class="about-domains">
             <h3 class="about-section-title">Our Capabilities</h3>
-            <div class="domain-list">
-              <div class="domain-item domain-repair">
-                <div class="domain-dot"></div>
-                <div>
-                  <div class="domain-name">Subsea Repair</div>
-                  <div class="domain-desc">Pipeline sealing clamps, integrity clamps, EPRS systems, flange repair — permanent and temporary solutions for all pipe sizes and depths.</div>
+            <div class="domain-cards-grid">
+              <div class="domain-about-card repair">
+                <div class="domain-about-header">
+                  <div class="domain-dot"></div>
+                  <span class="domain-about-name">Subsea Repair</span>
                 </div>
+                <p class="domain-about-desc">Pipeline sealing clamps, integrity clamps, EPRS systems, flange repair — permanent and temporary solutions for all pipe sizes and depths.</p>
               </div>
-              <div class="domain-item domain-isolation">
-                <div class="domain-dot"></div>
-                <div>
-                  <div class="domain-name">Isolation &amp; Plugging</div>
-                  <div class="domain-desc">Internal compression plugs for pipeline, riser, and cavity isolation. Single and dual barrier, mechanical or hydraulic setting.</div>
+              <div class="domain-about-card isolation">
+                <div class="domain-about-header">
+                  <div class="domain-dot"></div>
+                  <span class="domain-about-name">Isolation &amp; Plugging</span>
                 </div>
+                <p class="domain-about-desc">Internal compression plugs for pipeline, riser, and cavity isolation. Single and dual barrier, mechanical or hydraulic setting.</p>
               </div>
-              <div class="domain-item domain-lifting">
-                <div class="domain-dot"></div>
-                <div>
-                  <div class="domain-name">Lifting &amp; Handling</div>
-                  <div class="domain-desc">The Angel system and specialist lifting clamps for flexibles, umbilicals, cables, and rigid pipelines at any water depth.</div>
+              <div class="domain-about-card lifting">
+                <div class="domain-about-header">
+                  <div class="domain-dot"></div>
+                  <span class="domain-about-name">Lifting &amp; Handling</span>
                 </div>
+                <p class="domain-about-desc">The Angel system and specialist lifting clamps for flexibles, umbilicals, cables, and rigid pipelines at any water depth.</p>
               </div>
-              <div class="domain-item domain-tooling">
-                <div class="domain-dot"></div>
-                <div>
-                  <div class="domain-name">Custom Tooling</div>
-                  <div class="domain-desc">Bespoke ROV and diver tooling: coating removal, cutters, grout injection units, and workover control systems engineered for each project.</div>
+              <div class="domain-about-card tooling">
+                <div class="domain-about-header">
+                  <div class="domain-dot"></div>
+                  <span class="domain-about-name">Custom Tooling</span>
                 </div>
+                <p class="domain-about-desc">Bespoke ROV and diver tooling: coating removal, cutters, grout injection units, and workover control systems engineered for each project.</p>
               </div>
-              <div class="domain-item domain-structural">
-                <div class="domain-dot"></div>
-                <div>
-                  <div class="domain-name">Structural Integrity</div>
-                  <div class="domain-desc">Cathodic protection systems, anode retrofit solutions, protection structures, and NORSOK-compliant reinforcement engineering.</div>
+              <div class="domain-about-card structural">
+                <div class="domain-about-header">
+                  <div class="domain-dot"></div>
+                  <span class="domain-about-name">Structural Integrity</span>
                 </div>
+                <p class="domain-about-desc">Cathodic protection systems, anode retrofit solutions, protection structures, and NORSOK-compliant reinforcement engineering.</p>
               </div>
             </div>
           </div>
           <div class="contact-block">
-            <h3 class="about-section-title">Get in Touch</h3>
-            <div class="contact-items">
-              <a class="contact-item" href="mailto:sales@iksubsea.com">
-                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                sales@iksubsea.com
-              </a>
-              <a class="contact-item" href="tel:+47xxxxxxxx">
-                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                +47 xxx xx xxx
-              </a>
+            <div class="contact-cta-card">
+              <p class="contact-cta-eyebrow">Ready to solve your subsea challenge?</p>
+              <h3 class="contact-cta-title">Let's talk.</h3>
+              <div class="contact-items">
+                <a class="contact-item" href="mailto:sales@iksubsea.com">
+                  <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                  sales@iksubsea.com
+                </a>
+                <a class="contact-item" href="tel:+4751963500">
+                  <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                  +47 51 96 35 00
+                </a>
+              </div>
+              <button class="btn-primary contact-cta-btn" onclick="switchTab('enquire')">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                Send an Enquiry
+              </button>
             </div>
-            <button class="btn-primary mt-4" onclick="switchTab('enquire')">
-              Send an Enquiry
-            </button>
           </div>
         </div>
       </div>
