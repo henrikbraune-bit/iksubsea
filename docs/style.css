@@ -1649,19 +1649,15 @@ input, textarea, select {
 }
 .emergency-badge { animation: emergencyGlow 2.2s ease-in-out infinite; }
 
-@keyframes btnGlow {
-  0%, 100% { box-shadow: 0 2px 10px rgba(59, 217, 204, 0.15); }
-  50%       { box-shadow: 0 4px 22px rgba(59, 217, 204, 0.30); }
-}
 .btn-send {
   background: var(--teal);
   color: var(--navy) !important;
-  animation: btnGlow 3.5s ease-in-out infinite;
+  box-shadow: 0 2px 12px rgba(59, 217, 204, 0.18);
 }
 .btn-send:hover {
-  animation: none;
   background: var(--sea-green);
-  box-shadow: 0 4px 26px rgba(59, 217, 204, 0.38);
+  box-shadow: 0 4px 20px rgba(59, 217, 204, 0.30);
+  transform: translateY(-1px);
 }
 
 /* ============================================================
