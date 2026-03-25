@@ -1077,6 +1077,43 @@ input, textarea, select {
   background: rgba(59, 217, 204, 0.08);
 }
 
+/* Card enquire button */
+.card-enquire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(59, 217, 204, 0.3);
+  background: transparent;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.card-enquire-btn:hover {
+  background: rgba(59, 217, 204, 0.12);
+  border-color: var(--teal);
+  transform: translateY(-1px);
+}
+
+/* Panel enquire CTA section */
+.panel-enquire-cta {
+  border-top: 1px solid rgba(59, 217, 204, 0.15);
+  padding-top: 20px;
+  margin-top: 8px;
+}
+.panel-enquire-note {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: var(--grey);
+  text-align: center;
+}
+
 /* ============================================================
    CASE STUDY PANEL
    ============================================================ */

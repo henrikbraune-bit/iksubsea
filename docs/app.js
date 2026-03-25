@@ -519,6 +519,14 @@ function renderProductCardHTML(p) {
       <div class="product-card-footer">
         ${domainBadgeHTML(p.domain)}
         ${installLabel ? `<span class="install-chip">${escapedHtml(installLabel)}</span>` : ''}
+        <a class="card-enquire-btn"
+           href="mailto:sales@iksubsea.com?subject=${encodeURIComponent('Further Information: ' + p.name)}&body=${encodeURIComponent('Hi IK Subsea team,\n\nI would like to request further information about the following solution:\n\nProduct: ' + p.name + '\n\nPlease provide additional details, pricing, and availability.\n\nKind regards,')}"
+           onclick="event.stopPropagation()"
+           title="Request further information"
+           aria-label="Request further information about ${escapedHtml(p.name)}">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Enquire
+        </a>
         <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </div>
     </div>
@@ -672,6 +680,8 @@ function openProductDetail(productId) {
        </div>`
     : '';
 
+  const enquireMailto = `mailto:sales@iksubsea.com?subject=${encodeURIComponent('Further Information: ' + p.name)}&body=${encodeURIComponent('Hi IK Subsea team,\n\nI would like to request further information about the following solution:\n\nProduct: ' + p.name + '\nDomain: ' + (DOMAIN_LABELS[p.domain] || p.domain) + '\n\nPlease provide additional details, pricing, and availability.\n\nKind regards,')}`;
+
   body.innerHTML = `
     ${heroHTML}
     <div class="panel-badges" style="padding-top: ${p.imageName === 'AngelHero' ? '20px' : '24px'}">
@@ -688,6 +698,14 @@ function openProductDetail(productId) {
     ${certHTML}
     ${relatedCSHTML}
     ${brochureHTML}
+    <div class="panel-section panel-enquire-cta">
+      <a class="btn-primary btn-full" href="${enquireMailto}">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Request Further Information
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="panel-enquire-note">Opens a pre-filled email to sales@iksubsea.com</p>
+    </div>
   `;
 
   openPanel('productPanel');
