@@ -158,75 +158,172 @@ function closeAllPanels(restoreScroll = true) {
 /* ============================================================
    FREE SEARCH ENGINE  (ported from iOS FreeSearchEngine.swift)
    ============================================================ */
+// Each entry has an optional `cluster` that groups related keywords into a concept.
+// Multi-concept queries (2+ distinct clusters) require products to match ALL clusters.
 const KEYWORD_MAP = [
-  // Leaks & sealing
-  { keywords: ['leak','leaking','leakage','seal','sealing','loss of containment'], tags: ['pipeline-leak','flange-leak','weld-defect'] },
-  { keywords: ['flange','connector','coupling','hub'],                              tags: ['flange-leak','connector-failure'] },
-  { keywords: ['gasket','packer'],                                                  tags: ['gasket-failure','flange-leak'] },
-  { keywords: ['pinhole','perforation','penetration'],                              tags: ['pinhole','pipe-penetration-leak'] },
-  { keywords: ['flexible','flexflow','flex flow','outer sheath'],                   tags: ['flexible-damage','tight-access'] },
-  { keywords: ['riser'],                                                             tags: ['pipeline-leak','structural-damage'] },
-  // Structural damage
-  { keywords: ['crack','cracked','cracking','fracture'],                            tags: ['crack','structural-damage','pipeline-structural-failure'] },
-  { keywords: ['structural','structure','buckle','collapse','deformation'],         tags: ['structural-damage','platform-repair'] },
-  { keywords: ['jacket','conductor','platform','plem','manifold'],                  tags: ['platform-repair','jacket-damage','structural-damage'] },
-  { keywords: ['weld','welding','weld defect'],                                     tags: ['weld-defect','crack'] },
-  { keywords: ['xmas tree','christmas tree','xt','tree'],                           tags: ['structural-damage','ultra-deepwater','tight-access'] },
-  // Isolation & plugging
-  { keywords: ['isolat','plug','plugging','block','shut in','shut-in'],             tags: ['pipeline-isolation','decommissioning'] },
-  { keywords: ['decommission','decom','abandon','abandonment'],                     tags: ['decommissioning','pipeline-isolation'] },
-  { keywords: ['valve','sea chest','vessel'],                                       tags: ['pipeline-isolation'] },
-  // Lifting & handling
-  { keywords: ['lift','lifting','hoist','raise'],                                   tags: ['subsea-lifting','flexible-lifting'] },
-  { keywords: ['recovery','recover','retrieve'],                                    tags: ['cable-recovery','flexible-lifting','decommissioning'] },
-  { keywords: ['umbilical'],                                                        tags: ['umbilical-handling','flexible-lifting'] },
-  { keywords: ['cable'],                                                            tags: ['cable-recovery','flexible-lifting'] },
-  { keywords: ['hang','hang-off','holdback','hold back'],                           tags: ['subsea-lifting'] },
-  { keywords: ['install','installation','deploy'],                                  tags: ['installation','pipeline-installation'] },
-  // Corrosion & cathodic protection
-  { keywords: ['anode','anodes','cathodic','corrosion','corroded'],                 tags: ['cathodic-protection','anode-retrofit'] },
-  { keywords: ['sacrificial'],                                                      tags: ['cathodic-protection','corrosion'] },
-  // Depth
-  { keywords: ['deepwater','deep water','ultra deep','ultra-deep'],                 tags: ['ultra-deepwater'] },
-  { keywords: ['shallow','splash zone','surface'],                                  tags: ['shallow-water'] },
-  // Urgency
-  { keywords: ['emergency','urgent','critical','immediate','asap'],                 tags: ['emergency'] },
-  // Service conditions
-  { keywords: ['sour','h2s','hydrogen sulphide','hydrogen sulfide'],                tags: ['sour-service'] },
-  { keywords: ['high pressure','high-pressure','hpht'],                             tags: ['pipeline-leak'] },
-  // Tooling
-  { keywords: ['rov','remotely operated'],                                          tags: ['pipeline-leak','pipeline-isolation','ultra-deepwater'] },
-  { keywords: ['coating','mill','milling','surface prep'],                          tags: ['surface-prep'] },
-  { keywords: ['grout','grouting'],                                                 tags: ['structural-grouting','platform-repair'] },
-  { keywords: ['torque','bolt'],                                                    tags: ['subsea-assembly'] },
-  // Pipeline types
-  { keywords: ['pipeline','pipe','flowline','flow line'],                           tags: ['pipeline-leak','pipeline-structural-failure'] },
+  // ── COMPOUND PHRASES — checked first for highest precision ──────────────────
+  { keywords: ['lifting umbilical','umbilical lift','umbilical recovery','recover umbilical','umbilical handling'],
+    tags: ['umbilical-handling','flexible-lifting','subsea-lifting'],            cluster: 'umbilical-lifting' },
+  { keywords: ['flexible lift','riser recovery','riser lift'],
+    tags: ['flexible-lifting','riser-recovery'],                                 cluster: 'flexible-lifting' },
+  { keywords: ['cable recovery','cable lift','cable retrieval'],
+    tags: ['cable-recovery','flexible-lifting'],                                 cluster: 'cable-lifting' },
+  { keywords: ['pipeline repair','pipe repair','flowline repair'],
+    tags: ['pipeline-leak','pipeline-structural-failure'],                       cluster: 'sealing' },
+
+  // ── Leaks & sealing ─────────────────────────────────────────────────────────
+  { keywords: ['leak','leaking','leakage','seal','sealing','loss of containment'],
+    tags: ['pipeline-leak','flange-leak','weld-defect'],                         cluster: 'sealing' },
+  { keywords: ['flange','connector','coupling','hub'],
+    tags: ['flange-leak','connector-failure'],                                   cluster: 'sealing' },
+  { keywords: ['gasket','packer'],
+    tags: ['gasket-failure','flange-leak'],                                      cluster: 'sealing' },
+  { keywords: ['pinhole','perforation','penetration'],
+    tags: ['pinhole','pipe-penetration-leak'],                                   cluster: 'sealing' },
+  { keywords: ['flexible','flexflow','flex flow','outer sheath'],
+    tags: ['flexible-damage','tight-access'],                                    cluster: 'flexible' },
+  { keywords: ['riser'],
+    tags: ['pipeline-leak','structural-damage'],                                 cluster: 'sealing' },
+
+  // ── Structural damage ───────────────────────────────────────────────────────
+  { keywords: ['crack','cracked','cracking','fracture'],
+    tags: ['crack','structural-damage','pipeline-structural-failure'],           cluster: 'structural' },
+  { keywords: ['structural','structure','buckle','collapse','deformation'],
+    tags: ['structural-damage','platform-repair'],                               cluster: 'structural' },
+  { keywords: ['jacket','conductor','platform','plem','manifold'],
+    tags: ['platform-repair','jacket-damage','structural-damage'],               cluster: 'structural' },
+  { keywords: ['weld','welding','weld defect'],
+    tags: ['weld-defect','crack'],                                               cluster: 'structural' },
+  { keywords: ['xmas tree','christmas tree','xt','tree'],
+    tags: ['structural-damage','ultra-deepwater','tight-access'],                cluster: 'structural' },
+
+  // ── Isolation & plugging ────────────────────────────────────────────────────
+  { keywords: ['isolat','plug','plugging','block','shut in','shut-in'],
+    tags: ['pipeline-isolation','decommissioning'],                              cluster: 'isolation' },
+  { keywords: ['decommission','decom','abandon','abandonment'],
+    tags: ['decommissioning','pipeline-isolation'],                              cluster: 'isolation' },
+  { keywords: ['valve','sea chest','vessel'],
+    tags: ['pipeline-isolation'],                                                cluster: 'isolation' },
+
+  // ── Lifting & handling ──────────────────────────────────────────────────────
+  { keywords: ['lift','lifting','hoist','raise'],
+    tags: ['subsea-lifting','flexible-lifting'],                                 cluster: 'lifting' },
+  { keywords: ['recovery','recover','retrieve'],
+    tags: ['cable-recovery','flexible-lifting','decommissioning'],               cluster: 'recovery' },
+  { keywords: ['umbilical'],
+    tags: ['umbilical-handling','flexible-lifting'],                             cluster: 'umbilical' },
+  { keywords: ['cable'],
+    tags: ['cable-recovery','flexible-lifting'],                                 cluster: 'cable' },
+  { keywords: ['hang','hang-off','holdback','hold back'],
+    tags: ['subsea-lifting'],                                                    cluster: 'lifting' },
+
+  // ── Corrosion & cathodic protection ─────────────────────────────────────────
+  { keywords: ['anode','anodes','cathodic','corrosion','corroded'],
+    tags: ['cathodic-protection','anode-retrofit'],                              cluster: 'cathodic' },
+  { keywords: ['sacrificial'],
+    tags: ['cathodic-protection','corrosion'],                                   cluster: 'cathodic' },
+
+  // ── CONTEXTUAL — contribute to tag scoring but do NOT define required clusters ─
+  { keywords: ['deepwater','deep water','ultra deep','ultra-deep'],
+    tags: ['ultra-deepwater'],                                                   cluster: 'depth' },
+  { keywords: ['shallow','splash zone','surface'],
+    tags: ['shallow-water'],                                                     cluster: 'depth' },
+  { keywords: ['emergency','urgent','critical','immediate','asap'],
+    tags: ['emergency'],                                                         cluster: 'urgency' },
+  { keywords: ['sour','h2s','hydrogen sulphide','hydrogen sulfide'],
+    tags: ['sour-service'],                                                      cluster: 'service' },
+  { keywords: ['high pressure','high-pressure','hpht'],
+    tags: ['pipeline-leak'],                                                     cluster: 'service' },
+  { keywords: ['install','installation','deploy'],
+    tags: ['installation','pipeline-installation'],                              cluster: 'installation' },
+  { keywords: ['rov','remotely operated'],
+    tags: ['pipeline-leak','pipeline-isolation','ultra-deepwater'],              cluster: 'tooling' },
+  { keywords: ['coating','mill','milling','surface prep'],
+    tags: ['surface-prep'],                                                      cluster: 'tooling' },
+  { keywords: ['grout','grouting'],
+    tags: ['structural-grouting','platform-repair'],                             cluster: 'tooling' },
+  { keywords: ['torque','bolt'],
+    tags: ['subsea-assembly'],                                                   cluster: 'tooling' },
+  { keywords: ['pipeline','pipe','flowline','flow line'],
+    tags: ['pipeline-leak','pipeline-structural-failure'],                       cluster: 'pipeline' },
 ];
 
-function extractTags(query) {
+// Clusters that add context/depth but must NOT be required for a match.
+// Products don't need these tags to be considered relevant.
+const CONTEXTUAL_CLUSTERS = new Set([
+  'depth', 'urgency', 'service', 'tooling', 'pipeline', 'installation', 'flexible',
+]);
+
+/**
+ * Analyse a free-text query and return:
+ *  - tags:     all semantic tags extracted (used for scoring)
+ *  - clusters: concept clusters with their associated tags
+ *              (used to enforce multi-concept relevance)
+ */
+function extractQueryInfo(query) {
   const lower = query.toLowerCase();
   const tags = new Set();
+  const clusterMap = new Map(); // cluster name → Set<tag>
+
   for (const entry of KEYWORD_MAP) {
     for (const kw of entry.keywords) {
       if (lower.includes(kw)) {
         entry.tags.forEach(t => tags.add(t));
+        if (entry.cluster) {
+          if (!clusterMap.has(entry.cluster)) clusterMap.set(entry.cluster, new Set());
+          entry.tags.forEach(t => clusterMap.get(entry.cluster).add(t));
+        }
         break;
       }
     }
   }
-  return [...tags];
+
+  const clusters = [...clusterMap.entries()].map(([name, tagSet]) => ({
+    name,
+    tags: [...tagSet],
+  }));
+
+  return { tags: [...tags], clusters };
 }
 
-function freeSearchScore(product, queryTags, queryWords) {
+// Thin wrapper kept for any legacy call-sites
+function extractTags(query) {
+  return extractQueryInfo(query).tags;
+}
+
+/**
+ * Score a product against a parsed query.
+ *
+ * Key improvement over the original:
+ * When the query spans 2+ SUBSTANTIVE concept clusters (e.g. "lifting" + "umbilical"),
+ * a product must have at least one matching tag from EVERY required cluster.
+ * This prevents generic "lifting" products from appearing in an "umbilical lifting" search.
+ */
+function freeSearchScore(product, queryTags, queryClusters, queryWords) {
   const productTags = new Set(product.problemTags || []);
+
+  // Determine which clusters are substantive (not just contextual modifiers)
+  const requiredClusters = queryClusters.filter(c => !CONTEXTUAL_CLUSTERS.has(c.name));
+
+  // Multi-concept gate: product must satisfy ALL required concept clusters
+  if (requiredClusters.length > 1) {
+    for (const cluster of requiredClusters) {
+      if (!cluster.tags.some(t => productTags.has(t))) return 0;
+    }
+  }
+
+  // Tag intersection score
   const intersection = queryTags.filter(t => productTags.has(t));
   let score = queryTags.length === 0 ? 0 : intersection.length / queryTags.length;
+
+  // Small bonuses for exact word matches in name / short description
   const name = (product.name || '').toLowerCase();
   const desc = (product.shortDescription || '').toLowerCase();
   for (const w of queryWords) {
     if (name.includes(w)) score += 0.15;
     if (desc.includes(w)) score += 0.05;
   }
+
   return Math.min(score, 1.0);
 }
 
@@ -300,15 +397,20 @@ function showSolutionResults() {
 
   if (search) {
     // --- Smart free-text search (FreeSearchEngine) ---
-    const queryTags  = extractTags(search);
-    const queryWords = search.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+    const { tags: queryTags, clusters: queryClusters } = extractQueryInfo(search);
+    const queryWords  = search.toLowerCase().split(/\s+/).filter(w => w.length > 1);
     const isEmergency = queryTags.includes('emergency');
 
-    // Score every product, keep those above 0.10 threshold
+    // Score every product, keep those above threshold
+    // Multi-concept queries use a slightly higher bar (0.20) since we already
+    // enforce cluster coverage; single-concept queries keep the lenient 0.10.
+    const requiredClusters = queryClusters.filter(c => !CONTEXTUAL_CLUSTERS.has(c.name));
+    const scoreThreshold = requiredClusters.length > 1 ? 0.20 : 0.10;
+
     let scored = State.products.map(p => ({
       product: p,
-      score: freeSearchScore(p, queryTags, queryWords),
-    })).filter(x => x.score > 0.10);
+      score: freeSearchScore(p, queryTags, queryClusters, queryWords),
+    })).filter(x => x.score > scoreThreshold);
 
     // Fallback: if no semantic matches, do simple text contains
     if (scored.length === 0) {
